@@ -1,15 +1,5 @@
-#include <windows.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
-#include<math.h>
+#include "sword.h"
 
-#define WIN_WIDTH 800
-#define WIN_HEIGHT 600
-
-#define PI 3.1415926535898
-
-#pragma comment(lib,"opengl32.lib")
-#pragma comment(lib,"glu32.lib")
 
 //Prototype Of WndProc() declared Globally
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -32,11 +22,6 @@ GLfloat rotateAngle = 0;
 //main()
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
-	//function prototype
-	void initialize(void);
-	void uninitialize(void);
-	void display();
-	void update();
 
 	//variable declaration
 	WNDCLASSEX wndclass;
@@ -121,11 +106,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 //WndProc()
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
-	//function prototype
-	void resize(int, int);
-	void ToggleFullscreen(void);
-	void uninitialize(void);
-
 	//code
 	switch (iMsg)
 	{
@@ -263,9 +243,6 @@ void initialize(void)
 
 void display(void)
 {
-	void drawSword();
-	void drawCircleForSwordHandle();
-
 	//code
 	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_MODELVIEW);
