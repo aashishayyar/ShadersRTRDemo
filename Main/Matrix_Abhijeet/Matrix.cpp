@@ -237,13 +237,28 @@ void display()
 	gluLookAt(0.0f,0.0f,5.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
 	//glTranslatef(0.0f,0,-5.0f);
 	//glRotatef(gfUpdateAngle,1.0f, 1.0f, 1.0f);
-	RandomCharacter();
+	
+	//RandomCharacter();
 	//glScalef(0.05f,0.05f,1.0f);
+	
+	glTranslatef(-2.5f,-2.5f,-2.0f);
 	DrawCharacter();
-
 	SwapBuffers(ghdc);
+	if(gbDisplayedFirstWall == FALSE)
+	{
+		gbDisplayedFirstWall = TRUE;
+		dwDisplayedFirstWall = GetTickCount();
+		dwSavedTickCount = dwDisplayedFirstWall;
+	}
+	dwGetTickCount = GetTickCount();
+	if((dwGetTickCount - dwSavedTickCount) >= gdwSpeedOfWallChange)
+	{
+		dwSavedTickCount = dwGetTickCount;
+		gbWallFilled = FALSE;
+	}
+
 	return;
-}
+  }
 
 void resize(int width, int height)
 {
@@ -270,78 +285,104 @@ void resize(int width, int height)
 
 void DrawCharacter()
 {
-	glBegin(GL_QUADS);
-	glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
+	int iCounter = 0;
+	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
+	StoreWall();
+	for(int j = 0; j < giNumberOfCharOnY; j++)
+	{
+		for(int i =0; i < giNumberOfCharOnX; i++)
+		{
+		  RandomCharacter(piRandomWallNumbers[iCounter]);
+		  iCounter++;
+		  if(iCounter >= iRandomCharacterCount)
+		  {
+			  iCounter = 0;
+		  }
+		  glBegin(GL_LINES);
+			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
+			/*4th LINE*/
+			if(giSevenSgment[4] == 1)
+			{
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
+			}
+			/*3rd LINE*/
+			if(giSevenSgment[3] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*2nd LINE*/
+			if(giSevenSgment[2] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*6th LINE*/
+			if(giSevenSgment[6] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
+			}
+			/*1st LINE*/
+			if(giSevenSgment[1] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
+			}
+			/*0th LINE*/
+			if(giSevenSgment[0] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+			}
 
-	if(giSevenSgment[0] == 1)
-	{
-		glVertex3f((gfLeftTop_X + gfCommonDistance),gfLeftTop_Y,gfCordinate_Z);		//LEFT TOP OF UPPER RECTANGLE
-		glVertex3f((gfLeftBottom_X + gfCommonDistance),(gfLeftTop_Y - gfWidthOfQuads),gfCordinate_Z);	//LEFT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightTop_X - gfCommonDistance),(gfLeftTop_Y - gfWidthOfQuads),gfCordinate_Z);	//RIGHT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightBottom_X - gfCommonDistance),gfRightTop_Y,gfCordinate_Z);		//RIGHT TOP OF UPPER RECTANGLE
+			/*5th LINE*/
+			if(giSevenSgment[5] == 1)
+			{
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
+			}
+		glEnd();
+		  gfCurrentX = gfCurrentX +  gfCommonXDistance;
+		}
+	  gfCurrentX = 0.0f;
+	  gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;
 	}
-
-	if(giSevenSgment[1] == 1)
-	{
-		glVertex3f(gfLeftTop_X,gfLeftTop_Y,gfCordinate_Z);
-		glVertex3f(gfLeftBottom_X,gfLeftBottom_Y,gfCordinate_Z);
-		glVertex3f((gfLeftBottom_X -gfWidthOfQuads),gfLeftBottom_Y,gfCordinate_Z);
-		glVertex3f((gfLeftTop_X - gfWidthOfQuads),gfLeftTop_Y,gfCordinate_Z);
-	}
-
-	if(giSevenSgment[5] == 1)
-	{
-		glVertex3f(gfRightTop_X,gfRightTop_Y,gfCordinate_Z);
-		glVertex3f(gfRightBottom_X,gfRightBottom_Y,gfCordinate_Z);
-		glVertex3f((gfRightBottom_X +gfWidthOfQuads),gfRightBottom_Y,gfCordinate_Z);
-		glVertex3f((gfRightTop_X + gfWidthOfQuads),gfRightTop_Y,gfCordinate_Z);
-	}
-	
-	if(giSevenSgment[6] == 1)
-	{
-		glVertex3f((gfLeftTop_X + gfCommonDistance),gfLeftBottom_Y,gfCordinate_Z);		//LEFT TOP OF UPPER RECTANGLE
-		glVertex3f((gfLeftBottom_X + gfCommonDistance),(gfLeftBottom_Y - gfWidthOfQuads),gfCordinate_Z);	//LEFT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightTop_X - gfCommonDistance),(gfRightBottom_Y - gfWidthOfQuads),gfCordinate_Z);	//RIGHT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightBottom_X - gfCommonDistance),gfRightBottom_Y,gfCordinate_Z);		//RIGHT TOP OF UPPER RECTANGLE
-	}
-
-	if(giSevenSgment[2] == 1)
-	{
-		glVertex3f(gfLeftBottom_X,(gfLeftBottom_Y - gfCommonDistance),gfCordinate_Z);
-		glVertex3f(gfLeftBottom_X,(gfLeftBottom_Y - gfCommonDistance - gfHeight),gfCordinate_Z);
-		glVertex3f((gfLeftBottom_X -gfWidthOfQuads),(gfLeftBottom_Y - gfCommonDistance - gfHeight),gfCordinate_Z);
-		glVertex3f((gfLeftTop_X - gfWidthOfQuads),(gfLeftBottom_Y - gfCommonDistance),gfCordinate_Z);
-	}
-
-	if(giSevenSgment[4] == 1)
-	{
-		glVertex3f(gfRightBottom_X,(gfLeftBottom_Y - gfCommonDistance),gfCordinate_Z);
-		glVertex3f(gfRightBottom_X,(gfLeftBottom_Y - gfCommonDistance - gfHeight),gfCordinate_Z);
-		glVertex3f((gfRightBottom_X -gfWidthOfQuads),(gfLeftBottom_Y - gfCommonDistance - gfHeight),gfCordinate_Z);
-		glVertex3f((gfRightBottom_X - gfWidthOfQuads),(gfLeftBottom_Y - gfCommonDistance),gfCordinate_Z);
-	}
-
-	
-	if(giSevenSgment[3] == 1)
-	{
-		glVertex3f((gfLeftTop_X + gfCommonDistance),(gfLeftBottom_Y - gfHeight - gfCommonDistance),gfCordinate_Z);		//LEFT TOP OF UPPER RECTANGLE
-		glVertex3f((gfLeftBottom_X + gfCommonDistance),(gfLeftBottom_Y - gfHeight - gfCommonDistance - gfWidthOfQuads),gfCordinate_Z);	//LEFT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightTop_X - gfCommonDistance),(gfRightBottom_Y - gfHeight - gfCommonDistance - gfWidthOfQuads),gfCordinate_Z);	//RIGHT BOTTOM OF UPPER RECTANGLE
-		glVertex3f((gfRightBottom_X - gfCommonDistance),(gfRightBottom_Y -gfHeight - gfCommonDistance),gfCordinate_Z);		//RIGHT TOP OF UPPER RECTANGLE
-	}
-	glEnd();
+	gfCurrentY = 0.0f;
 	return;
 }
 
-void RandomCharacter()
+void StoreWall()
 {
-	int RandomNumber = rand() % 27;
+	int iTotalNumberOfCharacters = giNumberOfCharOnX*giNumberOfCharOnY;
+	int RandomNumber = 0;
+	if(piRandomWallNumbers == NULL)
+	{
+		piRandomWallNumbers = (int *)malloc(sizeof(int)*(iTotalNumberOfCharacters));
+		if(piRandomWallNumbers == NULL)
+		{
+			//ERROR HANDLING
+		}
+	}
+	if(gbWallFilled == FALSE)
+	{
+	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
+	 {
+		RandomNumber = rand() % 27;
+		piRandomWallNumbers[i]= RandomNumber;
+	 }
+	 gbWallFilled = TRUE;
+	}
+
+}
+void RandomCharacter(int RandomNumber )
+{
+
 	for(int i = 0; i < 7; i++)
 	{
 		giSevenSgment[i] = 0;
 	}
-
-
 	switch(RandomNumber)
 	{
 		case 0x0:
@@ -374,55 +415,55 @@ void RandomCharacter()
 		case 0x9:
 			giSevenSgment[0] = giSevenSgment[1]  = giSevenSgment[3] = giSevenSgment[4]  = giSevenSgment[5] =giSevenSgment[6]  = 1; 
 		break;
-		case 0xA:	//a
+		case 10:	//a
 			giSevenSgment[0] = giSevenSgment[2]  = giSevenSgment[3] = giSevenSgment[4]  = giSevenSgment[5] =giSevenSgment[6]  = 1; 
 		break;
-		case 0xB:	//b
+		case 11:	//b
 			giSevenSgment[1] = giSevenSgment[2]  = giSevenSgment[3] = giSevenSgment[4]   = giSevenSgment[6]  = 1; 
 		break;
-		case 0xC:	//c
+		case 12:	//c
 			giSevenSgment[6] = giSevenSgment[2]  = giSevenSgment[3] = 1;
 		break;	
-		case 0xD:	//d
+		case 13:	//d
 			 giSevenSgment[2]  = giSevenSgment[3] = giSevenSgment[4]  = giSevenSgment[5] =giSevenSgment[6]  = 1; 
 		break;
-		case 0xE:	//e
+		case 14:	//e
 			giSevenSgment[0] = giSevenSgment[2]  = giSevenSgment[3] = giSevenSgment[1]  = giSevenSgment[5] =giSevenSgment[6]  = 1; 
 		break;
-		case 0xF:	//f
+		case 15:	//f
 			giSevenSgment[0] = giSevenSgment[1]  = giSevenSgment[2] = giSevenSgment[6]  = 1;
 		break;
-		case 0x10:	//g	Added 3 to differentiate from 9
+		case 16:	//g	Added 3 to differentiate from 9
 			giSevenSgment[0] = giSevenSgment[1]  = giSevenSgment[6] = giSevenSgment[5]  = giSevenSgment[4] =giSevenSgment[3]  = 1; 
 		break;
-		case 0x11:	//h
+		case 17:	//h
 			giSevenSgment[0] = giSevenSgment[2]  = giSevenSgment[4]  = giSevenSgment[5] =giSevenSgment[6]  = 1; 
 		break;
-		case 0x12:	//j
+		case 18:	//j
 			giSevenSgment[3] = giSevenSgment[4]  = giSevenSgment[5] = 1;
 		break;
-		case 0x13:	//L 
+		case 19:	//L 
 			giSevenSgment[1] = giSevenSgment[2]  = giSevenSgment[3] = 1;
 		break;
-		case 0x14:	//n
+		case 20:	//n
 			giSevenSgment[2] = giSevenSgment[4]  = giSevenSgment[6] = 1;
 		break;
-		case 0x15:	//o
+		case 21:	//o
 			giSevenSgment[2] = giSevenSgment[6]  = giSevenSgment[3] = giSevenSgment[4]  = 1; 
 		break;
-		case 0x16:	//q	
+		case 22:	//q	
 			giSevenSgment[1] = giSevenSgment[0]  = giSevenSgment[5] = giSevenSgment[4]  = giSevenSgment[6]  = 1; 
 		break;
-		case 0x17:	//p
+		case 23:	//p
 			giSevenSgment[1] = giSevenSgment[2]  = giSevenSgment[0] = giSevenSgment[5]  = giSevenSgment[6]  = 1; 
 		break;
-		case 0x18:	//s	
+		case 24:	//s	
 			giSevenSgment[1] = giSevenSgment[0]  = giSevenSgment[3] = giSevenSgment[6]  = giSevenSgment[4] = 1; 
 		break;
-		case 0x19:	//t
+		case 25:	//t
 			giSevenSgment[1] = giSevenSgment[2]  = giSevenSgment[3] = giSevenSgment[6]  = 1; 
 		break;
-		case 0x1A:	//y	Add 3 to differentiate from 4
+		case 26:	//y	Add 3 to differentiate from 4
 			giSevenSgment[1] = giSevenSgment[3]  = giSevenSgment[4] = giSevenSgment[5]  = giSevenSgment[6] = 1; 
 		break;
 	}
