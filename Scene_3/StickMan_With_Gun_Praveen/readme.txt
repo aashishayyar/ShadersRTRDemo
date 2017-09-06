@@ -1,0 +1,1 @@
+Added Stick man with Gun.
