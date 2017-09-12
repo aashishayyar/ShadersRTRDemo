@@ -235,27 +235,12 @@ void display()
 	
 	glLoadIdentity();
 	gluLookAt(0.0f,0.0f,5.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
-	//glTranslatef(0.0f,0,-5.0f);
-	//glRotatef(gfUpdateAngle,1.0f, 1.0f, 1.0f);
 	
-	//RandomCharacter();
-	//glScalef(0.05f,0.05f,1.0f);
 	
-	glTranslatef(-2.5f,-2.5f,-2.0f);
-	DrawCharacter();
+	DrawRoom();
+	
+	//DrawMatrixLines();
 	SwapBuffers(ghdc);
-	if(gbDisplayedFirstWall == FALSE)
-	{
-		gbDisplayedFirstWall = TRUE;
-		dwDisplayedFirstWall = GetTickCount();
-		dwSavedTickCount = dwDisplayedFirstWall;
-	}
-	dwGetTickCount = GetTickCount();
-	if((dwGetTickCount - dwSavedTickCount) >= gdwSpeedOfWallChange)
-	{
-		dwSavedTickCount = dwGetTickCount;
-		gbWallFilled = FALSE;
-	}
 
 	return;
   }
@@ -283,22 +268,65 @@ void resize(int width, int height)
 }
 
 
+void uninitialize()
+{
+	if(gbFullscreen == TRUE)
+	{
+		dwStyle = GetWindowLong(ghwnd,GWL_STYLE);
+		SetWindowLong(ghwnd,GWL_STYLE,dwStyle | WS_OVERLAPPEDWINDOW);
+		SetWindowPlacement(ghwnd,&wpPrev);
+		SetWindowPos(ghwnd,HWND_TOP,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE|SWP_NOOWNERZORDER|SWP_NOZORDER|SWP_FRAMECHANGED);
+		ShowCursor(TRUE);
+	}
+
+	wglMakeCurrent(NULL,NULL);
+
+	wglDeleteContext(ghrc);
+	ghrc =  NULL;
+
+	ReleaseDC(ghwnd,ghdc);
+	ghdc = NULL;
+
+	DestroyWindow(ghwnd);
+
+	return;
+}
+
+void ToggleFullScreen()
+{
+	MONITORINFO mi;
+
+	if (gbFullscreen == false)
+	{
+		dwStyle = GetWindowLong(ghwnd, GWL_STYLE);
+		if (dwStyle & WS_OVERLAPPEDWINDOW)
+		{
+			mi.cbSize = sizeof(MONITORINFO);
+			if (GetWindowPlacement(ghwnd, &wpPrev) && GetMonitorInfo(MonitorFromWindow(ghwnd, MONITORINFOF_PRIMARY), &mi))
+			{
+				SetWindowLong(ghwnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
+				SetWindowPos(ghwnd, HWND_TOP, mi.rcMonitor.left, mi.rcMonitor.top, mi.rcMonitor.right - mi.rcMonitor.left, mi.rcMonitor.bottom - mi.rcMonitor.top, SWP_NOZORDER | SWP_FRAMECHANGED);
+			}
+		}
+		//ShowCursor(FALSE);
+	}
+	else
+	{
+	
+		SetWindowLong(ghwnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
+		SetWindowPlacement(ghwnd, &wpPrev);
+		SetWindowPos(ghwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_FRAMECHANGED);
+
+		ShowCursor(TRUE);
+	}
+
+}
+
+
+
 void DrawCharacter()
 {
-	int iCounter = 0;
-	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
-	StoreWall();
-	for(int j = 0; j < giNumberOfCharOnY; j++)
-	{
-		for(int i =0; i < giNumberOfCharOnX; i++)
-		{
-		  RandomCharacter(piRandomWallNumbers[iCounter]);
-		  iCounter++;
-		  if(iCounter >= iRandomCharacterCount)
-		  {
-			  iCounter = 0;
-		  }
-		  glBegin(GL_LINES);
+	glBegin(GL_LINES);
 			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
 			/*4th LINE*/
 			if(giSevenSgment[4] == 1)
@@ -344,11 +372,33 @@ void DrawCharacter()
 				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
 			}
 		glEnd();
+}
+
+void DrawWall()
+{
+	int iCounter = 0;
+	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
+	StoreWall();
+	for(int j = 0; j < giNumberOfCharOnY; j++)
+	{
+		for(int i =0; i < giNumberOfCharOnX; i++)
+		{
+		  RandomCharacter(piRandomWallNumbers[iCounter]);
+		  iCounter++;
+		  if(iCounter >= iRandomCharacterCount)
+		  {
+			  iCounter = 0;
+		  }
+		  //HERE WE DRAW ACTUAL CHARACTER 
+		  DrawCharacter();
+
 		  gfCurrentX = gfCurrentX +  gfCommonXDistance;
 		}
+		gfWidthOfRoom = gfCurrentX;
 	  gfCurrentX = 0.0f;
 	  gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;
 	}
+	gfHeightOfRoom = gfCurrentY;
 	gfCurrentY = 0.0f;
 	return;
 }
@@ -365,6 +415,21 @@ void StoreWall()
 			//ERROR HANDLING
 		}
 	}
+	if(gbAllocateMemoryAgain == TRUE)
+	{
+		if(giTempNumberOfCharacterOnX > giNumberOfCharOnX)
+		{
+			realloc(piRandomWallNumbers,(sizeof(int)*(giTempNumberOfCharacterOnX - giNumberOfCharOnX )));
+		}
+		else if(giTempNumberOfCharacterOnY > giNumberOfCharOnY)
+		{
+			realloc(piRandomWallNumbers,(sizeof(int)*(giTempNumberOfCharacterOnY - giNumberOfCharOnY )));
+		}
+		if(piRandomWallNumbers == NULL)
+		{
+			//ERROR HANDLING
+		}
+	}
 	if(gbWallFilled == FALSE)
 	{
 	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
@@ -373,6 +438,18 @@ void StoreWall()
 		piRandomWallNumbers[i]= RandomNumber;
 	 }
 	 gbWallFilled = TRUE;
+	}
+	if(gbDisplayedFirstWall == FALSE)
+	{
+		gbDisplayedFirstWall = TRUE;
+		dwDisplayedFirstWall = GetTickCount();
+		dwSavedTickCount = dwDisplayedFirstWall;
+	}
+	dwGetTickCount = GetTickCount();
+	if((dwGetTickCount - dwSavedTickCount) >= gdwSpeedOfWallChange)
+	{
+		dwSavedTickCount = dwGetTickCount;
+		gbWallFilled = FALSE;
 	}
 
 }
@@ -470,56 +547,157 @@ void RandomCharacter(int RandomNumber )
 	return ;
 }
 
-void uninitialize()
+
+void DrawRoom()
 {
-	if(gbFullscreen == TRUE)
-	{
-		dwStyle = GetWindowLong(ghwnd,GWL_STYLE);
-		SetWindowLong(ghwnd,GWL_STYLE,dwStyle | WS_OVERLAPPEDWINDOW);
-		SetWindowPlacement(ghwnd,&wpPrev);
-		SetWindowPos(ghwnd,HWND_TOP,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE|SWP_NOOWNERZORDER|SWP_NOZORDER|SWP_FRAMECHANGED);
-		ShowCursor(TRUE);
-	}
-
-	wglMakeCurrent(NULL,NULL);
-
-	wglDeleteContext(ghrc);
-	ghrc =  NULL;
-
-	ReleaseDC(ghwnd,ghdc);
-	ghdc = NULL;
-
-	DestroyWindow(ghwnd);
-
-	return;
-}
-
-void ToggleFullScreen()
-{
-	MONITORINFO mi;
-
-	if (gbFullscreen == false)
-	{
-		dwStyle = GetWindowLong(ghwnd, GWL_STYLE);
-		if (dwStyle & WS_OVERLAPPEDWINDOW)
-		{
-			mi.cbSize = sizeof(MONITORINFO);
-			if (GetWindowPlacement(ghwnd, &wpPrev) && GetMonitorInfo(MonitorFromWindow(ghwnd, MONITORINFOF_PRIMARY), &mi))
-			{
-				SetWindowLong(ghwnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
-				SetWindowPos(ghwnd, HWND_TOP, mi.rcMonitor.left, mi.rcMonitor.top, mi.rcMonitor.right - mi.rcMonitor.left, mi.rcMonitor.bottom - mi.rcMonitor.top, SWP_NOZORDER | SWP_FRAMECHANGED);
-			}
-		}
-		//ShowCursor(FALSE);
-	}
-	else
-	{
+	//gfLengthOfRoom  = (giNumberOfCharOnY * gfCommonYDistance) + (giNumberOfCharOnY * gfHeightOfLine);
+	//gfBreadthOfRoom = (giNumberOfCharOnY * gfCommonXDistance) + (giNumberOfCharOnX * gfWidthOfLine);
 	
-		SetWindowLong(ghwnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
-		SetWindowPlacement(ghwnd, &wpPrev);
-		SetWindowPos(ghwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_FRAMECHANGED);
+	glPushMatrix();
+	glTranslatef(-10.05f,-8.05f,-20.0f);
 
-		ShowCursor(TRUE);
-	}
+	
+
+	
+	//LEFT
+	glPushMatrix();
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); //Left 
+	DrawWall();
+	glPopMatrix();
+
+	//RIGHT
+	glPushMatrix();
+	glTranslatef(gfHeightOfRoom,0.0f,0.0);
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); //Left 
+	DrawWall();
+	glPopMatrix();
+
+	//BOTTOM
+
+	glPushMatrix();
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); 
+	glRotatef(90.0f, 1.0f, 0.0f, 0.0f); 
+	DrawWall();
+	glPopMatrix();
+
+
+	//TOP
+	glPushMatrix();
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); 
+	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+	glTranslatef(0.0f,0.0f,-(gfHeightOfRoom));
+	giTempNumberOfCharacterOnY = giNumberOfCharOnY;
+	giNumberOfCharOnY = giNumberOfCharOnY + 1;
+	gbAllocateMemoryAgain = TRUE;
+	DrawWall();
+	giNumberOfCharOnY = giTempNumberOfCharacterOnY;
+	gbAllocateMemoryAgain = FALSE;
+	glPopMatrix();
+
+	//BACK
+	glPushMatrix();
+	glTranslatef(0.0f,0.0f,-gfWidthOfRoom);
+	giTempNumberOfCharacterOnX = giNumberOfCharOnX;
+	giNumberOfCharOnX = giNumberOfCharOnX - 25 ;
+	gbAllocateMemoryAgain = TRUE;
+	DrawWall();
+	giNumberOfCharOnX = giTempNumberOfCharacterOnX;
+	gbAllocateMemoryAgain = FALSE;
+	glPopMatrix();
+
+	glPopMatrix();
 
 }
+
+//void StoreLine()
+//{
+//	int iTotalNumberOfCharacters = giNumberOfCharOnX*giNumberOfCharOnY;
+//	int RandomNumber = 0;
+//	if(piRandomWallNumbers == NULL)
+//	{
+//		piRandomLineNumbers = (int *)malloc(sizeof(int)*(iTotalNumberOfCharacters));
+//		if(piRandomLineNumbers== NULL)
+//		{
+//			//ERROR HANDLING
+//		}
+//	}
+//	if(gbLinesFilled == FALSE)
+//	{
+//	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
+//	 {
+//		RandomNumber = rand() % 27;
+//		piRandomLineNumbers[i]= RandomNumber;
+//	 }
+//	 gbLinesFilled = TRUE;
+//	}
+//}
+//void DrawMatrixLines()
+//{
+//	int iCounter = 0;
+//	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
+//	StoreLine();
+//	for(int j = 0; j < giNumberOfCharOnX; j++)
+//	{
+//	  for(int i =0; i < giNumberOfCharOnY ; i++)
+//	  {
+//		  RandomCharacter(piRandomLineNumbers[iCounter]);
+//		  iCounter++;
+//		  if(iCounter >= iRandomCharacterCount)
+//		  {
+//			  iCounter = 0;
+//		  }
+//		  //HERE WE DRAW ACTUAL CHARACTER 
+//		  glBegin(GL_LINES);
+//			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
+//			/*4th LINE*/
+//			if(giSevenSgment[4] == 1)
+//			{
+//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+//				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
+//			}
+//			/*3rd LINE*/
+//			if(giSevenSgment[3] == 1)
+//			{
+//				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+//			}
+//			/*2nd LINE*/
+//			if(giSevenSgment[2] == 1)
+//			{
+//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+//				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+//			}
+//			/*6th LINE*/
+//			if(giSevenSgment[6] == 1)
+//			{
+//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
+//			}
+//			/*1st LINE*/
+//			if(giSevenSgment[1] == 1)
+//			{
+//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+//				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
+//			}
+//			/*0th LINE*/
+//			if(giSevenSgment[0] == 1)
+//			{
+//				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+//				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+//			}
+//			/*5th LINE*/
+//			if(giSevenSgment[5] == 1)
+//			{
+//				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+//				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
+//			}
+//		glEnd();
+//
+//		 gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;	  
+//	  }
+//	  gfCurrentY = 0.0f;
+//	  gfCurrentX = gfCurrentX +  gfCommonXDistance;
+//	}
+//	gfCurrentX = 0.0f;
+//	
+//}
