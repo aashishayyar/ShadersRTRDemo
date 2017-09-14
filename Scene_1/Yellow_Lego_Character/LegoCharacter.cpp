@@ -1,7 +1,7 @@
 #include"LegoCharacter.h"
 
 float gfFaceHeight = 1.5f;
-float gfFaceWidth = 0.8f ;
+float gfFaceWidth = 0.8f;
 float gfNeckHeight = 1.7f;
 float gfNeckWidth = 0.5f;
 float gfArmHeight = 1.0f;
@@ -11,9 +11,9 @@ float gfChestLowerWidth = 1.3f;
 float gfChestWidth = 0.7f;
 float gfChestHeight = 2.2f;
 
-float gfLegWidth = 0.5f ;
+float gfLegWidth = 0.5f;
 float gfLegHeight = 1.2f;
-float gfLegCylHeight = 1.0f; 
+float gfLegCylHeight = 1.0f;
 float gfLegCylRadius = 0.75f;
 
 float gfFootHeight = 0.35f;
@@ -268,17 +268,17 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giLLegDirection[currentStickMan] = -1;
 	}
-	lLeg[currentStickMan] = lLeg[currentStickMan] + giLLegDirection[currentStickMan]* gfSpeed;
+	lLeg[currentStickMan] = lLeg[currentStickMan] + giLLegDirection[currentStickMan] * gfSpeed;
 
 	if (rLeg[currentStickMan] < -20)
 	{
 		giRLegDirection[currentStickMan] = 1;
-	}	
+	}
 	else if (rLeg[currentStickMan] > 20)
 	{
 		giRLegDirection[currentStickMan] = -1;
 	}
-	rLeg[currentStickMan] = rLeg[currentStickMan] + giRLegDirection[currentStickMan]* gfSpeed;
+	rLeg[currentStickMan] = rLeg[currentStickMan] + giRLegDirection[currentStickMan] * gfSpeed;
 
 	if (lArm[currentStickMan] < 30)
 	{
@@ -288,7 +288,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giLArmDirection[currentStickMan] = -1;
 	}
-	lArm[currentStickMan] = lArm[currentStickMan] + giLArmDirection[currentStickMan]* gfSpeed;
+	lArm[currentStickMan] = lArm[currentStickMan] + giLArmDirection[currentStickMan] * gfSpeed;
 
 	if (rArm[currentStickMan] < 30)
 	{
@@ -298,7 +298,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giRArmDirection[currentStickMan] = -1;
 	}
-	rArm[currentStickMan] = rArm[currentStickMan] + giRArmDirection[currentStickMan]* gfSpeed;
+	rArm[currentStickMan] = rArm[currentStickMan] + giRArmDirection[currentStickMan] * gfSpeed;
 
 }
 
@@ -334,7 +334,7 @@ void DrawSquare(float vertice1[3], float vertice2[3], float vertice3[3], float v
 	glEnd();
 
 	glBegin(GL_LINE_LOOP);
-	glColor3f(color[0]+0.1f, color[1]+0.1f, color[2]+0.1f);
+	glColor3f(color[0] + 0.1f, color[1] + 0.1f, color[2] + 0.1f);
 	glVertex3f(vertice1[0], vertice1[1], vertice1[2]);
 	glVertex3f(vertice2[0], vertice2[1], vertice2[2]);
 	glVertex3f(vertice3[0], vertice3[1], vertice3[2]);
@@ -386,7 +386,7 @@ void DrawFaceDesign(GLfloat topX, GLfloat topZ)
 
 	// eye brows
 	glColor3f(0.0f, 0.0f, 0.0f);
-	DrawArcUsingGL_POINTS(topX - 0.2f , -0.8f, topZ, eyebrowRadius, eyebrowStartAngle, eyebrowEndAngle, eyebrowThickness);
+	DrawArcUsingGL_POINTS(topX - 0.2f, -0.8f, topZ, eyebrowRadius, eyebrowStartAngle, eyebrowEndAngle, eyebrowThickness);
 	DrawArcUsingGL_POINTS(topX - 0.7f, -0.8f, topZ, eyebrowRadius, eyebrowStartAngle, eyebrowEndAngle, eyebrowThickness);
 
 	// RED LINES
@@ -417,30 +417,30 @@ void DrawFaceDesign(GLfloat topX, GLfloat topZ)
 
 	// LEFT EYE
 	glPushMatrix();		// push matrix for left eye
-		glTranslatef((topX - 0.2f), -0.5f, topZ);		// translation for left eye
-		glColor3f(0.0f, 0.0f, 0.0f);	// black color
-		DrawSphere(0.1f, 10, 10);		// draw sphere
+	glTranslatef((topX - 0.2f), -0.5f, topZ);		// translation for left eye
+	glColor3f(0.0f, 0.0f, 0.0f);	// black color
+	DrawSphere(0.1f, 10, 10);		// draw sphere
 
-		// LEFT PUPIL
-		glPushMatrix();
-			glTranslatef(-0.05f, 0.13f, topZ);		// translation for pupil
-			glColor3f(1.0f, 1.0f, 1.0f);	// black color
-			DrawSphere(0.03f, 10, 10);		// draw sphere
-		glPopMatrix();
+	// LEFT PUPIL
+	glPushMatrix();
+	glTranslatef(-0.05f, 0.13f, topZ);		// translation for pupil
+	glColor3f(1.0f, 1.0f, 1.0f);	// black color
+	DrawSphere(0.03f, 10, 10);		// draw sphere
+	glPopMatrix();
 	glPopMatrix();		// pop matrix for left eye
 
 	// RIGHT EYE
 	glPushMatrix();		// push matrix for right eye
-		glTranslatef((topX - 0.7f), -0.5f, topZ);		// translation for right eye
-		glColor3f(0.0f, 0.0f, 0.0f);	// black color
-		DrawSphere(0.1f, 10, 10);		// draw sphere
+	glTranslatef((topX - 0.7f), -0.5f, topZ);		// translation for right eye
+	glColor3f(0.0f, 0.0f, 0.0f);	// black color
+	DrawSphere(0.1f, 10, 10);		// draw sphere
 
-		// RIGHT PUPIL
-		glPushMatrix();
-			glTranslatef(0.05f, 0.13f, topZ);		// translation for pupil
-			glColor3f(1.0f, 1.0f, 1.0f);	// black color
-			DrawSphere(0.03f, 10, 10);		// draw sphere
-		glPopMatrix();
+	// RIGHT PUPIL
+	glPushMatrix();
+	glTranslatef(0.05f, 0.13f, topZ);		// translation for pupil
+	glColor3f(1.0f, 1.0f, 1.0f);	// black color
+	DrawSphere(0.03f, 10, 10);		// draw sphere
+	glPopMatrix();
 	glPopMatrix();		// pop matrix for right eye
 
 	// Mustache
@@ -553,8 +553,8 @@ void DrawHead(int currentStickMan)
 	switch (currentStickMan)
 	{
 	case 0://Vito Corleone - Bow and red flower
-		DrawFace();  
-		DrawNeck();  
+		DrawFace();
+		DrawNeck();
 		break;
 	case 1://Michael Corleone - Tie and Hat
 		DrawFace();
@@ -585,14 +585,14 @@ void DrawChest()
 
 	DrawChestDesign(topX, topZ);
 
-	float points[10][3] = { 
+	float points[10][3] = {
 		{ topX, 0, topZ },
 		{ -topX, 0, topZ },
 		{ -topX, 0, -topZ },
 		{ topX, 0, -topZ },
 		{ bottomX, height, topZ },
 		{ -bottomX, height, topZ },
-		{-bottomX, height, -topZ },
+		{ -bottomX, height, -topZ },
 		{ bottomX, height, -topZ },
 	};
 
@@ -602,7 +602,7 @@ void DrawChest()
 	topX = gfChestLowerWidth;
 	topZ = gfChestWidth;
 	bottomX = gfChestLowerWidth;
-	
+
 	float pointsChestBottom[10][3] = {
 		{ topX, -(gfChestHeight - chestBottomHeight), topZ },
 		{ -topX, -(gfChestHeight - chestBottomHeight), topZ },
@@ -619,88 +619,90 @@ void DrawChest()
 
 void DrawChestDesign(GLfloat topX, GLfloat topZ)
 {
+	topX = topX / 2;
+	topZ = -topZ - 2.0f;
 
 	// zig-zag line of left side
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) + 0.2f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) + 0.4f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX + 0.2f, 0, topZ);
+	glVertex3f(topX + 0.4f, -0.3f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) + 0.4f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) + 0.1f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX + 0.4f, -0.3f, topZ);
+	glVertex3f(topX + 0.1f, -0.3f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) + 0.1f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) + 0.4f, -0.5f, -topZ - 2.0f);
+	glVertex3f(topX + 0.1f, -0.3f, topZ);
+	glVertex3f(topX + 0.4f, -0.5f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) + 0.4f, -0.5f, -topZ - 2.0f);
-	glVertex3f((topX / 2) + 0.2f, -1.3f, -topZ - 2.0f);
+	glVertex3f(topX + 0.4f, -0.5f, topZ);
+	glVertex3f(topX + 0.2f, -1.3f, topZ);
 	glEnd();
 
 	// zig-zag line of right side
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 1.2f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 1.4f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX - 1.2f, 0, topZ);
+	glVertex3f(topX - 1.4f, -0.3f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 1.4f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 1.1f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX - 1.4f, -0.3f, topZ);
+	glVertex3f(topX - 1.1f, -0.3f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 1.1f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 1.4f, -0.5f, -topZ - 2.0f);
+	glVertex3f(topX - 1.1f, -0.3f, topZ);
+	glVertex3f(topX - 1.4f, -0.5f, topZ);
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 1.4f, -0.5f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 1.2f, -1.3f, -topZ - 2.0f);
+	glVertex3f(topX - 1.4f, -0.5f, topZ);
+	glVertex3f(topX - 1.2f, -1.3f, topZ);
 	glEnd();
 
 	// two black lines above tie
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glLineWidth(3.0f);
 	glBegin(GL_LINES);
-	glVertex3f((topX / 2) - 0.5f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.2f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX - 0.5f, 0, topZ);
+	glVertex3f(topX - 0.2f, -0.3f, topZ);
 	glEnd();
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.5f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.8f, -0.3f, -topZ - 2.0f);
+	glVertex3f(topX - 0.5f, 0, topZ);
+	glVertex3f(topX - 0.8f, -0.3f, topZ);
 	glEnd();
 
 	// two black lines below tie
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.2f, -0.5f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.5f, -0.8f, -topZ - 2.0f);
+	glVertex3f(topX - 0.2f, -0.5f, topZ);
+	glVertex3f(topX - 0.5f, -0.8f, topZ);
 	glEnd();
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.45f, -0.85f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.8f, -0.5f, -topZ - 2.0f);
+	glVertex3f(topX - 0.45f, -0.85f, topZ);
+	glVertex3f(topX - 0.8f, -0.5f, topZ);
 	glEnd();
 
 	// edge of shirt below tie
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glLineWidth(2.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.45f, -0.85f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.45f, -1.4f, -topZ - 2.0f);
+	glVertex3f(topX - 0.45f, -0.85f, topZ);
+	glVertex3f(topX - 0.45f, -1.4f, topZ);
 	glEnd();
 
 	// buttons
@@ -713,7 +715,7 @@ void DrawChestDesign(GLfloat topX, GLfloat topZ)
 		glBegin(GL_POINTS);
 		for (GLfloat angle = 0.0f; angle < 2.0f*PI; angle = angle + 0.001f)
 		{
-			glVertex3f((cos(angle)*radius)-0.1f, (sin(angle)*radius)- buttonY, (-topZ - 2.0f));
+			glVertex3f((cos(angle)*radius) - 0.1f, (sin(angle)*radius) - buttonY, (topZ));
 		}
 		buttonY = buttonY + 0.2f;
 		glEnd();
@@ -722,49 +724,49 @@ void DrawChestDesign(GLfloat topX, GLfloat topZ)
 	// first half part of tie with red color
 	glBegin(GL_POLYGON);
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex3f((topX / 2) - 0.5f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.3f, -0.18f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.45f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.55f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.7f, -0.18f, -topZ - 2.0f);
+	glVertex3f(topX - 0.5f, 0, topZ);
+	glVertex3f(topX - 0.3f, -0.18f, topZ);
+	glVertex3f(topX - 0.45f, -0.3f, topZ);
+	glVertex3f(topX - 0.55f, -0.3f, topZ);
+	glVertex3f(topX - 0.7f, -0.18f, topZ);
 	glEnd();
 
 	// border around first half part of tie with black color
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.5f, 0, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.3f, -0.18f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.45f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.55f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.7f, -0.18f, -topZ - 2.0f);
+	glVertex3f(topX - 0.5f, 0, topZ);
+	glVertex3f(topX - 0.3f, -0.18f, topZ);
+	glVertex3f(topX - 0.45f, -0.3f, topZ);
+	glVertex3f(topX - 0.55f, -0.3f, topZ);
+	glVertex3f(topX - 0.7f, -0.18f, topZ);
 	glEnd();
 
 	// second half part of tie with red color
 	glBegin(GL_POLYGON);
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex3f((topX / 2) - 0.3f, -0.6f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.4f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.6f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.7f, -0.6f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.5f, -0.8f, -topZ - 2.0f);
+	glVertex3f(topX - 0.3f, -0.6f, topZ);
+	glVertex3f(topX - 0.4f, -0.3f, topZ);
+	glVertex3f(topX - 0.6f, -0.3f, topZ);
+	glVertex3f(topX - 0.7f, -0.6f, topZ);
+	glVertex3f(topX - 0.5f, -0.8f, topZ);
 	glEnd();
 
 	// border around second half part of tie with black color
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINE_LOOP);
-	glVertex3f((topX / 2) - 0.3f, -0.6f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.4f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.6f, -0.3f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.7f, -0.6f, -topZ - 2.0f);
-	glVertex3f((topX / 2) - 0.5f, -0.8f, -topZ - 2.0f);
+	glVertex3f(topX - 0.3f, -0.6f, topZ);
+	glVertex3f(topX - 0.4f, -0.3f, topZ);
+	glVertex3f(topX - 0.6f, -0.3f, topZ);
+	glVertex3f(topX - 0.7f, -0.6f, topZ);
+	glVertex3f(topX - 0.5f, -0.8f, topZ);
 	glEnd();
-	
+
 	GLfloat curvyRadius = 1.5f;
 	// left side curvy lines
-	DrawArcUsingGL_POINTS((topX / 2) + 1.3f, -0.7f, (-topZ - 2.0f), curvyRadius, 2.65f, 3.55f, 2.0f);
+	DrawArcUsingGL_POINTS(topX + 1.3f, -0.7f, (topZ), curvyRadius, 2.65f, 3.55f, 2.0f);
 	// right side curvy lines
-	DrawArcUsingGL_POINTS((topX / 2) - 2.3f, -0.7f, (-topZ - 2.0f), curvyRadius, 0.0f, 0.50f, 2.0f);
-	DrawArcUsingGL_POINTS((topX / 2) - 2.3f, -0.7f, (-topZ - 2.0f), curvyRadius, 5.875f, 6.28f, 2.0f);
+	DrawArcUsingGL_POINTS(topX - 2.3f, -0.7f, (topZ), curvyRadius, 0.0f, 0.50f, 2.0f);
+	DrawArcUsingGL_POINTS(topX - 2.3f, -0.7f, (topZ), curvyRadius, 5.875f, 6.28f, 2.0f);
 }
 
 // Draw arc
@@ -773,14 +775,14 @@ void DrawChestDesign(GLfloat topX, GLfloat topZ)
 // r - radius of circle
 // startAngle - angle from where to start render arc
 // endAngle - angle where to end the arc render
-void DrawArcUsingGL_POINTS(GLfloat x1, GLfloat y1, GLfloat z1,GLfloat r, GLfloat startAngle, GLfloat endAngle, GLfloat pointSize)
+void DrawArcUsingGL_POINTS(GLfloat x1, GLfloat y1, GLfloat z1, GLfloat r, GLfloat startAngle, GLfloat endAngle, GLfloat pointSize)
 {
 	glPointSize(pointSize);
 	glBegin(GL_POINTS);
 	for (GLfloat angle = 0.0f; angle < 2.0f*PI; angle = angle + 0.01f)
 	{
 		if (angle >= startAngle && angle <= endAngle)
-			glVertex3f(((cos(angle)*r)+x1), ((sin(angle)*r)+y1), z1);
+			glVertex3f(((cos(angle)*r) + x1), ((sin(angle)*r) + y1), z1);
 	}
 	glEnd();
 }
@@ -790,12 +792,12 @@ void DrawHand(int direction, int currentStickMan)
 	float armAngle = direction == 1 ? lArm[currentStickMan] : rArm[currentStickMan];
 
 	glPushMatrix();
-		glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
-		glRotatef(direction*25, 0.0f, 1.0f, 0.0f);
-		DrawBiceps(gfArmHeight, gfArmWidth);
-		glTranslatef(0.0f, 0.0f, gfArmHeight);
-		glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
-		DrawForeArm(gfArmHeight, gfArmWidth);
+	glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
+	glRotatef(direction * 25, 0.0f, 1.0f, 0.0f);
+	DrawBiceps(gfArmHeight, gfArmWidth);
+	glTranslatef(0.0f, 0.0f, gfArmHeight);
+	glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
+	DrawForeArm(gfArmHeight, gfArmWidth);
 	glPopMatrix();
 }
 
@@ -850,26 +852,26 @@ void DrawLeg(int direction, int currentStickMan)
 	glRotatef(legAngle, 1.0f, 0.0f, 0.0f);
 
 	glPushMatrix();
-		glRotatef(direction* 90, 0.0f, 1.0f, 0.0f);
-		DrawCylinder(gfLegCylHeight, gfLegCylRadius);//1,1
+	glRotatef(direction * 90, 0.0f, 1.0f, 0.0f);
+	DrawCylinder(gfLegCylHeight, gfLegCylRadius);//1,1
 	glPopMatrix();
 
 	glPushMatrix();
-		glTranslatef(direction* gfLegCylHeight / 2, -gfLegCylRadius+0.25f, 0.0f);
-		DrawThigh();
+	glTranslatef(direction* gfLegCylHeight / 2, -gfLegCylRadius + 0.25f, 0.0f);
+	DrawThigh();
 	glPopMatrix();
 
 	glPushMatrix();
-		glTranslatef(direction * gfLegCylHeight / 2, -(gfLegCylRadius + gfLegHeight) + 0.25f, -(gfFootLength - gfLegWidth));
-		DrawFoot();
+	glTranslatef(direction * gfLegCylHeight / 2, -(gfLegCylRadius + gfLegHeight) + 0.25f, -(gfFootLength - gfLegWidth));
+	DrawFoot();
 	glPopMatrix();
 }
 
 void DrawLegSeparation()
 {
 	glPushMatrix();
-		glRotatef(90, 0.0f, 1.0f, 0.0f);
-		DrawCylinder(0.4f, gfLegCylRadius);
+	glRotatef(90, 0.0f, 1.0f, 0.0f);
+	DrawCylinder(0.4f, gfLegCylRadius);
 	glPopMatrix();
 }
 
@@ -899,46 +901,46 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
+
 	for (i = 0; i < 1; i++)
 	{
 		glPushMatrix();
-			glTranslatef(translateX, 0.0f, -18.0f);
+		glTranslatef(translateX, 0.0f, -18.0f);
 
-			glRotatef(180, 0.0f, 1.0f, 0.0f);
-			glPushMatrix();
-				DrawHead(i);
-			glPopMatrix();
+		glRotatef(180, 0.0f, 1.0f, 0.0f);
+		glPushMatrix();
+		DrawHead(i);
+		glPopMatrix();
 
-			glTranslatef(0.0f, -gfNeckHeight, 0.0f);
-			DrawChest();
+		glTranslatef(0.0f, -gfNeckHeight, 0.0f);
+		DrawChest();
 
-			glPushMatrix();
-				glTranslatef(gfChestUpperWidth, -0.25f, 0.0f);
-				DrawHand(1,i);
-			glPopMatrix();
+		glPushMatrix();
+		glTranslatef(gfChestUpperWidth, -0.25f, 0.0f);
+		DrawHand(1, i);
+		glPopMatrix();
 
-			glPushMatrix();
-				glTranslatef(-gfChestUpperWidth, -0.25f, 0.0f);
-				DrawHand(-1,i);
-			glPopMatrix();
+		glPushMatrix();
+		glTranslatef(-gfChestUpperWidth, -0.25f, 0.0f);
+		DrawHand(-1, i);
+		glPopMatrix();
 
-			glTranslatef(0.0f, -gfChestHeight, 0.0f);
+		glTranslatef(0.0f, -gfChestHeight, 0.0f);
 
-			glPushMatrix();
-				glTranslatef(0.2f, 0.0f, 0.0f);
-				DrawLeg(1,i);
-			glPopMatrix();
-			
-			glPushMatrix();
-				glTranslatef(-0.2f, 0.0f, 0.0f);
-				DrawLegSeparation();
-			glPopMatrix();
+		glPushMatrix();
+		glTranslatef(0.2f, 0.0f, 0.0f);
+		DrawLeg(1, i);
+		glPopMatrix();
 
-			glPushMatrix();
-				glTranslatef(-0.2f, 0.0f, 0.0f);
-				DrawLeg(-1,i);
-			glPopMatrix();
+		glPushMatrix();
+		glTranslatef(-0.2f, 0.0f, 0.0f);
+		DrawLegSeparation();
+		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(-0.2f, 0.0f, 0.0f);
+		DrawLeg(-1, i);
+		glPopMatrix();
 
 		glPopMatrix();
 		translateX += 4.0f;
