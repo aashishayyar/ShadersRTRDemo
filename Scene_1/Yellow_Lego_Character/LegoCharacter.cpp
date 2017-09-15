@@ -454,6 +454,21 @@ void DrawFaceDesign(GLfloat topX, GLfloat topZ)
 	glVertex3f(topX - 0.35f, -1.05f, topZ);
 	glVertex3f(topX - 0.5f, -1.05f, topZ);
 	glEnd();
+
+	// HAT
+	glPushMatrix();
+		glColor3f(1.0f, 1.0f, 0.0f);
+		glTranslatef(topX - 0.39f, 0.1f, topZ);
+		glRotatef(85.0f,1.0f,0.0f,0.0f);
+		
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		quadric = gluNewQuadric();
+		gluDisk(quadric, 0.0f, 1.3f, 30, 30);
+
+		glTranslatef(0.0f, 0.0f, -0.6f);
+		quadric = gluNewQuadric();
+		gluCylinder(quadric, 0.5f, 0.8f, 0.6f, 30, 30);
+	glPopMatrix();
 }
 
 // Draw sphere
