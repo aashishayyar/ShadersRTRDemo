@@ -20,9 +20,6 @@ float gfFootHeight = 0.35f;
 float gfFootWidth = 0.5f;
 float gfFootLength = 0.65f;
 
-
-
-
 //main()
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
@@ -137,7 +134,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		case VK_ESCAPE:
 			gbEscapeKeyIsPressed = true;
 			break;
-		case 0x46:
+
+		case 'F':
+		case 'f':
 			if (gbFullscreen == false)
 			{
 				ToggleFullscreen();
@@ -389,6 +388,82 @@ void DrawCubiod(float points[10][3], float color[3])
 	DrawSquare(points[3], points[2], points[6], points[7], color);//rear
 }
 
+void DrawFaceDesign(void)
+{
+	float height = -gfFaceHeight;
+	float topX = gfFaceWidth;
+	float topZ = gfFaceWidth;
+	float bottomX = gfFaceWidth;
+	float color[3] = { 1.0f, 0.5f, 0.25f };
+
+	color[0] = 0.0f;
+	color[1] = 0.0f;
+	color[2] = 0.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3, 0.0f);
+	DrawSector(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3, 0.0f);
+	DrawSector(0.15f, 0.15, -topZ - 0.01f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	color[0] = 1.0f;
+	color[1] = 1.0f;
+	color[2] = 1.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3 + 0.05, 0.0f);
+	DrawSector(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3 + 0.05, 0.0f);
+	DrawSector(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	color[0] = 0.0f;
+	color[1] = 0.0f;
+	color[2] = 0.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3.2f, 0.0f);
+	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 6, 3 * PI / 4);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3.2f, 0.0f);
+	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(0.4f, -1.0f, -1.81f);
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.2f, 0.0f, 1.0f);
+	glVertex3f(-0.36f, 0.1f, 1.0f);
+	glVertex3f(-0.4f, 0.2f, 1.0f);
+	glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(-0.4f, -1.0f, -0.81f);
+	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.2f, 0.0f, 0.0f);
+	glVertex3f(-0.36f, 0.1f, 0.0f);
+	glVertex3f(-0.4f, 0.2f, 0.0f);
+	glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX-0.76 , height+0.2 , 0.0f);
+	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	glPopMatrix();
+}
 void DrawFace()
 {
 	float height = -gfFaceHeight;
@@ -410,73 +485,7 @@ void DrawFace()
 
 	DrawCubiod(points, color);
 
-	color[0] = 0.0f;
-	color[1] = 0.0f;
-	color[2] = 0.0f;
-	
-	glPushMatrix();
-	glTranslatef(-topX / 3, height / 3, 1.61f);
-	DrawSector(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * PI);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(topX / 3, height / 3, 1.61);
-	DrawSector(0.15f, 0.15, -topZ - 0.01f, color, 0.0f, 2 * PI);
-	glPopMatrix();
-
-	color[0] = 1.0f;
-	color[1] = 1.0f;
-	color[2] = 1.0f;
-
-	glPushMatrix();
-	glTranslatef(-topX / 3, height / 3 + 0.05, 1.63f);
-	DrawSector(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(topX / 3, height / 3 + 0.05, 1.63f);
-	DrawSector(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
-	glPopMatrix();
-
-	color[0] = 0.0f;
-	color[1] = 0.0f;
-	color[2] = 0.0f;
-
-	glPushMatrix();
-	glTranslatef(-topX / 3, height / 3.2f, 1.61f);
-	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 6, 3 * PI / 4);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(topX / 3, height / 3.2f, 1.61f);
-	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0.4f, -1.0f, 1.61f);
-	glBegin(GL_TRIANGLES);
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.2f, 0.0f, 0.0f);
-	glVertex3f(-0.36f, 0.1f, 0.0f);
-	glVertex3f(-0.4f, 0.2f, 0.0f);
-	glEnd();
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-0.4f, -1.0f, 1.61f);
-	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.2f, 0.0f, 0.0f);
-	glVertex3f(-0.36f, 0.1f, 0.0f);
-	glVertex3f(-0.4f, 0.2f, 0.0f);
-	glEnd();
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(topX-0.76 , height+0.2 , 1.61f);
-	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
-	glPopMatrix();
+	DrawFaceDesign();
 }
 
 void DrawNeck()
@@ -585,7 +594,6 @@ void DrawHead(int currentStickMan)
 
 void DrawChest()
 {
-
 	float chestBottomHeight = 0.3f;
 	float height = -(gfChestHeight - chestBottomHeight);
 	float topX = gfChestUpperWidth;
@@ -624,18 +632,16 @@ void DrawChest()
 
 	DrawCubiod(pointsChestBottom, color);
 
-	DrawSuitVito();
-
-	
+	DrawSuitGodfather();	
 }
 
-void DrawSuitVito(void)
+void DrawSuitGodfather(void)
 {
 	GLfloat redius = 1.0f;
 
 	//white dressed
 	glPushMatrix();
-	glTranslatef(0.0f, 0.0f, 1.0f);
+	glTranslatef(0.0f, 0.0f, -0.7f);
 	glScalef(0.4f, 1.3f, 1.0f);
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_TRIANGLE_FAN);
@@ -647,26 +653,27 @@ void DrawSuitVito(void)
 	glEnd();
 
 	//drawing Dress Line
-	glLineWidth(2.0f);
-	glColor3f(0.5f, 0.5f, 0.5f);
-	
-	glPushMatrix();
-	DrawLinesOnDress();
+		glLineWidth(2.0f);
+		glColor3f(0.5f, 0.5f, 0.5f);
+		glPushMatrix();
+			glTranslatef(0.0f, -0.1f, -0.2f);
+			DrawLinesOnDress();
+		glPopMatrix();
+
+		glPushMatrix();
+			glTranslatef(0.0f, -0.12f, -0.0f);
+			glRotatef(180.0, 0.0f, 1.0f, 0.0f);
+			DrawLinesOnDress();
+		glPopMatrix();
+
 	glPopMatrix();
 
 	glPushMatrix();
-		glRotatef(180.0, 0.0f, 1.0f, 0.0f);
-		DrawLinesOnDress();
-	glPopMatrix();
-
-	glPopMatrix();
-
-	glPushMatrix();
-
 	//code for buttons
 	//1st
 	redius = 0.08f;
-	glTranslatef(0.1f,-0.5f,1.0f);
+	glTranslatef(-0.2f,-0.5f, -0.7f);
+	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	DrawButtons(redius);
 
@@ -689,7 +696,7 @@ void DrawSuitVito(void)
 	//toy
 	glPushMatrix();
 	glScalef(0.25f,0.25f,1.0f);
-	glTranslatef(-0.4f, -0.3f, 1.0f);
+	glTranslatef(-0.4f, -0.3f, -0.7f);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(0.0f, 0.0f, 0.0f);
@@ -721,7 +728,7 @@ void DrawSuitVito(void)
 	glPushMatrix();
 	redius = 0.2f;
 	glLineWidth(2);
-	glTranslatef(0.7f, -0.7f, 1.0f);
+	glTranslatef(-0.7f, -0.7f, -0.8f);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
@@ -751,23 +758,23 @@ void DrawLinesOnDress(void)
 {
 	glBegin(GL_LINES);
 
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.0f, -1.7, 0.0f);
+	glVertex3f(0.0f, 0.0f, 0.1f);
+	glVertex3f(0.0f, -1.7, 0.1f);
 
-	glVertex3f(-1.3f, 0.2f, 0.0f);
-	glVertex3f(-2.0f, -0.1f, 0.0f);
+	glVertex3f(-1.3f, 0.2f, 0.1f);
+	glVertex3f(-2.0f, -0.1f, 0.1f);
 
-	glVertex3f(-2.0f, -0.1f, 0.0f);
-	glVertex3f(-1.7f, -0.4f, 0.0f);
+	glVertex3f(-2.0f, -0.1f, 0.1f);
+	glVertex3f(-1.7f, -0.4f, 0.1f);
 
-	glVertex3f(-1.0f, -0.1f, 0.0f);
-	glVertex3f(-2.0f, -0.5f, 0.0f);
+	glVertex3f(-1.0f, -0.1f, 0.1f);
+	glVertex3f(-2.0f, -0.5f, 0.1f);
 
-	glVertex3f(-2.0f, -0.5f, 0.0f);
-	glVertex3f(-1.4f, -1.7, 0.0f);
+	glVertex3f(-2.0f, -0.5f, 0.1f);
+	glVertex3f(-1.4f, -1.7, 0.1f);
 
-	glVertex3f(-1.4f, -1.7, 0.0f);
-	glVertex3f(1.4f, -1.7, 0.0f);
+	glVertex3f(-1.4f, -1.7, 0.1f);
+	glVertex3f(1.4f, -1.7, 0.1f);
 
 	glEnd();
 }
@@ -891,12 +898,11 @@ void display(void)
 	glLoadIdentity();
 
 	/*for (i = 0; i < 4; i++)
-	{*/
-	
-	
+	{
+	*/
 		glPushMatrix();
 			glTranslatef(translateX, 0.0f, -18.0f);
-			//glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
+			glRotatef(180, 0.0f, 1.0f, 0.0f);
 			glPushMatrix();
 				DrawHead(i);
 			glPopMatrix();
@@ -935,7 +941,7 @@ void display(void)
 		glPopMatrix();
 		translateX += 4.0f;
 		angle += 10.0f;
-	//}
+//	}
 //	update();
 	SwapBuffers(ghdc);
 }

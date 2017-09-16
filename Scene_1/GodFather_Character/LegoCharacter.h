@@ -73,8 +73,9 @@ void DrawStickMan(int currentStickMan);
 //draw the dress lines
 void DrawLinesOnDress(void);
 
-//Design on dress
-void DrawSuitVito(void);
+//
+void DrawSectorLineGodFather(GLfloat,GLfloat, GLfloat, GLfloat,GLfloat);
+void DrawSuitGodfather(void);
 void DrawButtons(GLfloat);
 //=================================================================
 //variable for Dressed MakeUp
@@ -82,3 +83,5 @@ void DrawButtons(GLfloat);
 GLint circle_points = 1000;
 float angle;
 
+//variable for rotate 
+float rotateBody = 0;
