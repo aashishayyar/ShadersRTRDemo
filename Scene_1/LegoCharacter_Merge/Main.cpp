@@ -134,6 +134,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		case VK_ESCAPE:
 			gbEscapeKeyIsPressed = true;
 			break;
+
 		case 0x46:
 			if (gbFullscreen == false)
 			{

@@ -1,15 +1,17 @@
 #include "Main.h"
 
+#define PI 3.1415926535898
+
 // Functtion prototypes for generic lego character
 void updateNormalWalk(int);
 void update();
 void DrawCircle(float);
-void DrawSquare(float, float, float, float, float);
+void DrawSquare(float, float, float, float, float,int);
 void DrawCubiod(float, float);
 void DrawFace();
 void DrawNeck();
-void DrawCylinder(float, float);
-void DrawJoints(float, float);
+void DrawCylinder(float, float,int);
+void DrawJoints(float, float,int);
 void DrawWrist(float, float);
 void DrawBiceps(float, float);
 void DrawForeArm(float, float);
@@ -64,7 +66,28 @@ float rLeg[4] = { -20 , 20, -20, 20 };
 int giRLegDirection[4] = { 1,1,1,1 };
 
 
-//******************* LUCA BRACY RELATED FUNCTION PROTOTYPES *******************//
+//******************* GodFather RELATED FUNCTION PROTOTYPES And variable *******************//
+
+void DrawSector_GodFather(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle);
+
+void DrawSectorLine_GodFather(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle);
+
+void DrawFaceDesign_Godfather(void);
+
+void DrawSuit_Godfather(void);
+
+void DrawButtons_GodFather(GLfloat redius);
+
+void DrawLinesOnDress_GodFather(void);
+
+
+//variables
+GLint circle_points = 1000;
+
+float angle;
+
+
+//******************* LUCA BRACY RELATED FUNCTION PROTOTYPES And VARIABLES *******************//
 
 // chest design function prototype for luca bracy
 void DrawChestDesign_LucaBracy(GLfloat topX, GLfloat topZ);
@@ -75,7 +98,7 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ);
 void DrawArcUsingGL_POINTS_LucaBracy(GLfloat x1, GLfloat y1, GLfloat z1, GLfloat r, GLfloat startAngle, GLfloat endAngle, GLfloat pointSize);
 void DrawSphere_LucaBracy(GLfloat, GLint, GLint);
 
-//******************* LUCA BRACY RELATED VARIABLES *******************//
+//LUCA BRACY RELATED  variables
 
 // Eyebrow
 GLfloat lb_eyebrowRadius = 0.5f;
@@ -88,3 +111,6 @@ GLfloat lb_mustacheRadius = 0.8f;
 GLfloat lb_mustacheThickness = 2.0f;
 GLfloat lb_mustacheStartAngle = 1.3f;
 GLfloat lb_mustacheEndAngle = 1.8f;
+
+
+//***************************************************************//

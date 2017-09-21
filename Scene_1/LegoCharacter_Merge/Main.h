@@ -12,3 +12,4 @@
 
 // rendering all lego character
 void LegoCharacter_Render();
+

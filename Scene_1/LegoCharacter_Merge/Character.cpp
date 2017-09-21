@@ -1,5 +1,6 @@
 #include "Character.h"
 
+//Same Funnction for all character 
 void updateNormalWalk(int currentStickMan)
 {
 	if (lLeg[currentStickMan] < -20)
@@ -65,10 +66,21 @@ void DrawCircle(float radius)
 	glEnd();
 }
 
-void DrawSquare(float vertice1[3], float vertice2[3], float vertice3[3], float vertice4[3], float color[3])
+void DrawSquare(float vertice1[3], float vertice2[3], float vertice3[3], float vertice4[3], float color[3],int CurrentStickMan)
 {
 	glBegin(GL_QUADS);
-	glColor3f(color[0], color[1], color[2]);
+
+	if (CurrentStickMan == 0)
+	{
+		color[0] = 1.0f;
+		color[1] = 1.0f;
+		color[2] = 0.0f;
+		glColor3f(color[0], color[1], color[2]);
+	}
+	else
+	{
+		glColor3f(color[0], color[1], color[2]);
+	}
 	glVertex3f(vertice1[0], vertice1[1], vertice1[2]);
 	glVertex3f(vertice2[0], vertice2[1], vertice2[2]);
 	glVertex3f(vertice3[0], vertice3[1], vertice3[2]);
@@ -87,12 +99,12 @@ void DrawSquare(float vertice1[3], float vertice2[3], float vertice3[3], float v
 
 void DrawCubiod(float points[10][3], float color[3])
 {
-	DrawSquare(points[0], points[1], points[2], points[3], color);//top
-	DrawSquare(points[4], points[5], points[6], points[7], color);//bottom
-	DrawSquare(points[1], points[5], points[6], points[2], color);//left
-	DrawSquare(points[0], points[4], points[7], points[3], color);//right
-	DrawSquare(points[0], points[1], points[5], points[4], color);//front
-	DrawSquare(points[3], points[2], points[6], points[7], color);//rear
+	DrawSquare(points[0], points[1], points[2], points[3], color,i);//top
+	DrawSquare(points[4], points[5], points[6], points[7], color,i);//bottom
+	DrawSquare(points[1], points[5], points[6], points[2], color,i);//left
+	DrawSquare(points[0], points[4], points[7], points[3], color,i);//right
+	DrawSquare(points[0], points[1], points[5], points[4], color,i);//front
+	DrawSquare(points[3], points[2], points[6], points[7], color,i);//rear
 }
 
 void DrawFace(int currentStickMan)
@@ -102,7 +114,7 @@ void DrawFace(int currentStickMan)
 	float topX = gfFaceWidth;
 	float topZ = gfFaceWidth;
 	float bottomX = gfFaceWidth;
-	float color[3] = { 255.0f, 255.0f, 0.0f };
+	float color[3] = { 1.0f, 0.5f, 0.25f };
 
 	float points[10][3] = {
 		{ topX, 0, topZ },
@@ -119,7 +131,12 @@ void DrawFace(int currentStickMan)
 
 	if (currentStickMan == 0)
 	{
-		DrawFaceDesign_LucaBracy(topX, topZ);
+	DrawFaceDesign_LucaBracy(topX, topZ);
+	}
+
+	if (currentStickMan == 1)
+	{
+		DrawFaceDesign_Godfather();
 	}
 }
 
@@ -145,32 +162,48 @@ void DrawNeck()
 	DrawCubiod(points, color);
 }
 
-void DrawCylinder(float height, float radius)
+void DrawCylinder(float height, float radius,int CurrentStickMan)
 {
 	quadric = gluNewQuadric();
-	glColor3f(255.0f, 255.0f, 0.0f);
+	if(CurrentStickMan==0)
+		glColor3f(255.0f, 255.0f, 0.0f);
+	else
+		glColor3f(0.0f, 0.0f, 0.0f);
 	gluCylinder(quadric, radius, radius, height, 30, 30);
 
-	glColor3f(255.0f, 255.0f, 0.0f);
+	if (CurrentStickMan == 0)
+		glColor3f(255.0f, 255.0f, 0.0f);
+	else
+		glColor3f(0.0f, 0.0f, 0.0f);
 	DrawCircle(radius);
 	glPushMatrix();
 	glTranslatef(0.0f, 0.0f, height);
 
-	glColor3f(255.0f, 255.0f, 0.0f);
+	if (CurrentStickMan == 0)
+		glColor3f(255.0f, 255.0f, 0.0f);
+	else
+		glColor3f(0.0f, 0.0f, 0.0f);
 	DrawCircle(radius);
 	glPopMatrix();
 }
 
-void DrawJoints(float height, float radius)
+void DrawJoints(float height, float radius,int CurrentStickMan)
 {
 	quadric = gluNewQuadric();
-	glColor3f(255.0f, 255.0f, 0.0f);
+	if (CurrentStickMan == 0)
+		glColor3f(255.0f, 255.0f, 0.0f);
+	else
+		glColor3f(0.0f, 0.0f, 0.0f);
+	
 	gluSphere(quadric, radius, 30, 30);
 
 	glTranslatef(0.0f, 0.0f, height);
 
 	quadric = gluNewQuadric();
-	glColor3f(255.0f, 255.0f, 0.0f);
+	if (CurrentStickMan == 0)
+		glColor3f(255.0f, 255.0f, 0.0f);
+	else
+		glColor3f(0.0f, 0.0f, 0.0f);
 	gluSphere(quadric, radius, 30, 30);
 
 	glTranslatef(0.0f, 0.0f, -height);
@@ -193,13 +226,13 @@ void DrawWrist(float height, float radius)
 
 void DrawBiceps(float height, float radius)
 {
-	DrawCylinder(height, radius);
-	DrawJoints(height, radius);
+	DrawCylinder(height, radius,i);
+	DrawJoints(height, radius,i);
 }
 
 void DrawForeArm(float height, float radius)
 {
-	DrawCylinder(height, radius);
+	DrawCylinder(height, radius,i);
 	DrawWrist(height, radius);
 }
 
@@ -229,7 +262,6 @@ void DrawHead(int currentStickMan)
 	//}
 }
 
-
 void DrawChest(int currentStickMan)
 {
 
@@ -238,12 +270,8 @@ void DrawChest(int currentStickMan)
 	float topX = gfChestUpperWidth;
 	float topZ = gfChestWidth;
 	float bottomX = gfChestLowerWidth;
-	float color[3] = { 255.0f, 255.0f, 0.0f };
+	float color[3] = { 0.0f, 0.0f, 0.0f };
 
-	if (currentStickMan == 0)
-	{
-		DrawChestDesign_LucaBracy(topX, topZ);
-	}
 
 	float points[10][3] = {
 		{ topX, 0, topZ },
@@ -275,6 +303,16 @@ void DrawChest(int currentStickMan)
 	};
 
 	DrawCubiod(pointsChestBottom, color);
+
+	if (currentStickMan == 0)
+	{
+		DrawChestDesign_LucaBracy(topX, topZ);
+	}
+
+	if (currentStickMan == 1)
+	{
+		DrawSuit_Godfather();
+	}
 }
 
 void DrawHand(int direction, int currentStickMan)
@@ -319,7 +357,7 @@ void DrawFoot()
 	float topX = gfFootWidth;
 	float topZ = gfFootLength;
 	float bottomX = gfFootWidth;
-	float color[3] = { 205.0f, 205.0f, 0.0f };
+	float color[3] = { 0.0f, 0.0f, 0.0f };
 
 	float points[10][3] = {
 		{ topX, 0, topZ },
@@ -343,7 +381,7 @@ void DrawLeg(int direction, int currentStickMan)
 
 	glPushMatrix();
 	glRotatef(direction * 90, 0.0f, 1.0f, 0.0f);
-	DrawCylinder(gfLegCylHeight, gfLegCylRadius);//1,1
+	DrawCylinder(gfLegCylHeight, gfLegCylRadius,i);//1,1
 	glPopMatrix();
 
 	glPushMatrix();
@@ -361,7 +399,7 @@ void DrawLegSeparation()
 {
 	glPushMatrix();
 	glRotatef(90, 0.0f, 1.0f, 0.0f);
-	DrawCylinder(0.4f, gfLegCylRadius);
+	DrawCylinder(0.4f, gfLegCylRadius,i);
 	glPopMatrix();
 }
 
@@ -384,63 +422,14 @@ void debug()
 	glEnd();
 }
 
-// Draw sphere
+/*****************Here Onwards the function dedicated to LucaBracy(Yellow) character*****************/
+
 void DrawSphere_LucaBracy(GLfloat radius, GLint slices, GLint stacks)
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_POINTS);
 	GLUquadric *quadric = NULL;
 	quadric = gluNewQuadric();
 	gluSphere(quadric, radius, slices, stacks);
-}
-
-// Render all lego character
-void LegoCharacter_Render()
-{
-	float translateX = gfTranslateX;
-
-	for (i = 0; i < 1; i++)
-	{
-		glPushMatrix();
-		glTranslatef(translateX, 0.0f, -18.0f);
-
-		glRotatef(180, 0.0f, 1.0f, 0.0f);
-		glPushMatrix();
-		DrawHead(i);
-		glPopMatrix();
-
-		glTranslatef(0.0f, -gfNeckHeight, 0.0f);
-		DrawChest(i);
-
-		glPushMatrix();
-		glTranslatef(gfChestUpperWidth, -0.25f, 0.0f);
-		DrawHand(1, i);
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(-gfChestUpperWidth, -0.25f, 0.0f);
-		DrawHand(-1, i);
-		glPopMatrix();
-
-		glTranslatef(0.0f, -gfChestHeight, 0.0f);
-
-		glPushMatrix();
-		glTranslatef(0.2f, 0.0f, 0.0f);
-		DrawLeg(1, i);
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(-0.2f, 0.0f, 0.0f);
-		DrawLegSeparation();
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(-0.2f, 0.0f, 0.0f);
-		DrawLeg(-1, i);
-		glPopMatrix();
-
-		glPopMatrix();
-		translateX += 4.0f;
-	}
 }
 
 void DrawChestDesign_LucaBracy(GLfloat topX, GLfloat topZ)
@@ -705,4 +694,321 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.5f, 0.8f, 0.6f, 30, 30);
 	glPopMatrix();
+}
+
+
+/*****************Here Onwards the function dedicated to GodFather(Red Rose) character*****************/
+
+void DrawSector_GodFather(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+{
+	float angle;
+	glLineWidth(2);
+	glPushMatrix();
+	glColor3f(color[0], color[1], color[2]);
+	glBegin(GL_TRIANGLE_FAN);
+	glVertex3f(0.0f, 0.0f, z);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+	glPopMatrix();
+
+}
+
+void DrawSectorLine_GodFather(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+{
+	float angle;
+	glLineWidth(3);
+	glBegin(GL_LINE_STRIP);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+}
+
+void DrawFaceDesign_Godfather(void)
+{
+	float height = -gfFaceHeight;
+	float topX = gfFaceWidth;
+	float topZ = gfFaceWidth;
+	float bottomX = gfFaceWidth;
+	float color[3] = { 1.0f, 0.5f, 0.25f };
+
+	color[0] = 0.0f;
+	color[1] = 0.0f;
+	color[2] = 0.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3, 0.0f);
+	DrawSector_GodFather(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3, 0.0f);
+	DrawSector_GodFather(0.15f, 0.15, -topZ - 0.01f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	color[0] = 1.0f;
+	color[1] = 1.0f;
+	color[2] = 1.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3 + 0.05, 0.0f);
+	DrawSector_GodFather(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3 + 0.05, 0.0f);
+	DrawSector_GodFather(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
+	glPopMatrix();
+
+	color[0] = 0.0f;
+	color[1] = 0.0f;
+	color[2] = 0.0f;
+
+	glPushMatrix();
+	glTranslatef(-topX / 3, height / 3.2f, 0.0f);
+	DrawSectorLine_GodFather(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 6, 3 * PI / 4);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX / 3, height / 3.2f, 0.0f);
+	DrawSectorLine_GodFather(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(0.4f, -1.0f, -1.81f);
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.2f, 0.0f, 1.0f);
+	glVertex3f(-0.36f, 0.1f, 1.0f);
+	glVertex3f(-0.4f, 0.2f, 1.0f);
+	glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(-0.4f, -1.0f, -0.81f);
+	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.2f, 0.0f, 0.0f);
+	glVertex3f(-0.36f, 0.1f, 0.0f);
+	glVertex3f(-0.4f, 0.2f, 0.0f);
+	glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(topX - 0.76, height + 0.2, 0.0f);
+	DrawSectorLine_GodFather(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	glPopMatrix();
+}
+
+void DrawSuit_Godfather(void)
+{
+	GLfloat redius = 1.0f;
+
+	//white dressed
+	glPushMatrix();
+	glTranslatef(0.0f, 0.0f, -0.7f);
+	glScalef(0.4f, 1.3f, 1.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_TRIANGLE_FAN);
+	for (int i = 0; i < circle_points; i++)
+	{
+		angle = -1 * PI * i / circle_points;
+		glVertex3f(cos(angle)*redius, sin(angle)*redius, 0.0f);
+	}
+	glEnd();
+
+	//drawing Dress Line
+	glLineWidth(2.0f);
+	glColor3f(0.5f, 0.5f, 0.5f);
+	glPushMatrix();
+	glTranslatef(0.0f, -0.1f, -0.2f);
+	DrawLinesOnDress_GodFather();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(0.0f, -0.12f, -0.0f);
+	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
+	DrawLinesOnDress_GodFather();
+	glPopMatrix();
+
+	glPopMatrix();
+
+	glPushMatrix();
+	//code for buttons
+	//1st
+	redius = 0.08f;
+	glTranslatef(-0.2f, -0.5f, -0.7f);
+	glRotatef(180.0, 0.0f, 1.0f, 0.0f);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	DrawButtons_GodFather(redius);
+
+	//2nd
+	glTranslatef(0.0f, -0.3f, 0.0f);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	DrawButtons_GodFather(redius);
+
+	//3rd
+	glTranslatef(0.0f, -0.7f, 0.0f);
+	glColor3f(0.5f, 0.5f, 0.5f);
+	DrawButtons_GodFather(redius);
+
+	//4th
+	glTranslatef(0.0f, -0.3f, 0.0f);
+	glColor3f(0.5f, 0.5f, 0.5f);
+	DrawButtons_GodFather(redius);
+	glPopMatrix();
+
+	//toy
+	glPushMatrix();
+	glScalef(0.25f, 0.25f, 1.0f);
+	glTranslatef(-0.4f, -0.3f, -0.7f);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(-1.0f, 0.5f, 0.0f);
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+	glVertex3f(0.0f, -0.5f, 0.0f);
+	glEnd();
+
+	float angle;
+	redius = 0.5f;
+	glLineWidth(2);
+	glTranslatef(0.5f, -0.2f, 0.0f);
+	glBegin(GL_POLYGON);
+	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
+		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+	glEnd();
+
+	glTranslatef(0.4f, 0.2f, 0.0f);
+	glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(-1.0f, 0.5f, 0.0f);
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+	glVertex3f(0.0f, -0.5f, 0.0f);
+	glEnd();
+
+	glPopMatrix();
+
+	glPushMatrix();
+	redius = 0.2f;
+	glLineWidth(2);
+	glTranslatef(-0.7f, -0.7f, -0.8f);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
+		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+	glEnd();
+
+	redius = 0.1f;
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_POINTS);
+	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
+		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+	glEnd();
+	glPopMatrix();
+}
+
+void DrawButtons_GodFather(GLfloat redius)
+{
+	glBegin(GL_TRIANGLE_FAN);
+	for (angle = 0.0f; angle <= 2.0*PI; angle = angle + 0.01f)
+	{
+		glVertex3f(cos(angle)*redius, sin(angle)*redius, 0.0f);
+	}
+	glEnd();
+}
+
+void DrawLinesOnDress_GodFather(void)
+{
+	glBegin(GL_LINES);
+
+	glVertex3f(0.0f, 0.0f, 0.1f);
+	glVertex3f(0.0f, -1.7, 0.1f);
+
+	glVertex3f(-1.3f, 0.2f, 0.1f);
+	glVertex3f(-2.0f, -0.1f, 0.1f);
+
+	glVertex3f(-2.0f, -0.1f, 0.1f);
+	glVertex3f(-1.7f, -0.4f, 0.1f);
+
+	glVertex3f(-1.0f, -0.1f, 0.1f);
+	glVertex3f(-2.0f, -0.5f, 0.1f);
+
+	glVertex3f(-2.0f, -0.5f, 0.1f);
+	glVertex3f(-1.4f, -1.7, 0.1f);
+
+	glVertex3f(-1.4f, -1.7, 0.1f);
+	glVertex3f(1.4f, -1.7, 0.1f);
+
+	glEnd();
+}
+/*****************Godfather Functions Over**********************/
+
+// Render all lego character
+
+/*In for loop 
+
+0 - for LucaBracy character
+1 - for GodFather character
+
+if you want to add another character then  extend the limit of for loop and 
+maintain the if() conditions in Drawface() and DrawChest() function
+
+*/
+void LegoCharacter_Render()
+{
+	float translateX = gfTranslateX;
+
+	for (i = 0; i <= 1; i++)
+	{
+		glPushMatrix();
+		glTranslatef(translateX, 0.0f, -18.0f);
+
+		glRotatef(180, 0.0f, 1.0f, 0.0f);
+		glPushMatrix();
+		DrawHead(i);
+		glPopMatrix();
+
+		glTranslatef(0.0f, -gfNeckHeight, 0.0f);
+		DrawChest(i);
+
+		glPushMatrix();
+		glTranslatef(gfChestUpperWidth, -0.25f, 0.0f);
+		DrawHand(1, i);
+		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(-gfChestUpperWidth, -0.25f, 0.0f);
+		DrawHand(-1, i);
+		glPopMatrix();
+
+		glTranslatef(0.0f, -gfChestHeight, 0.0f);
+
+		glPushMatrix();
+		glTranslatef(0.2f, 0.0f, 0.0f);
+		DrawLeg(1, i);
+		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(-0.2f, 0.0f, 0.0f);
+		DrawLegSeparation();
+		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(-0.2f, 0.0f, 0.0f);
+		DrawLeg(-1, i);
+		glPopMatrix();
+
+		glPopMatrix();
+		translateX += 4.0f;
+	}
 }
