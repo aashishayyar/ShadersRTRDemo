@@ -1,458 +1,6 @@
-#include<Windows.h>
-#include<stdio.h>
+#include"main.h"
 #include"Matrix.h"
-#include<stdlib.h>	//for rand();
 
-#include<gl/GL.h>
-#include<gl/GLU.h>
-
-#pragma comment(lib,"opengl32.lib")
-#pragma comment(lib,"glu32.lib")
-
-LRESULT CALLBACK WndProc(HWND,UINT,WPARAM,LPARAM);
-
-#define WIN_WIDTH  800
-#define WIN_HEIGHT 600
-
-DWORD dwStyle;
-WINDOWPLACEMENT wpPrev = {sizeof(WINDOWPLACEMENT)};
-
-BOOL gbFullscreen = FALSE;
-BOOL gbEscapeKeyIsPressed = FALSE;
-BOOL gbActiveWindow = FALSE;
-
-HWND ghwnd = NULL;
-HDC ghdc = NULL;
-HGLRC ghrc = NULL;
-
-
-
-void initialize(void);
-void display(void);
-void resize(int width, int height);
-void uninitialize(void);
-
-
-void UpdateAngle();
-
-
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCndLine, int iCmdShow)
-{
-	WNDCLASSEX wndclass;
-	MSG msg;
-	HWND hwnd;
-	TCHAR szAppName[]= L"WINDOW";
-
-	BOOL bDone = FALSE;
-
-	wndclass.cbSize =sizeof(WNDCLASSEX);
-	wndclass.style = CS_HREDRAW |CS_VREDRAW|CS_OWNDC;
-	wndclass.cbClsExtra = 0;
-	wndclass.cbWndExtra =0;
-	wndclass.lpfnWndProc=WndProc;
-	wndclass.lpszClassName =szAppName;
-	wndclass.lpszMenuName = NULL;
-	wndclass.hInstance = hInstance;
-	wndclass.hIcon = LoadIcon(hInstance,TEXT("IDI_ICON1"));
-	wndclass.hCursor =LoadCursor(NULL,IDC_ARROW);
-	wndclass.hIconSm=LoadIcon(NULL,IDI_APPLICATION);
-	wndclass.hbrBackground =(HBRUSH)GetStockObject(BLACK_BRUSH);
-
-	RegisterClassEx(&wndclass);
-
-	hwnd = CreateWindowEx(WS_EX_APPWINDOW,
-		szAppName,
-		TEXT("MATRIX GLITCHE"),
-		WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE,
-		0,
-		0,
-		WIN_WIDTH,
-		WIN_HEIGHT,
-		NULL,
-		NULL,
-		hInstance,
-		NULL);
-
-	if(NULL == hwnd)
-	{
-		MessageBox(HWND_DESKTOP,L"ERROR WHILE CreateWindow",L"ERROR",0);
-		return 0;
-	}
-	else
-	{
-		ghwnd =hwnd;
-	}
-
-	initialize();
-
-	ShowWindow(hwnd,iCmdShow);
-	SetForegroundWindow(hwnd);
-	SetFocus(hwnd);
-
-	while(bDone == FALSE)
-	{
-		if(PeekMessage(&msg,NULL,0,0,PM_REMOVE))
-		{
-			if(msg.message ==  WM_QUIT)
-			{
-				bDone = TRUE;
-			}
-			else
-			{
-				
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-		}
-		else
-		{
-			if(gbEscapeKeyIsPressed == TRUE)
-			{
-				bDone = TRUE;
-			}
-			else
-			{
-				
-				display();
-			}
-		}
-	}
-
-	uninitialize();
-
-	return((int)msg.wParam);
-}
-
-LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
-{
-	void ToggleFullScreen();
-	
-	TCHAR szMessage[500]={'\0'};
-
-	switch(iMsg)
-	{
-
-	case WM_CREATE:
-		break;
-
-	case WM_KEYDOWN:
-		if((wParam == 'F') || (wParam == 'f'))
-		{
-			ToggleFullScreen();
-			if(gbFullscreen == FALSE)
-			{
-				gbFullscreen = TRUE;
-			}
-			else
-			{
-				gbFullscreen = FALSE;
-			}
-		}
-		else if(wParam == VK_ESCAPE)
-		{
-			gbEscapeKeyIsPressed = TRUE;
-		}
-	break;
-
-	case WM_SIZE:
-		resize(LOWORD(lParam), HIWORD(lParam));
-	break;
-	case VK_ESCAPE:
-		
-		break;
-
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;	
-	}
-	return(DefWindowProc(hwnd,iMsg,wParam,lParam));
-}
-
-void initialize()
-{
-	PIXELFORMATDESCRIPTOR pfd;
-	int iPixelFormatIndex;
-
-	ZeroMemory(&pfd,sizeof(PIXELFORMATDESCRIPTOR));
-
-	pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
-	pfd.nVersion = 1;
-	pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL |PFD_DOUBLEBUFFER ;
-	pfd.iPixelType = PFD_TYPE_RGBA;
-	pfd.cColorBits = 32;
-	pfd.cRedBits = 8;
-	pfd.cGreenBits = 8;
-	pfd.cBlueBits = 8;
-	pfd.cAlphaBits = 8;
-	pfd.cDepthBits = 32;
-
-	ghdc =GetDC(ghwnd);
-
-	iPixelFormatIndex = ChoosePixelFormat(ghdc,&pfd);
-	if(iPixelFormatIndex ==0)
-	{
-		ReleaseDC(ghwnd,ghdc);
-		ghdc = NULL;
-	}
-
-	if(SetPixelFormat(ghdc,iPixelFormatIndex,&pfd) == FALSE)
-	{
-		ReleaseDC(ghwnd,ghdc);
-		ghdc = NULL;
-	}
-
-	ghrc= wglCreateContext(ghdc);
-	if(ghrc == NULL)
-	{
-		ReleaseDC(ghwnd,ghdc);
-		ghdc = NULL;
-	}
-
-	if(wglMakeCurrent(ghdc,ghrc) == FALSE)
-	{
-		wglDeleteContext(ghrc);
-		ghrc = NULL;
-		ReleaseDC(ghwnd,ghdc);
-		ghdc = NULL;
-	}
-
-	glClearColor(0.0f,0.0f,0.0f, 1.0);
-
-	glClearDepth(1.0f);
-	glEnable(GL_DEPTH_TEST);
-
-
-	resize(WIN_WIDTH, WIN_HEIGHT);	
-	return;
-}
-
-void display()
-{
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glMatrixMode(GL_MODELVIEW);
-	
-	glLoadIdentity();
-	gluLookAt(0.0f,0.0f,5.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
-	
-	
-	DrawRoom();
-	
-	//DrawMatrixLines();
-	SwapBuffers(ghdc);
-
-	return;
-  }
-
-void resize(int width, int height)
-{
-	if(height == 0)
-	{
-		height = 1;
-	}	
-
-	glViewport(0,0,(GLsizei)width,(GLsizei)height);
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	//glFrustum(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.0f);
-
-	gluPerspective(45.0f,((GLfloat)width/(GLfloat)height),0.1f,100.0f);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	
-	return;
-}
-
-
-void uninitialize()
-{
-	if(gbFullscreen == TRUE)
-	{
-		dwStyle = GetWindowLong(ghwnd,GWL_STYLE);
-		SetWindowLong(ghwnd,GWL_STYLE,dwStyle | WS_OVERLAPPEDWINDOW);
-		SetWindowPlacement(ghwnd,&wpPrev);
-		SetWindowPos(ghwnd,HWND_TOP,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE|SWP_NOOWNERZORDER|SWP_NOZORDER|SWP_FRAMECHANGED);
-		ShowCursor(TRUE);
-	}
-
-	wglMakeCurrent(NULL,NULL);
-
-	wglDeleteContext(ghrc);
-	ghrc =  NULL;
-
-	ReleaseDC(ghwnd,ghdc);
-	ghdc = NULL;
-
-	DestroyWindow(ghwnd);
-
-	return;
-}
-
-void ToggleFullScreen()
-{
-	MONITORINFO mi;
-
-	if (gbFullscreen == false)
-	{
-		dwStyle = GetWindowLong(ghwnd, GWL_STYLE);
-		if (dwStyle & WS_OVERLAPPEDWINDOW)
-		{
-			mi.cbSize = sizeof(MONITORINFO);
-			if (GetWindowPlacement(ghwnd, &wpPrev) && GetMonitorInfo(MonitorFromWindow(ghwnd, MONITORINFOF_PRIMARY), &mi))
-			{
-				SetWindowLong(ghwnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
-				SetWindowPos(ghwnd, HWND_TOP, mi.rcMonitor.left, mi.rcMonitor.top, mi.rcMonitor.right - mi.rcMonitor.left, mi.rcMonitor.bottom - mi.rcMonitor.top, SWP_NOZORDER | SWP_FRAMECHANGED);
-			}
-		}
-		//ShowCursor(FALSE);
-	}
-	else
-	{
-	
-		SetWindowLong(ghwnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
-		SetWindowPlacement(ghwnd, &wpPrev);
-		SetWindowPos(ghwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_FRAMECHANGED);
-
-		ShowCursor(TRUE);
-	}
-
-}
-
-
-
-void DrawCharacter()
-{
-	glBegin(GL_LINES);
-			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
-			/*4th LINE*/
-			if(giSevenSgment[4] == 1)
-			{
-				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
-			}
-			/*3rd LINE*/
-			if(giSevenSgment[3] == 1)
-			{
-				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-			}
-			/*2nd LINE*/
-			if(giSevenSgment[2] == 1)
-			{
-				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-			}
-			/*6th LINE*/
-			if(giSevenSgment[6] == 1)
-			{
-				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
-			}
-			/*1st LINE*/
-			if(giSevenSgment[1] == 1)
-			{
-				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
-			}
-			/*0th LINE*/
-			if(giSevenSgment[0] == 1)
-			{
-				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-			}
-
-			/*5th LINE*/
-			if(giSevenSgment[5] == 1)
-			{
-				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
-			}
-		glEnd();
-}
-
-void DrawWall()
-{
-	int iCounter = 0;
-	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
-	StoreWall();
-	for(int j = 0; j < giNumberOfCharOnY; j++)
-	{
-		for(int i =0; i < giNumberOfCharOnX; i++)
-		{
-		  RandomCharacter(piRandomWallNumbers[iCounter]);
-		  iCounter++;
-		  if(iCounter >= iRandomCharacterCount)
-		  {
-			  iCounter = 0;
-		  }
-		  //HERE WE DRAW ACTUAL CHARACTER 
-		  DrawCharacter();
-
-		  gfCurrentX = gfCurrentX +  gfCommonXDistance;
-		}
-		gfWidthOfRoom = gfCurrentX;
-	  gfCurrentX = 0.0f;
-	  gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;
-	}
-	gfHeightOfRoom = gfCurrentY;
-	gfCurrentY = 0.0f;
-	return;
-}
-
-void StoreWall()
-{
-	int iTotalNumberOfCharacters = giNumberOfCharOnX*giNumberOfCharOnY;
-	int RandomNumber = 0;
-	if(piRandomWallNumbers == NULL)
-	{
-		piRandomWallNumbers = (int *)malloc(sizeof(int)*(iTotalNumberOfCharacters));
-		if(piRandomWallNumbers == NULL)
-		{
-			//ERROR HANDLING
-		}
-	}
-	if(gbAllocateMemoryAgain == TRUE)
-	{
-		if(giTempNumberOfCharacterOnX > giNumberOfCharOnX)
-		{
-			realloc(piRandomWallNumbers,(sizeof(int)*(giTempNumberOfCharacterOnX - giNumberOfCharOnX )));
-		}
-		else if(giTempNumberOfCharacterOnY > giNumberOfCharOnY)
-		{
-			realloc(piRandomWallNumbers,(sizeof(int)*(giTempNumberOfCharacterOnY - giNumberOfCharOnY )));
-		}
-		if(piRandomWallNumbers == NULL)
-		{
-			//ERROR HANDLING
-		}
-	}
-	if(gbWallFilled == FALSE)
-	{
-	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
-	 {
-		RandomNumber = rand() % 27;
-		piRandomWallNumbers[i]= RandomNumber;
-	 }
-	 gbWallFilled = TRUE;
-	}
-	if(gbDisplayedFirstWall == FALSE)
-	{
-		gbDisplayedFirstWall = TRUE;
-		dwDisplayedFirstWall = GetTickCount();
-		dwSavedTickCount = dwDisplayedFirstWall;
-	}
-	dwGetTickCount = GetTickCount();
-	if((dwGetTickCount - dwSavedTickCount) >= gdwSpeedOfWallChange)
-	{
-		dwSavedTickCount = dwGetTickCount;
-		gbWallFilled = FALSE;
-	}
-
-}
 void RandomCharacter(int RandomNumber )
 {
 
@@ -547,18 +95,92 @@ void RandomCharacter(int RandomNumber )
 	return ;
 }
 
+void DrawCharacter()
+{
+	glBegin(GL_LINES);
+			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
+			/*4th LINE*/
+			if(giSevenSgment[4] == 1)
+			{
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
+			}
+			/*3rd LINE*/
+			if(giSevenSgment[3] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*2nd LINE*/
+			if(giSevenSgment[2] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*6th LINE*/
+			if(giSevenSgment[6] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
+			}
+			/*1st LINE*/
+			if(giSevenSgment[1] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
+			}
+			/*0th LINE*/
+			if(giSevenSgment[0] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+			}
+
+			/*5th LINE*/
+			if(giSevenSgment[5] == 1)
+			{
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
+			}
+		glEnd();
+}
 
 void DrawRoom()
-{
-	//gfLengthOfRoom  = (giNumberOfCharOnY * gfCommonYDistance) + (giNumberOfCharOnY * gfHeightOfLine);
-	//gfBreadthOfRoom = (giNumberOfCharOnY * gfCommonXDistance) + (giNumberOfCharOnX * gfWidthOfLine);
+{	
+	/*gfWidthOfLine  = gfWidthOfMatrixWallChar  ;
+	gfHeightOfLine = gfHeightOfMatrixWallChar ;*/
+
+	
+	giNumberOfCharOnX      = giNumberOfCharOnXMatrixWall;
+	giNumberOfCharOnY      = giNumberOfCharOnYMatrixWall;
+
+	gfCommonXDistance = (gfWidthOfLine*4) ;
+	gfCommonYDistance = (gfHeightOfLine*4);
+
 	
 	glPushMatrix();
-	glTranslatef(-10.05f,-8.05f,-20.0f);
-
+	glTranslatef(-12.05f,-8.05f,-20.0f);
 	
+	//TOP
+	glPushMatrix();
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); 
+	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+	glTranslatef(0.0f,0.0f,-(gfHeightOfRoom));
+	giTempNumberOfCharacterOnY = giNumberOfCharOnY;
+	giNumberOfCharOnY = giNumberOfCharOnY +1 ;
+	DrawWall();
+	giNumberOfCharOnY = giTempNumberOfCharacterOnY ;
+	glPopMatrix();
 
-	
+	//BACK
+	/*glPushMatrix();
+	//glTranslatef(0.0f,0.0f,-gfWidthOfRoom);
+	giTempNumberOfCharacterOnX = giNumberOfCharOnX;
+	giNumberOfCharOnX = giNumberOfCharOnX  ;
+	DrawWall();
+	giNumberOfCharOnX = giTempNumberOfCharacterOnX;
+	glPopMatrix();*/
+
 	//LEFT
 	glPushMatrix();
 	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); //Left 
@@ -580,124 +202,286 @@ void DrawRoom()
 	DrawWall();
 	glPopMatrix();
 
-
-	//TOP
-	glPushMatrix();
-	glRotatef(90.0f, 0.0f, 1.0f, 0.0f); 
-	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
-	glTranslatef(0.0f,0.0f,-(gfHeightOfRoom));
-	giTempNumberOfCharacterOnY = giNumberOfCharOnY;
-	giNumberOfCharOnY = giNumberOfCharOnY + 1;
-	gbAllocateMemoryAgain = TRUE;
-	DrawWall();
-	giNumberOfCharOnY = giTempNumberOfCharacterOnY;
-	gbAllocateMemoryAgain = FALSE;
-	glPopMatrix();
-
-	//BACK
-	glPushMatrix();
-	glTranslatef(0.0f,0.0f,-gfWidthOfRoom);
-	giTempNumberOfCharacterOnX = giNumberOfCharOnX;
-	giNumberOfCharOnX = giNumberOfCharOnX - 25 ;
-	gbAllocateMemoryAgain = TRUE;
-	DrawWall();
-	giNumberOfCharOnX = giTempNumberOfCharacterOnX;
-	gbAllocateMemoryAgain = FALSE;
-	glPopMatrix();
-
 	glPopMatrix();
 
 }
 
-//void StoreLine()
-//{
-//	int iTotalNumberOfCharacters = giNumberOfCharOnX*giNumberOfCharOnY;
-//	int RandomNumber = 0;
-//	if(piRandomWallNumbers == NULL)
-//	{
-//		piRandomLineNumbers = (int *)malloc(sizeof(int)*(iTotalNumberOfCharacters));
-//		if(piRandomLineNumbers== NULL)
-//		{
-//			//ERROR HANDLING
-//		}
-//	}
-//	if(gbLinesFilled == FALSE)
-//	{
-//	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
-//	 {
-//		RandomNumber = rand() % 27;
-//		piRandomLineNumbers[i]= RandomNumber;
-//	 }
-//	 gbLinesFilled = TRUE;
-//	}
-//}
-//void DrawMatrixLines()
-//{
-//	int iCounter = 0;
-//	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
-//	StoreLine();
-//	for(int j = 0; j < giNumberOfCharOnX; j++)
-//	{
-//	  for(int i =0; i < giNumberOfCharOnY ; i++)
-//	  {
-//		  RandomCharacter(piRandomLineNumbers[iCounter]);
-//		  iCounter++;
-//		  if(iCounter >= iRandomCharacterCount)
-//		  {
-//			  iCounter = 0;
-//		  }
-//		  //HERE WE DRAW ACTUAL CHARACTER 
-//		  glBegin(GL_LINES);
-//			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
-//			/*4th LINE*/
-//			if(giSevenSgment[4] == 1)
-//			{
-//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-//				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
-//			}
-//			/*3rd LINE*/
-//			if(giSevenSgment[3] == 1)
-//			{
-//				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-//			}
-//			/*2nd LINE*/
-//			if(giSevenSgment[2] == 1)
-//			{
-//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-//				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
-//			}
-//			/*6th LINE*/
-//			if(giSevenSgment[6] == 1)
-//			{
-//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-//				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
-//			}
-//			/*1st LINE*/
-//			if(giSevenSgment[1] == 1)
-//			{
-//				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
-//				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
-//			}
-//			/*0th LINE*/
-//			if(giSevenSgment[0] == 1)
-//			{
-//				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-//				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-//			}
-//			/*5th LINE*/
-//			if(giSevenSgment[5] == 1)
-//			{
-//				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
-//				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
-//			}
-//		glEnd();
-//
-//		 gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;	  
-//	  }
-//	  gfCurrentY = 0.0f;
-//	  gfCurrentX = gfCurrentX +  gfCommonXDistance;
-//	}
-//	gfCurrentX = 0.0f;
-//	
-//}
+void StoreWall()
+{
+	DWORD dwTotalNumberOfCharacters = 0;
+	int RandomNumber = 0;
+	dwTotalNumberOfCharacters= (giNumberOfCharOnX*giNumberOfCharOnY);
+	if(piRandomWallNumbers == NULL)
+	{
+		piRandomWallNumbers = (int *)malloc(sizeof(int)*(dwTotalNumberOfCharacters));
+		if(piRandomWallNumbers == NULL)
+		{
+			//ERROR HANDLING
+		}
+		else
+		{
+			dwMaximumCharaFromWall = dwTotalNumberOfCharacters;
+		}
+	}
+	if(dwMaximumCharaFromWall < dwTotalNumberOfCharacters )
+	{
+		piRandomWallNumbers = (int *)realloc(piRandomWallNumbers,(sizeof(int)*(dwTotalNumberOfCharacters - dwMaximumCharaFromWall) ));
+		if(piRandomWallNumbers == NULL)
+		{
+			//ERROR HANDLING
+		}
+		else
+		{
+			for(DWORD i = dwMaximumCharaFromWall;  i < dwTotalNumberOfCharacters; i++)
+			 {
+				RandomNumber = rand() % 27;
+				piRandomWallNumbers[i]= RandomNumber;
+			 }
+			dwMaximumCharaFromWall = dwTotalNumberOfCharacters;
+		}
+	}
+	if((gbWallFilled == FALSE ))
+	{
+	 for(DWORD i = 0;  i < dwTotalNumberOfCharacters; i++)
+	 {
+		RandomNumber = rand() % 27;
+		piRandomWallNumbers[i]= RandomNumber;
+	 }
+	 gbWallFilled = TRUE;
+	}
+	if(gbDisplayedFirstWall == FALSE)
+	{
+		gbDisplayedFirstWall = TRUE;
+		dwDisplayedFirstWall = GetTickCount();
+		dwSavedTickCount = dwDisplayedFirstWall;
+	}
+	dwGetTickCount = GetTickCount();
+	if((dwGetTickCount - dwSavedTickCount) >= gdwSpeedOfWallChange)
+	{
+		dwSavedTickCount = dwGetTickCount;
+		gbWallFilled = FALSE;
+	}
+}
+void DrawWall()
+{
+	int iCounter = 0;
+	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
+	StoreWall();
+	for(int j = 0; j < giNumberOfCharOnY; j++)
+	{
+		for(int i =0; i < giNumberOfCharOnX; i++)
+		{
+		  RandomCharacter(piRandomWallNumbers[iCounter]);
+		  iCounter++;
+		  if(iCounter >= iRandomCharacterCount)
+		  {
+			  iCounter = 0;
+		  }
+		  //HERE WE DRAW ACTUAL CHARACTER 
+		  DrawCharacter();
+
+		  gfCurrentX = gfCurrentX +  gfCommonXDistance;
+		}
+		gfWidthOfRoom = gfCurrentX;
+	  gfCurrentX = 0.0f;
+	  gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;
+	}
+	gfHeightOfRoom = gfCurrentY;
+	gfCurrentY = 0.0f;
+	return;
+}
+
+
+
+
+
+
+
+void StoreLine()
+{
+	int iTotalNumberOfCharacters = giNumberOfCharOnX*giNumberOfCharOnY*giNumberOfLinesAcrossZ;
+	int RandomNumber = 0;
+	if(piRandomLineNumbers == NULL)
+	{
+		piRandomLineNumbers = (int *)malloc(sizeof(int)*(iTotalNumberOfCharacters));
+		if(piRandomLineNumbers == NULL)
+		{
+			//ERROR HANDLING
+		}
+	}
+	if(gbLinesFilled == FALSE)
+	{
+	 for(int i = 0;  i < iTotalNumberOfCharacters; i++)
+	 {
+		RandomNumber = rand() % 27;
+		piRandomLineNumbers[i]= RandomNumber;
+	 }
+	 gbLinesFilled = TRUE;
+	}
+	if(gbDisplayedFirstWall == FALSE)
+	{
+		gbDisplayedFirstWall = TRUE;
+		dwDisplayedFirstWall = GetTickCount();
+		dwSavedTickCount = dwDisplayedFirstWall;
+	}
+	dwGetTickCount = GetTickCount();
+	if((dwGetTickCount - dwSavedTickCount) >= dwTimeDiffForLineTranslation)
+	{
+		dwSavedTickCount = dwGetTickCount;
+		gbLinesFilled = FALSE;
+	}
+
+}
+void DrawMatrixLine(int iColumnNumber,int giNumberOfLinesAcrossZ)
+{
+	int iCounter = 0;
+	int iRandomCharacterCount = giNumberOfCharOnX *giNumberOfCharOnY;
+	StoreLine();
+	//for(int j = 0; j < giNumberOfCharOnX; j++)
+	//{
+	  for(int i =0; i < giNumberOfCharOnY ; i++)
+	  {
+		  RandomCharacter(piRandomLineNumbers[((giNumberOfLinesAcrossZ*giNumberOfCharOnX)+i+ iColumnNumber )]);
+		  iCounter++;
+		  if(iCounter >= iRandomCharacterCount)
+		  {
+			  iCounter = 0;
+		  }
+		  //HERE WE DRAW ACTUAL CHARACTER 
+		  glBegin(GL_LINES);
+			glColor3f(gfMatrixCharRed, gfMatrixCharGreen, gfMatrixCharBlue); 
+			/*4th LINE*/
+			if(giSevenSgment[4] == 1)
+			{
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),gfCurrentY,gfCurrentZ);
+			}
+			/*3rd LINE*/
+			if(giSevenSgment[3] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*2nd LINE*/
+			if(giSevenSgment[2] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f(gfCurrentX,(gfCurrentY - gfHeightOfLine),gfCurrentZ);
+			}
+			/*6th LINE*/
+			if(giSevenSgment[6] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX+gfWidthOfLine),(gfCurrentY),(gfCurrentZ ));
+			}
+			/*1st LINE*/
+			if(giSevenSgment[1] == 1)
+			{
+				glVertex3f(gfCurrentX,gfCurrentY,gfCurrentZ);
+				glVertex3f((gfCurrentX +.00f),(gfCurrentY + gfHeightOfLine),(gfCurrentZ +0.0f));
+			}
+			/*0th LINE*/
+			if(giSevenSgment[0] == 1)
+			{
+				glVertex3f(gfCurrentX,(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+			}
+			/*5th LINE*/
+			if(giSevenSgment[5] == 1)
+			{
+				glVertex3f((gfCurrentX +gfWidthOfLine ),(gfCurrentY + gfHeightOfLine),gfCurrentZ);
+				glVertex3f((gfCurrentX +gfWidthOfLine ),gfCurrentY,gfCurrentZ);
+			}
+		glEnd();
+
+		 gfCurrentY = gfCurrentY +  gfCommonYDistance + 0.1f;	  
+	  }
+	  gfHeightOfMatrixLine = gfCurrentY;
+	  gfCurrentY = 0.0f;	
+}
+void DrawLinesWall()
+{
+	/*gfWidthOfLine  = gfWidthOfDropLineChar   ;
+	gfHeightOfLine = gfHeightOfDropLineChar  ;
+	*/
+
+	giNumberOfCharOnX   = giNumberOfCharOnXDropLines;
+	giNumberOfCharOnY   = giNumberOfCharOnYDropLines;
+
+	gfCommonXDistance = (gfWidthOfLine*6) ;
+	gfCommonYDistance = (gfHeightOfLine*3);
+
+
+	glPushMatrix();
+	for(int i = 0; i < giNumberOfLinesAcrossZ; i++ )
+	{
+		for(int j = 0; j < giNumberOfCharOnX; j++)
+		{
+			glPushMatrix();
+			glTranslatef(0.0f,ptrTranslateLine[(i*giNumberOfCharOnX)+j].fValueOfY,0.0f);
+			DrawMatrixLine(j,i);
+			gfCurrentX = gfCurrentX +  gfCommonXDistance;
+			glPopMatrix();
+			
+		}
+		gfCurrentX = 0.0f;
+		glTranslatef(0.0f,0.0f, -gfDistanceAcrossZ);
+		
+	}
+
+	glPopMatrix();
+}
+void TranslateLines()
+{
+	int iRandomX,iRandomZ;
+	if(ptrTranslateLine == NULL)
+	{
+		ptrTranslateLine =(struct TranslateLine *)calloc((giNumberOfCharOnX*giNumberOfLinesAcrossZ),sizeof(struct TranslateLine));
+		if(ptrTranslateLine == NULL)
+		{
+			//ERROR HANDLING
+		}
+		for(int j =0; j < giNumberOfLinesAcrossZ; j++)
+		{
+			for(int i = 0; i < giNumberOfCharOnX; i++)
+			{
+				ptrTranslateLine[(j*giNumberOfCharOnX)+i].bTraslationOn = FALSE;
+				ptrTranslateLine[(j*giNumberOfCharOnX)+i].fValueOfY     = gfMaxUpperYForLineTranslation;
+				ptrTranslateLine[(j*giNumberOfCharOnX)+i].iZOrderOfLine = j;
+			}
+		}
+		//this memory allocation block is going to 
+		//be called once, hence use it as a flag value
+		dwSavedTickCountForLineTranslation = GetTickCount();
+	}
+	
+	dwGetTickCountForLineTranslation = GetTickCount();
+
+	if((dwGetTickCountForLineTranslation - dwSavedTickCountForLineTranslation) > dwTimeDiffForLineTranslation)
+	{
+		dwSavedTickCountForLineTranslation = dwGetTickCountForLineTranslation;
+
+		iRandomX = rand() % giNumberOfCharOnX;
+		iRandomZ = (rand() % giNumberOfLinesAcrossZ) + 1;	//TO AVOID THE NUMBER 0 As we are multiplying it below
+		ptrTranslateLine[(iRandomZ*giNumberOfCharOnX)+iRandomX].bTraslationOn = TRUE;
+		//(ptrTranslateLine +giNumberOfLinesAcrossZ*giNumberOfCharOnX + iRandomX)->bTraslationOn = TRUE;
+
+	}
+	
+  for(int j = 0; j < giNumberOfLinesAcrossZ; j++)
+  {
+	for(int i = 0; i < giNumberOfCharOnX; i++)
+	{
+		if(ptrTranslateLine[(j * giNumberOfCharOnX)+i].bTraslationOn == TRUE)
+		{
+		  ptrTranslateLine[(j * giNumberOfCharOnX) + i].fValueOfY  = ptrTranslateLine[(j * giNumberOfCharOnX) + i].fValueOfY - gfValueForDownYTranslation;
+		  
+		  if(ptrTranslateLine[(j * giNumberOfCharOnX) + i].fValueOfY <= (gfMaxLowerYForLineTranslation - gfHeightOfMatrixLine))
+		  {
+			  ptrTranslateLine[(j * giNumberOfCharOnX) + i].fValueOfY = gfMaxUpperYForLineTranslation;
+		  }
+		}
+	}
+  }
+	
+}
