@@ -4,12 +4,15 @@
 #include "Clock.h"
 
 void MainRoom(void) {
+	void drawMatrixDoor();
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z, centerLookAt.x, centerLookAt.y, centerLookAt.z, 0.0f, 1.0f, 0.0f);
 	drawRoom();
 	drawClock();
-	//	drawMatrixDoor();
 	if (objectsIteration >= 2) { // Change if order in arrayObjectInfo gets change.
 		drawMatrixRoom();
+	}
+	if (objectsIteration == 7) {
+		drawMatrixDoor();
 	}
 }
 
@@ -196,12 +199,25 @@ void fillCameraObjectInfo() {
 
 void drawMatrixDoor() {
 	glPushMatrix();
+	glLineWidth(1.0f);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_QUADS);
-	glVertex3f(matrixDoorPosition.x, matrixDoorPosition.y, matrixDoorPosition.z);
-	glVertex3f(matrixDoorPosition.x + 10.0f, matrixDoorPosition.y, matrixDoorPosition.z);
-	glVertex3f(matrixDoorPosition.x + 10.0f, 0.0f, matrixDoorPosition.z);
-	glVertex3f(matrixDoorPosition.x, 0.0f, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, 0.0f, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x, 0.0f, matrixDoorPosition.z);
+	glEnd();
+	glLineWidth(4.0f);
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glBegin(GL_LINES);
+		glVertex3f(matrixDoorPosition.x, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x, 0.0f, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, 0.0f, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, matrixDoorPosition.y, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x, 0.0f, matrixDoorPosition.z);
+		glVertex3f(matrixDoorPosition.x + 10.0f, 0.0f, matrixDoorPosition.z);
 	glEnd();
 	glPopMatrix();
 }
@@ -481,7 +497,7 @@ void drawRoom() {
 	int count = 1;
 	glLineWidth(0.5f);
 	glBegin(GL_LINES);
-	glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
+	glColor4f(0.3f, 0.3f, 0.3f, 0.5f);
 	for (float i = count; i <= size; i += count) { //Floor
 		glVertex3f(-size, 0, i);
 		glVertex3f(size, 0, i);

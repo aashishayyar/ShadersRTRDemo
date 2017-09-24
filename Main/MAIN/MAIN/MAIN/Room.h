@@ -69,9 +69,9 @@ struct WatchPosition {
 }watchPosition;
 
 struct MatrixDoorPosition {
-	GLfloat x = 5.0f;
-	GLfloat y = 10.0f;
-	GLfloat z = -16.0f;
+	GLfloat x = 15.0f;
+	GLfloat y = 12.0f;
+	GLfloat z = -17.0f;
 }matrixDoorPosition;
 
 struct MatrixWallPosition {
