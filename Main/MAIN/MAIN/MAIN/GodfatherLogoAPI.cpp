@@ -34,7 +34,7 @@ void drawLogo(void)
 	logoAnimation();
 	glPushMatrix();
 	
-		glTranslatef(-1.0f,8.0f,10.0f);
+		glTranslatef(8.0f,8.0f,-10.0f);
 		glPushMatrix();
 			//glTranslatef(0.0f, 0.0f, -20.0f);
 

@@ -1,4 +1,5 @@
 #include "Main.h"
+#include "logo.h"
 #include "Main_Room.h"
 #include "LegoWalk.h"
 #include <stdio.h>
@@ -301,6 +302,7 @@ void legoCharaters() {
 	if (objectsIteration == 1 || objectsIteration == 2) {
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
+		drawLogo();
 		DrawLegoCharacters();
 		updateAllCharacters();
 		glPopMatrix();

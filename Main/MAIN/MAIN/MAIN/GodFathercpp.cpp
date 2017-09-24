@@ -329,7 +329,7 @@ void DrawLinesOnDress_GodFather(void)
 	glBegin(GL_LINES);
 
 	glVertex3f(0.0f, 0.0f, 0.1f);
-	glVertex3f(0.0f, -1.7, 0.1f);
+	glVertex3f(0.0f, -1.3, 0.1f);
 
 	glVertex3f(-1.3f, 0.2f, 0.1f);
 	glVertex3f(-2.0f, -0.1f, 0.1f);
@@ -341,10 +341,10 @@ void DrawLinesOnDress_GodFather(void)
 	glVertex3f(-2.0f, -0.5f, 0.1f);
 
 	glVertex3f(-2.0f, -0.5f, 0.1f);
-	glVertex3f(-1.4f, -1.7, 0.1f);
+	glVertex3f(-1.4f, -1.3, 0.1f);
 
-	glVertex3f(-1.4f, -1.7, 0.1f);
-	glVertex3f(1.4f, -1.7, 0.1f);
+	glVertex3f(-1.4f, -1.3, 0.1f);
+	glVertex3f(1.4f, -1.3, 0.1f);
 
 	glEnd();
 }
