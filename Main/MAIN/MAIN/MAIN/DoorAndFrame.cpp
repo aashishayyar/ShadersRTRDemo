@@ -26,33 +26,35 @@ void drawWall(void) {
 
 void drawDoor(void) {
 
-	//glRotatef(gfDoorRotationAngle, 0.0f, 1.0f, 0.0f);
+	glPushMatrix();
+
+	glRotatef(80.0f, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_QUADS);
 	glColor3f((GLfloat)gfDoorMainColor[0], (GLfloat)gfDoorMainColor[1], (GLfloat)gfDoorMainColor[2]);
 	// Front face
 	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.0f, -gfDoorLength, 0.0f);
-	glVertex3f(gfDoorWidth, -gfDoorLength, 0.0f);
+	glVertex3f(0.0f, gfDoorLength, 0.0f);
+	glVertex3f(gfDoorWidth, gfDoorLength, 0.0f);
 	glVertex3f(gfDoorWidth, 0.0f, 0.0f);
 
 	//Back face
 	glVertex3f(0.0f, 0.0f, -gfDoorThickness);
-	glVertex3f(0.0f, -gfDoorLength, -gfDoorThickness);
-	glVertex3f(gfDoorWidth, -gfDoorLength, -gfDoorThickness);
+	glVertex3f(0.0f, gfDoorLength, -gfDoorThickness);
+	glVertex3f(gfDoorWidth, gfDoorLength, -gfDoorThickness);
 	glVertex3f(gfDoorWidth, 0.0f, -gfDoorThickness);
 
 	//Left face
-	glVertex3f(0.0f, 0.0f, -gfDoorThickness);
+	glVertex3f(0.0f, 0.0f, gfDoorThickness);
 	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.0f, -gfDoorLength, 0.0f);
-	glVertex3f(0.0f, -gfDoorLength, -gfDoorThickness);
+	glVertex3f(0.0f, gfDoorLength, 0.0f);
+	glVertex3f(0.0f, gfDoorLength, -gfDoorThickness);
 
 	//Right Face
 	glVertex3f(gfDoorWidth, 0.0f, -gfDoorThickness);
 	glVertex3f(gfDoorWidth, 0.0f, 0.0f);
-	glVertex3f(gfDoorWidth, -gfDoorLength, 0.0f);
-	glVertex3f(gfDoorWidth, -gfDoorLength, -gfDoorThickness);
+	glVertex3f(gfDoorWidth, gfDoorLength, 0.0f);
+	glVertex3f(gfDoorWidth, gfDoorLength, -gfDoorThickness);
 
 	//Top Face
 	glVertex3f(gfDoorWidth, 0.0f, -gfDoorThickness);
@@ -61,92 +63,176 @@ void drawDoor(void) {
 	glVertex3f(gfDoorWidth, 0.0f, 0.0);
 
 	//Bottom Face
-	glVertex3f(gfDoorWidth, -gfDoorLength, -gfDoorThickness);
-	glVertex3f(0.0f, -gfDoorLength, -gfDoorThickness);
-	glVertex3f(0.0f, -gfDoorLength, 0.0);
-	glVertex3f(gfDoorWidth, -gfDoorLength, 0.0);
+	glVertex3f(gfDoorWidth, gfDoorLength, -gfDoorThickness);
+	glVertex3f(0.0f, gfDoorLength, -gfDoorThickness);
+	glVertex3f(0.0f, gfDoorLength, 0.0);
+	glVertex3f(gfDoorWidth, gfDoorLength, 0.0);
 
 	glEnd();
 
 
 	glBegin(GL_QUADS);
 	glColor3f(gfDoorDesignInnerColor[0], gfDoorDesignInnerColor[1], gfDoorDesignInnerColor[2]);
+
 	//Door Upper Middle Part
 	//Back
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
 	//Front
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
 
 	glColor3f(gfDoorDesginEdgeColor[0], gfDoorDesginEdgeColor[1], gfDoorDesginEdgeColor[2]);
 	//Left	
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
 
 	//Right
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
 
 	//Top
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -gfDoorBackFaceUpperDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, gfDoorDesignThickness);
 	//Bottom
-	glVertex3f(gfDoorBackFaceUpperDesignStartX, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
-	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, -(gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceUpperDesignStartX, -(gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), 0.0f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), gfDoorDesignThickness);
 
 
 
 	//Door Lower Middle Part
 	glColor3f(gfDoorDesignInnerColor[0], gfDoorDesignInnerColor[1], gfDoorDesignInnerColor[2]);
 	//Back
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
 	//Front
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
 
 	glColor3f(gfDoorDesginEdgeColor[0], gfDoorDesginEdgeColor[1], gfDoorDesginEdgeColor[2]);
 	//Left	
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
 
 	//Right
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
 
 	//Top
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -gfDoorBackFaceLowerDesignStartY, 0.0f);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, 0.0f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, gfDoorDesignThickness);
 
 	//Bottom
-	glVertex3f(gfDoorBackFaceLowerDesignStartX, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
-	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, -(gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
-	glVertex3f(gfDoorFrontFaceLowerDesignStartX, -(gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), 0.0f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), gfDoorDesignThickness);
+
+	// Door Back Side Design
+
+	glColor3f(gfDoorDesignInnerColor[0], gfDoorDesignInnerColor[1], gfDoorDesignInnerColor[2]);
+
+	//Door Upper Middle Part - Back side
+	//Back
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+	//Front
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+
+	glColor3f(gfDoorDesginEdgeColor[0], gfDoorDesginEdgeColor[1], gfDoorDesginEdgeColor[2]);
+	//Left	
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+
+	//Right
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+
+	//Top
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, gfDoorBackFaceUpperDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, gfDoorFrontFaceUpperDesignStartY, -0.55f);
+	//Bottom
+	glVertex3f(gfDoorBackFaceUpperDesignStartX, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+	glVertex3f(gfDoorBackFaceUpperDesignStartX + gfDoorBackFaceUpperDesignWidth, (gfDoorBackFaceUpperDesignStartY + gfDoorBackFaceUpperDesignHeight), -0.5f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX + gfDoorFrontFaceUpperDesignWidth, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+	glVertex3f(gfDoorFrontFaceUpperDesignStartX, (gfDoorFrontFaceUpperDesignStartY + gfDoorFrontFaceUpperDesignHeight), -0.55f);
+
+
+
+	//Door Lower Middle Part - Back Side
+	glColor3f(gfDoorDesignInnerColor[0], gfDoorDesignInnerColor[1], gfDoorDesignInnerColor[2]);
+	//Back
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+	//Front
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+
+	glColor3f(gfDoorDesginEdgeColor[0], gfDoorDesginEdgeColor[1], gfDoorDesginEdgeColor[2]);
+	//Left	
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+
+	//Right
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+
+	//Top
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, gfDoorBackFaceLowerDesignStartY, -0.5f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, gfDoorFrontFaceLowerDesignStartY, -0.55f);
+
+	//Bottom
+	glVertex3f(gfDoorBackFaceLowerDesignStartX, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+	glVertex3f(gfDoorBackFaceLowerDesignStartX + gfDoorBackFaceLowerDesignWidth, (gfDoorBackFaceLowerDesignStartY + gfDoorBackFaceLowerDesignHeight), -0.5f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX + gfDoorFrontFaceLowerDesignWidth, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+	glVertex3f(gfDoorFrontFaceLowerDesignStartX, (gfDoorFrontFaceLowerDesignStartY + gfDoorFrontFaceLowerDesignHeight), -0.55f);
+
+
 	glEnd();
+	glPopMatrix();
 
 
 }
