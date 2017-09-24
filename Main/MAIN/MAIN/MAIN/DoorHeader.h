@@ -12,28 +12,28 @@ float gfDoorWidthStartY = 0.0f;
 float gfDoorWidthEndX = 10.0f;
 float gfDoorWidthEndY = 10.0f;
 
-float gfDoorLength = 22.0f;
-float gfDoorWidth = 10.0f;
+float gfDoorLength = 20.0f;
+float gfDoorWidth = -10.0f;
 //Upper Middle Design Front Variable
-float gfDoorFrontFaceUpperDesignStartX = 2.2f;
-float gfDoorFrontFaceUpperDesignStartY = 3.2f;
-float gfDoorFrontFaceUpperDesignWidth = 5.6f;
+float gfDoorFrontFaceUpperDesignStartX = -2.2f;
+float gfDoorFrontFaceUpperDesignStartY = 9.2f;
+float gfDoorFrontFaceUpperDesignWidth = -5.6f;
 float gfDoorFrontFaceUpperDesignHeight = 8.6f;
 //Upper Middle Design Back Variable
-float gfDoorBackFaceUpperDesignStartX = 2.0f;
-float gfDoorBackFaceUpperDesignStartY = 3.0f;
-float gfDoorBackFaceUpperDesignWidth = 6.0f;
+float gfDoorBackFaceUpperDesignStartX = -2.0f;
+float gfDoorBackFaceUpperDesignStartY = 9.0f;
+float gfDoorBackFaceUpperDesignWidth = -6.0f;
 float gfDoorBackFaceUpperDesignHeight = 9.0f;
 
 //Lower Middle Design Front Variable
-float gfDoorFrontFaceLowerDesignStartX = 2.2f;
-float gfDoorFrontFaceLowerDesignStartY = 14.2f;
-float gfDoorFrontFaceLowerDesignWidth = 5.6f;
+float gfDoorFrontFaceLowerDesignStartX = -2.2f;
+float gfDoorFrontFaceLowerDesignStartY = 3.2f;
+float gfDoorFrontFaceLowerDesignWidth = -5.6f;
 float gfDoorFrontFaceLowerDesignHeight = 4.6f;
 //Lower Middle Design Back Variable
-float gfDoorBackFaceLowerDesignStartX = 2.0f;
-float gfDoorBackFaceLowerDesignStartY = 14.0f;
-float gfDoorBackFaceLowerDesignWidth = 6.0f;
+float gfDoorBackFaceLowerDesignStartX = -2.0f;
+float gfDoorBackFaceLowerDesignStartY = 3.0f;
+float gfDoorBackFaceLowerDesignWidth = -6.0f;
 float gfDoorBackFaceLowerDesignHeight = 5.0f;
 
 
