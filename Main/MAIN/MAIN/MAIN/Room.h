@@ -2,8 +2,10 @@
 
 void drawRoom(void);
 void drawDoor(void);
+void drawDoorFrame(void);
 
-#define numberOfObjects 3
+#define numberOfObjects 7
+
 GLfloat windowWidth;
 GLfloat windowHeight;
 bool gbZoomIn = 1;
@@ -29,7 +31,7 @@ struct RoomDepth {
 struct CameraPosition {
 	GLfloat x = 0.0f;
 	GLfloat y = 10.0f;
-	GLfloat z = 35.0f;
+	GLfloat z = 39.0f;
 }cameraPosition;
 
 struct CenterOfLookAt {
@@ -77,6 +79,13 @@ struct MatrixWallPosition {
 	GLfloat y = 0.0f;
 	GLfloat z = -30.0f;
 }matrixRoomPosition;
+
+struct LegoCharactersPosition {
+	GLfloat x = -10.0f;
+	GLfloat y = 6.5f;
+	GLfloat z = -5.0f;
+};
+LegoCharactersPosition legoCharactersPosition;
 
 //int lookAtAxis = 1.0f;
 //bool isRotating = false;

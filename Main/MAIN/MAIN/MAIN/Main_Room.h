@@ -1,4 +1,7 @@
 #pragma once
+
+#define numberOfObjects 7
+
 /* From Clock Header file */
 #define IDT_TIMER_SECOND 1
 #define IDT_TIMER_MINUTE 2
@@ -29,7 +32,6 @@ extern struct CenterOfLookAt centerLookAt;
 
 /*To Load Matrix room just after camera reaches the end of first room */
 extern int objectsIteration;
-#define numberOfObjects 3
 
 // Required for ObjectCameraInfo
 extern struct XYZCoordinates {
@@ -51,6 +53,13 @@ extern struct ObjectCameraInfo
 	bool isCameraFixed;
 	XYZCoordinates rotationRadius;
 };
+
+extern struct LegoCharactersPosition {
+	GLfloat x = -10.0f;
+	GLfloat y = 8.5f;
+	GLfloat z = -10.0f;
+};
+extern LegoCharactersPosition legoCharactersPosition;
 
 extern ObjectCameraInfo currentObject;
 extern ObjectCameraInfo arrayOfObjectInfo[numberOfObjects];

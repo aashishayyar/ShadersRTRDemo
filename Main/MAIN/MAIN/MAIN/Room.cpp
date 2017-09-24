@@ -3,10 +3,8 @@
 #include "Matrix.h"
 #include "Clock.h"
 
-void MainRoom(void) 
-{
+void MainRoom(void) {
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z, centerLookAt.x, centerLookAt.y, centerLookAt.z, 0.0f, 1.0f, 0.0f);
-
 	drawRoom();
 	drawClock();
 	//	drawMatrixDoor();
@@ -94,32 +92,74 @@ void fillCameraObjectInfo() {
 	//currentObject.startAngle = 0.0f;
 	//currentObject.endAngle = 90.0f;
 
+	int arrayIndex = 0;
+
+	arrayIndex = 0;
 	//ObjectCameraInfo for watchInfo;
 	centerLookAt.z = -50.0f;
-	arrayOfObjectInfo[0].centerOflookAt.x = watchPosition.x;
-	arrayOfObjectInfo[0].centerOflookAt.y = watchPosition.y;
-	arrayOfObjectInfo[0].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[0].speed = 0.01f;
-	arrayOfObjectInfo[0].endPosition = watchPosition.z + 10.0f;
-	arrayOfObjectInfo[0].isRotation = false;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
+	//Same object to focus on lego charaters
+	arrayIndex = 1;
+	centerLookAt.z = -50.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
+
+	arrayIndex = 2;
+	//ObjectCameraInfo for watchInfo;
+	centerLookAt.z = -50.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = watchPosition.y;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 0.5f;
+	arrayOfObjectInfo[arrayIndex].endPosition = watchPosition.z + 10.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
+
+	arrayIndex = 3;
 	//For Matrix Room
 	centerLookAt.z = -79.0f;
-	arrayOfObjectInfo[1].centerOflookAt.x = watchPosition.x;
-	arrayOfObjectInfo[1].centerOflookAt.y = watchPosition.y;
-	arrayOfObjectInfo[1].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[1].speed = 0.11f;
-	arrayOfObjectInfo[1].endPosition = matrixRoomPosition.z - 29;
-	arrayOfObjectInfo[1].isRotation = false;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = watchPosition.y;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].endPosition = matrixRoomPosition.z - 29;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
+	arrayIndex = 4; //Index check for Neo charater
+	//For Matrix Room to reset at center
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = -20.0f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].endPosition = -20.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	//centerLookAt.z = -50.0f;
-	arrayOfObjectInfo[2].centerOflookAt.x = 0.0f;
-	arrayOfObjectInfo[2].centerOflookAt.y = 10.0f;
-	arrayOfObjectInfo[2].centerOflookAt.z = -20.0f;
-	arrayOfObjectInfo[2].speed = 0.2f;
-	arrayOfObjectInfo[2].endPosition = -20.0f;
-	arrayOfObjectInfo[2].isRotation = false;
+	arrayIndex = 5;
+	//Same object to keep Neo rotating
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = -20.0f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].endPosition = -20.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
+
+	//Object to make camera set to original position within room
+	arrayIndex = 6;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 30.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	/*
 	centerLookAt.z = -50.0f;
@@ -153,7 +193,6 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[3].isRotation = false;
 	*/
 }
-
 
 void drawMatrixDoor() {
 	glPushMatrix();
@@ -266,8 +305,7 @@ void StoreWall() {
 }
 
 void RandomCharacter(int RandomNumber) {
-	for (int i = 0; i < 7; i++)
-	{
+	for (int i = 0; i < 7; i++) {
 		giSevenSgment[i] = 0;
 	}
 	switch (RandomNumber)
@@ -463,11 +501,13 @@ void drawRoom() {
 	glVertex3f(-roomDepth.xCor, 0.0f, -roomDepth.zCor);
 	glVertex3f(roomDepth.xCor, 0.0f, -roomDepth.zCor);
 
-	glColor3f(0.2f, 0.2f, 0.2f);
+	/*	glColor3f(0.2f, 0.2f, 0.2f);
 	glVertex3f(-roomDepth.xCor, 0.0f, -roomSize.zCor); //Right
 	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomSize.zCor);
 	glVertex3f(-roomSize.xCor, roomDepth.yCor, roomSize.zCor);
 	glVertex3f(-roomSize.xCor, 0.0f, roomSize.zCor);
+
+	*/
 
 	glColor3f(0.2f, 0.2f, 0.2f);
 	glVertex3f(roomDepth.xCor, 0.0f, -roomSize.zCor); //Left
@@ -476,13 +516,36 @@ void drawRoom() {
 	glVertex3f(roomSize.xCor, 0.0f, roomSize.zCor);
 
 	glEnd();
+	
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.2f, 0.2f, 0.2f);
+	//Right
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomSize.zCor);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor, 0.0f);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor / 2.0f, 0.0f);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor / 2.0f, -10.0f);
+	glVertex3f(-roomDepth.xCor, 0.0f, -10.0f);
+	glVertex3f(-roomDepth.xCor, 0.0f, -roomSize.zCor);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glVertex3f(-roomDepth.xCor, 0.0f, roomSize.zCor);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor, roomSize.zCor);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor, 0.0f);
+	glVertex3f(-roomDepth.xCor, 0.0f, 0.0f);
+	glEnd();
 
 	glPushMatrix();
-	glRotatef(100.0f, 0.0, 1.0f, 0.0f);
-	glTranslatef(doorPosition.x, doorPosition.y, doorPosition.z);
-	glScalef(1.0f, 0.75f, 1.0f);
+	glTranslatef(-roomDepth.xCor, 0.0f, -10.0f);
+	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 	drawDoor();
+	glPushMatrix();
+	glTranslatef(-10.0f, roomDepth.yCor / 2.0f + 1.0f, 0.01f);
+	drawDoorFrame();
 	glPopMatrix();
+
+	glPopMatrix();;
 
 	glPopMatrix();
 }

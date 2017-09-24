@@ -112,7 +112,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	case WM_CREATE:
 		fopen_s(&fp, "MyDebug.txt", "w");
 		SetTimer(hwnd, IDT_TIMER_SECOND, 1000, NULL);
-		SetTimer(hwnd, IDT_TIMER_MINUTE, 1000 * 11, NULL);
+		SetTimer(hwnd, IDT_TIMER_MINUTE, 1000 * 16, NULL);
 		break;
 	case WM_ACTIVATE:
 		if (HIWORD(wParam) == 0)
@@ -155,6 +155,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				currentObject = arrayOfObjectInfo[objectsIteration];
 				objectsIteration++;
 			}
+			break;
 		default:
 			break;
 		}
@@ -176,7 +177,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	}
 	return (DefWindowProc(hwnd, iMsg, wParam, lParam));
 }
-
 
 void toggleFullscreen(void) {
 	BOOL isWindowPlacement;
@@ -285,26 +285,29 @@ void initialize(void) {
 }
 
 void display(void) {
-
+	void legoCharaters();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
 	MainRoom();
-	 // Change if order in arrayObjectInfo gets change.
-		DrawNeo();
-		glPushMatrix();
-		glTranslatef(0.0f, 0.0f, -25.0f);
-		DrawLegoCharacters();
-		updateAllCharacters();
-		glPopMatrix();
-
+	DrawNeo();
+	legoCharaters();
 	SwapBuffers(ghdc);
 }
 
-void update(void)
-{
+void legoCharaters() {
+	if (objectsIteration == 1 || objectsIteration == 2) {
+		glPushMatrix();
+		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
+		DrawLegoCharacters();
+		updateAllCharacters();
+		glPopMatrix();
+	}
+}
+
+void update(void) {
 	moveCamera();
 	moveNeo();
 }

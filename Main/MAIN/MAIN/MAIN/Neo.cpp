@@ -3,7 +3,7 @@
 
 void moveNeo(void)
 {
-	if (objectsIteration == 3)
+	if (objectsIteration >= 5)
 	{
 		if ((gfTranslateNeoX >= -30.0f) && (gfNeoRotate_Y < 300.0f))
 		{
@@ -25,9 +25,9 @@ void moveNeo(void)
 
 void DrawNeo(void)
 {
-	if (objectsIteration == 3)
+	if (objectsIteration >= 5)
 	{
-		fprintf(fp, "HERE\n");
+		//fprintf(fp, "HERE\n");
 		glPushMatrix();
 		glTranslatef(INITIAL_NEO_TRANSLATE_X + gfTranslateNeoX, INITIAL_NEO_TRANSLATE_Y, INITIAL_NEO_TRANSLATE_Z + gfTranslateNeoZ);
 		//	glTranslatef(gfTranslateNeoX, INITIAL_NEO_TRANSLATE_Y, gfTranslateNeoZ);
@@ -111,7 +111,6 @@ void updateNormalWalk()
 		}
 	}
 }
-
 
 void DrawCylinder(float height)
 {
