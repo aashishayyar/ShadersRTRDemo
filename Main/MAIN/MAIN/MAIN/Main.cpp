@@ -149,7 +149,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case IDT_TIMER_SECOND:
-			//MessageBox(hwnd, TEXT("1 second"), TEXT("Second"), MB_OK);
+			if (giDoorMovementTimer < 6) {
+				giDoorMovementTimer++;
+			}
 			updateSecondAngle();
 			break;
 		case IDT_TIMER_MINUTE:
@@ -170,6 +172,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		uninitialize();
 		break;
 	case WM_DESTROY:
+		KillTimer(hwnd, IDT_TIMER_SECOND);
+		KillTimer(hwnd, IDT_TIMER_MINUTE);
 		fclose(fp);
 		uninitialize();
 		PostQuitMessage(0);
@@ -317,6 +321,7 @@ void legoCharaters() {
 void update(void) {
 	moveCamera();
 	moveNeo();
+	updateDoorAngle();
 }
 
 void resize(int width, int height) {

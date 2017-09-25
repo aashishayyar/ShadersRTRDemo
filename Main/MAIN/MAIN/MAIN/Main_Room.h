@@ -68,3 +68,6 @@ extern ObjectCameraInfo arrayOfObjectInfo[numberOfObjects];
 void updateSecondAngle(void);
 // Used for LookAt 
 void moveCamera(void);
+
+int giDoorMovementTimer = 0;
+void updateDoorAngle(void);

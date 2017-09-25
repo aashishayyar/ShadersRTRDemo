@@ -28,7 +28,7 @@ void drawDoor(void) {
 
 	glPushMatrix();
 
-	glRotatef(80.0f, 0.0f, 1.0f, 0.0f);
+	glRotatef(gfDoorRotationAngle, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_QUADS);
 	glColor3f((GLfloat)gfDoorMainColor[0], (GLfloat)gfDoorMainColor[1], (GLfloat)gfDoorMainColor[2]);
@@ -274,14 +274,14 @@ void drawDoorFrame(void) {
 	glColor3f((GLfloat) 128.0f / (GLfloat) 255.0f, (GLfloat)94.0f / (GLfloat) 255.0f, (GLfloat)59.0f / (GLfloat) 255.0f);
 	glBegin(GL_QUADS);
 	glVertex3f(-0.8f, 0.0f, 0.0f);
-	glVertex3f(-0.8f, -22.0f, 0.0f);
-	glVertex3f(-0.1f, -22.0f, 0.0f);
+	glVertex3f(-0.8f, -21.0f, 0.0f);
+	glVertex3f(-0.1f, -21.0f, 0.0f);
 	glVertex3f(-0.1f, -0.8f, 0.0f);
 
 
 	glVertex3f(10.8f, 0.0f, 0.0f);
-	glVertex3f(10.8f, -22.0f, 0.0f);
-	glVertex3f(10.1f, -22.0f, 0.0f);
+	glVertex3f(10.8f, -21.0f, 0.0f);
+	glVertex3f(10.1f, -21.0f, 0.0f);
 	glVertex3f(10.1f, -0.8f, 0.0f);
 
 
@@ -302,16 +302,16 @@ void drawDoorFrame(void) {
 	glVertex3f(10.1f, -0.8f, 0.0f);
 
 	glVertex3f(-0.1f, -0.8f, 0.0f);
-	glVertex3f(-0.1f, -22.0f, 0.0f);
+	glVertex3f(-0.1f, -21.0f, 0.0f);
 	glVertex3f(10.1f, -0.8f, 0.0f);
-	glVertex3f(10.1f, -22.0f, 0.0f);
+	glVertex3f(10.1f, -21.0f, 0.0f);
 	glEnd();
 }
 
 void updateDoorAngle(void) {
 
-	if (gbDoorMovement) {
-		gfDoorRotationAngle = gfDoorRotationAngle + 0.005f;
+	if (gbDoorMovement && giDoorMovementTimer == 6) {
+		gfDoorRotationAngle = gfDoorRotationAngle + 0.01f;
 		if (gfDoorRotationAngle >= 80.0f) {
 			//gfDoorRotationAngle = 0.0f;
 			gbDoorMovement = false;

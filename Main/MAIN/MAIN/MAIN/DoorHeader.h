@@ -39,3 +39,4 @@ float gfDoorBackFaceLowerDesignHeight = 5.0f;
 
 float gfDoorThickness = 0.5f;
 float gfDoorDesignThickness = 0.05f;
+extern int giDoorMovementTimer;
