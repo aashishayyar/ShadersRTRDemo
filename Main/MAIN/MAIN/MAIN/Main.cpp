@@ -302,8 +302,8 @@ void legoCharaters() {
 	if (objectsIteration == 1 || objectsIteration == 2) {
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
-		drawLogo();
 		DrawLegoCharacters();
+		drawLogo();
 		updateAllCharacters();
 		glPopMatrix();
 	}
@@ -343,5 +343,4 @@ void uninitialize(void) {
 
 	DestroyWindow(ghwnd);
 	ghwnd = NULL;
-
 }

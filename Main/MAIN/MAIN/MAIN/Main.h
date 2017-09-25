@@ -13,5 +13,5 @@ extern void DrawLegoCharacters();
 
 void MainRoom(void);
 void DrawNeo(void);
-
+void drawLogo(void);
 void moveNeo(void);
