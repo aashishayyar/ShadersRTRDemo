@@ -38,6 +38,7 @@ float gfTranslateX = -15.0f;
 float gfTranslateY = 0.0f;
 float gfTranslateZ[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
+bool gbStopLegoCharacters = false;
 float gbAngle = 0.0f;
 
 float lArm[4] = { 30, 70, 30, 70 };

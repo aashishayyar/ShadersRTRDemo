@@ -1,34 +1,76 @@
-﻿  Main.cpp
+﻿  Util.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(62): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(74): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(80): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(92): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(238): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\util.cpp(358): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Main.cpp
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(15): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(23): warning C4091: 'extern ': ignored on left of 'RoomSize' when no variable is declared
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(30): warning C4091: 'extern ': ignored on left of 'CenterOfLookAt' when no variable is declared
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(41): warning C4091: 'extern ': ignored on left of 'XYZCoordinates' when no variable is declared
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(55): warning C4091: 'extern ': ignored on left of 'ObjectCameraInfo' when no variable is declared
 i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\main_room.h(61): warning C4091: 'extern ': ignored on left of 'LegoCharactersPosition' when no variable is declared
-  GodfatherLogoAPI.cpp
+  LegoWalk.cpp
   Generating Code...
   Compiling...
-  Room.cpp
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\clock.h(65): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(61): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(62): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(65): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(66): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(225): warning C4068: unknown pragma
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(492): warning C4068: unknown pragma
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(501): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(502): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(503): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(504): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(505): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(506): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(507): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(508): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(509): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(569): warning C4068: unknown pragma
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\room.cpp(621): warning C4101: 'str': unreferenced local variable
-  Neo.cpp
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\neo.cpp(212): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  SantinoCharacter.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(36): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(50): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(54): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(133): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(133): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(141): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(141): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(149): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(157): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\santinocharacter.cpp(157): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  MichaelCorleone.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(34): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(62): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(148): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(187): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\michaelcorleone.cpp(203): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  MachineGun.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\machinegun.cpp(32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\machinegun.cpp(52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\machinegun.cpp(53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  LucaBracy.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(132): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(133): warning C4244: 'initializing': conversion from 'float' to 'GLint', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(140): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(257): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(310): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(318): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(328): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\lucabracy.cpp(336): warning C4305: 'argument': truncation from 'double' to 'float'
+  GodFathercpp.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(34): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(40): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(92): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(132): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(133): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(175): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(237): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(258): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(265): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(322): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(332): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(344): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(346): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\main\main\main\main\godfathercpp.cpp(347): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   Generating Code...
   MAIN.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Main\MAIN\MAIN\Debug\MAIN.exe
   MAIN.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Main\MAIN\MAIN\Debug\MAIN.pdb (Full PDB)

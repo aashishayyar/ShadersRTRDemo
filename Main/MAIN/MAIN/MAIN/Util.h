@@ -28,6 +28,7 @@ extern float gfTranslateX;
 extern float gfTranslateY;
 extern float gfTranslateZ[4];
 
+extern bool gbStopLegoCharacters;
 extern float gbAngle;
 
 extern float lArm[4];
