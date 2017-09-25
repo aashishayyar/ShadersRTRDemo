@@ -12,6 +12,7 @@
 #include "MachineGun.h"
 #include "Pistol.h"
 #include "Rifle.h"
+#include "ShortGun.h"
 
 float gfFaceHeight = 1.5f;
 float gfFaceWidth = 0.8f;
@@ -279,6 +280,7 @@ void DrawHand(int direction, int currentStickMan)
 		switch (currentStickMan)//currentLegoCharacter
 		{
 		case 0: //Lucca Brassi
+			drawShortGun();
 			break;
 
 		case 1: //Santino
