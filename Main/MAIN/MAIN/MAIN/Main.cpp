@@ -6,6 +6,7 @@
 FILE *fp;
 
 extern float gfTranslateX;
+extern bool gbStopLegoCharacters;
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600
@@ -304,7 +305,10 @@ void legoCharaters() {
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
 		drawLogo();
 		DrawLegoCharacters();
-		updateAllCharacters();
+		if (gbStopLegoCharacters)
+		{
+			updateAllCharacters();
+		}
 		glPopMatrix();
 	}
 }

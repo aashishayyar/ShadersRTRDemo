@@ -63,3 +63,11 @@ void updateAllCharacters()
 		updateNormalWalk(i);
 	}
 }
+
+void updateHandAction(int currentLegoCharacter)
+{
+	if (lArm[currentLegoCharacter] < 45)
+	{
+		lArm[currentLegoCharacter] += 2*gfSpeed;
+	}
+}
