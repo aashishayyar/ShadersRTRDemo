@@ -30,6 +30,11 @@ int giNumberOfCharOnY = 100;
 int giTempNumberOfCharacterOnY;
 int giTempNumberOfCharacterOnX;
 
+float giTempHeightOfLine;
+float giTempWidthOfLine;
+float gfTempCommonXDistance;
+float gfTempCommonYDistance;
+
 float gfWidthOfRoom;
 float gfHeightOfRoom;
 

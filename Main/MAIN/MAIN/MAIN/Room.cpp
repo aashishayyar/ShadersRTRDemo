@@ -8,7 +8,7 @@ void MainRoom(void) {
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z, centerLookAt.x, centerLookAt.y, centerLookAt.z, 0.0f, 1.0f, 0.0f);
 	drawRoom();
 	drawClock();
-	if (objectsIteration >= 2) { // Change if order in arrayObjectInfo gets change.
+	if (objectsIteration >= 2 && objectsIteration <= 6) { // Change if order in arrayObjectInfo gets change.
 		drawMatrixRoom();
 	}
 	if (objectsIteration == 7) {
@@ -160,7 +160,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.4f;
 	arrayOfObjectInfo[arrayIndex].endPosition = 30.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
@@ -219,6 +219,29 @@ void drawMatrixDoor() {
 		glVertex3f(matrixDoorPosition.x, 0.0f, matrixDoorPosition.z);
 		glVertex3f(matrixDoorPosition.x + 10.0f, 0.0f, matrixDoorPosition.z);
 	glEnd();
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(matrixDoorPosition.x, 0.5f, matrixDoorPosition.z + 1.0f);
+		giTempNumberOfCharacterOnX = giNumberOfCharOnX;
+		giTempNumberOfCharacterOnY = giNumberOfCharOnY;
+		giTempWidthOfLine = gfWidthOfLine;
+		giTempHeightOfLine = gfHeightOfLine;
+		giNumberOfCharOnX = 7.0f;
+		giNumberOfCharOnY = 8.0f;
+		gfWidthOfLine = 0.3f;
+		gfHeightOfLine = 0.3f;
+		gfTempCommonXDistance = gfCommonXDistance;
+		gfTempCommonYDistance = gfCommonYDistance;
+		gfCommonXDistance = (gfWidthOfLine * 5);
+		gfCommonYDistance = (gfHeightOfLine * 5);
+		DrawWall();
+		giNumberOfCharOnX = giTempNumberOfCharacterOnX;
+		giNumberOfCharOnY = giTempNumberOfCharacterOnY;
+		gfWidthOfLine = giTempWidthOfLine;
+		gfHeightOfLine = giTempHeightOfLine;
+		gfCommonXDistance = gfTempCommonXDistance;
+		gfCommonYDistance = gfTempCommonYDistance;
 	glPopMatrix();
 }
 

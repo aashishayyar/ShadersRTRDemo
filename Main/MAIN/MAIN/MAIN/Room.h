@@ -83,7 +83,7 @@ struct MatrixWallPosition {
 struct LegoCharactersPosition {
 	GLfloat x = -10.0f;
 	GLfloat y = 6.5f;
-	GLfloat z = -5.0f;
+	GLfloat z = -3.0f;
 };
 LegoCharactersPosition legoCharactersPosition;
 
