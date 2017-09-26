@@ -19,22 +19,20 @@ extern GLfloat translate_f_y = -0.4f;
 extern GLfloat change_f = 0.001f;
 
 //variables for fade in/out
-extern GLfloat r_front = 1.0f;
-extern GLfloat g_front = 1.0f;
-extern GLfloat b_front = 1.0f;
+extern GLfloat r_front = 0.5f;
+extern GLfloat g_front = 0.5f;
+extern GLfloat b_front = 0.5f;
 
-extern GLfloat r_back = 1.0f;
-extern GLfloat g_back = 1.0f;
-extern GLfloat b_back = 1.0f;
+extern GLfloat r_back = 0.5f;
+extern GLfloat g_back = 0.5f;
+extern GLfloat b_back = 0.5f;
 
-int rFlag = 1;
-
-void drawLogo(void)
+void drawLogo(GLfloat change)
 {
-	logoAnimation();
+	logoAnimation(change);
 	glPushMatrix();
 	
-		glTranslatef(8.0f,8.0f,-10.0f);
+		glTranslatef(-1.0f,10.0f,-10.0f);
 		glPushMatrix();
 			//glTranslatef(0.0f, 0.0f, -20.0f);
 
@@ -537,59 +535,59 @@ void drawLogo(void)
 	glPopMatrix();
 }
 
-void logoAnimation(void)
+void logoAnimation(GLfloat change)
 {
 
 	translate_r_y = translate_r_y + change_r;
 	if (translate_r_y < -0.5f)
 	{
-		change_r = 0.001f;
+		change_r = change;
 	}
 	else if (translate_r_y > 0.2f)
 	{
-		change_r = -0.001f;
+		change_r = -change;
 	}
 
 	translate_e_y = translate_e_y + change_e;
 	if(translate_e_y < -4.7f)
 	{
-		change_e = 0.001f;
+		change_e = change;
 	}
 	else if(translate_e_y > -3.8f)
 	{
-		change_e = -0.001f;
+		change_e = -change;
 	}
 
 
 	translate_h_y = translate_h_y + change_h;
 	if(translate_h_y < -0.6f)
 	{
-		change_h = 0.001f;
+		change_h = change;
 	}
 	else if(translate_h_y > 0.5f)
 	{
-		change_h = -0.001f;
+		change_h = -change;
 	}
 
 
 	translate_t_y = translate_t_y + change_t;
 	if(translate_t_y < -0.2f)
 	{
-		change_t = 0.001f;
+		change_t = change;
 	}
 	else if(translate_t_y > 0.5f)
 	{
-		change_t = -0.001f;
+		change_t = -change;
 	}
 
 	translate_f_y = translate_f_y + change_f;
 	if(translate_f_y < -0.6f)
 	{
-		change_f = 0.001f;
+		change_f = change;
 	}
 	else if(translate_f_y > 0.3f)
 	{
-		change_f = -0.001f;
+		change_f = -change;
 	}
 
 }
@@ -598,9 +596,9 @@ void logoFadeInEffect(void)
 {
 	if(r_front <= 1.0f && g_front <= 1.0f && b_front <= 1.0f )
 	{
-		r_front += 0.001f;
-		g_front += 0.001f;
-		b_front += 0.001f;
+		r_front += 0.0001f;
+		g_front += 0.0001f;
+		b_front += 0.0001f;
 	}
 }
 

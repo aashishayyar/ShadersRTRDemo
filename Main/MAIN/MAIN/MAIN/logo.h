@@ -1,7 +1,7 @@
 #include"Main.h"
 
 //methods
-void drawLogo(void);
-void logoAnimation(void);
+void drawLogo(GLfloat);
+void logoAnimation(GLfloat);
 void logoFadeInEffect(void);
 void logoFadeOutEffect(void);
