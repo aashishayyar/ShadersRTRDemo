@@ -306,7 +306,7 @@ void display(void) {
 
 void legoCharaters() {
 	drawLogo(change);
-	if (objectsIteration == 3 || objectsIteration == 4) {
+	if (objectsIteration == 2 || objectsIteration == 3) {
 		change = 0.09f;
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);

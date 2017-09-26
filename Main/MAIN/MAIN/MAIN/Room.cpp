@@ -8,11 +8,8 @@ void MainRoom(void) {
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z, centerLookAt.x, centerLookAt.y, centerLookAt.z, 0.0f, 1.0f, 0.0f);
 	drawRoom();
 	drawClock();
-	if (objectsIteration >= 3 && objectsIteration <= 7) { // Change if order in arrayObjectInfo gets change.
+	if (objectsIteration >= 3 && objectsIteration <= 8) { // Change if order in arrayObjectInfo gets change.
 		drawMatrixRoom();
-	}
-	if (objectsIteration == 7) {
-		drawMatrixDoor();
 	}
 }
 
