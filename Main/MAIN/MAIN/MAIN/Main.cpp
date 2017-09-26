@@ -2,6 +2,7 @@
 #include "logo.h"
 #include "Main_Room.h"
 #include "LegoWalk.h"
+#include "Bullet.h"
 #include <stdio.h>
 FILE *fp;
 
@@ -134,6 +135,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				gbEscapeKeyPressed = true;
 			}
 			break;
+		case 0x41://A
+			gbStopLegoCharacters = true;
+			break;
 		case 0x46://F
 			toggleFullscreen();
 			break;
@@ -155,10 +159,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			updateSecondAngle();
 			break;
 		case IDT_TIMER_MINUTE:
-			if (objectsIteration < numberOfObjects) {
-				currentObject = arrayOfObjectInfo[objectsIteration];
-				objectsIteration++;
-			}
+			//if (objectsIteration < numberOfObjects) {
+			//	currentObject = arrayOfObjectInfo[objectsIteration];
+			//	objectsIteration++;
+			//}
 			break;
 		default:
 			break;
@@ -304,16 +308,25 @@ void display(void) {
 }
 
 void legoCharaters() {
-	if (objectsIteration == 1 || objectsIteration == 2) {
+	//if (objectsIteration == 1 || objectsIteration == 2) 
+	{
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
 		DrawLegoCharacters();
 		drawLogo();
-		updateAllCharacters();
-		if (gbStopLegoCharacters)
+		if (gbStopLegoCharacters == false)
 		{
 			updateAllCharacters();
 		}
+		else
+		{
+			updateHandAction(3);
+			glPushMatrix();
+				glRotatef(-90, 0.0f, 1.0f, 0.0f);
+				drawBullet(gfTranslateX, 0.0f, 0.0f, 1.0f);
+			glPopMatrix();
+		}
+
 		glPopMatrix();
 	}
 }

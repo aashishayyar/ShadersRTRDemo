@@ -388,8 +388,6 @@ void DrawLegoCharacters()
 
 	for (i = 0; i < 4; i++)
 	{
-		updateNormalWalk(i);
-
 		glPushMatrix();
 		glTranslatef(translateX, 0.0f, gfTranslateZ[i]);
 		glRotatef(240.0f, 0.0f, 1.0f, 0.0f);

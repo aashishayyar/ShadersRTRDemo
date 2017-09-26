@@ -42,3 +42,4 @@ extern int giRLegDirection[4];
 
 void updateNormalWalk(int currentStickMan);
 void updateAllCharacters();
+void updateHandAction(int currentLegoCharacter);
