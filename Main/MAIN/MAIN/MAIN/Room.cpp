@@ -548,14 +548,34 @@ void drawRoom() {
 	}
 
 	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.4f, 0.4f, 0.4f);
+	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomDepth.zCor);
+	glVertex3f(-roomDepth.xCor, 0.0f, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor - 10.5f, 0.0f, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor - 10.5f, (roomDepth.yCor / 2.0f) - 5.0f, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor, (roomDepth.yCor / 2.0f) - 5.0f, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor, roomDepth.yCor, -roomDepth.zCor);
+	glEnd();
+
+
 	glBegin(GL_QUADS);
+
+	glColor3f(0.4f, 0.4f, 0.4f);
+	glVertex3f(roomDepth.xCor, roomDepth.yCor, -roomDepth.zCor); //Back
+	glVertex3f(roomDepth.xCor - 0.5f, roomDepth.yCor, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor - 0.5f, 0.0f, -roomDepth.zCor);
+	glVertex3f(roomDepth.xCor, 0.0f, -roomDepth.zCor);
+
+	/*
 	glColor3f(0.4f, 0.4f, 0.4f);
 	glVertex3f(roomDepth.xCor, roomDepth.yCor, -roomDepth.zCor); //Back
 	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomDepth.zCor);
 	glVertex3f(-roomDepth.xCor, 0.0f, -roomDepth.zCor);
 	glVertex3f(roomDepth.xCor, 0.0f, -roomDepth.zCor);
 
-	/*	glColor3f(0.2f, 0.2f, 0.2f);
+		glColor3f(0.2f, 0.2f, 0.2f);
 	glVertex3f(-roomDepth.xCor, 0.0f, -roomSize.zCor); //Right
 	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomSize.zCor);
 	glVertex3f(-roomSize.xCor, roomDepth.yCor, roomSize.zCor);
@@ -570,6 +590,19 @@ void drawRoom() {
 	glVertex3f(roomSize.xCor, 0.0f, roomSize.zCor);
 
 	glEnd();
+
+	glPushMatrix();
+	glTranslatef(roomDepth.xCor - 0.5f, 0.0f, -roomSize.zCor);
+	glScalef(1.0f, 0.75f, 1.0f);
+	glPushMatrix();
+	glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
+	drawDoor();
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(-10.0f, 21.0f, 0.001f);
+	drawDoorFrame();
+	glPopMatrix();
+	glPopMatrix();
 	
 	glBegin(GL_POLYGON);
 
@@ -577,8 +610,8 @@ void drawRoom() {
 	//Right
 	glVertex3f(-roomDepth.xCor, roomDepth.yCor, -roomSize.zCor);
 	glVertex3f(-roomDepth.xCor, roomDepth.yCor, 0.0f);
-	glVertex3f(-roomDepth.xCor, roomDepth.yCor / 2.0f, 0.0f);
-	glVertex3f(-roomDepth.xCor, roomDepth.yCor / 2.0f, -10.0f);
+	glVertex3f(-roomDepth.xCor, (roomDepth.yCor / 2.0f) - 5.0f, 0.0f);
+	glVertex3f(-roomDepth.xCor, (roomDepth.yCor / 2.0f) - 5.0f, -10.0f);
 	glVertex3f(-roomDepth.xCor, 0.0f, -10.0f);
 	glVertex3f(-roomDepth.xCor, 0.0f, -roomSize.zCor);
 	glEnd();
@@ -593,7 +626,11 @@ void drawRoom() {
 	glPushMatrix();
 	glTranslatef(-roomDepth.xCor, 0.0f, -10.0f);
 	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+	glScalef(1.0f, 0.75f, 1.0f);
+	glPushMatrix();
+	glRotatef(gfDoorRotationAngle, 0.0f, 1.0f, 0.0f);
 	drawDoor();
+	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(-10.0f, roomDepth.yCor / 2.0f + 1.0f, 0.01f);
 	drawDoorFrame();

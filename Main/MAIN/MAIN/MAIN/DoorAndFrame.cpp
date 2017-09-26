@@ -24,11 +24,9 @@ void drawWall(void) {
 
 }
 
-void drawDoor(void) {
+void drawDoor(void) {	
 
-	glPushMatrix();
-
-	glRotatef(gfDoorRotationAngle, 0.0f, 1.0f, 0.0f);
+	//glRotatef(gfDoorRotationAngle, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_QUADS);
 	glColor3f((GLfloat)gfDoorMainColor[0], (GLfloat)gfDoorMainColor[1], (GLfloat)gfDoorMainColor[2]);
@@ -45,7 +43,7 @@ void drawDoor(void) {
 	glVertex3f(gfDoorWidth, 0.0f, -gfDoorThickness);
 
 	//Left face
-	glVertex3f(0.0f, 0.0f, gfDoorThickness);
+	glVertex3f(0.0f, 0.0f, -gfDoorThickness);
 	glVertex3f(0.0f, 0.0f, 0.0f);
 	glVertex3f(0.0f, gfDoorLength, 0.0f);
 	glVertex3f(0.0f, gfDoorLength, -gfDoorThickness);
@@ -232,7 +230,6 @@ void drawDoor(void) {
 
 
 	glEnd();
-	glPopMatrix();
 
 
 }

@@ -103,4 +103,6 @@ struct DoorPosition {
 };
 struct DoorPosition doorPosition;
 
+extern float gfDoorRotationAngle;
+
 
