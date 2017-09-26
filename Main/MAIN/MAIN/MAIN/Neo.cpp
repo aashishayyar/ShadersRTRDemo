@@ -3,7 +3,7 @@
 
 void moveNeo(void)
 {
-	if (objectsIteration >= 5)
+	if (objectsIteration >= 6)
 	{
 		if ((gfTranslateNeoX >= -30.0f) && (gfNeoRotate_Y < 300.0f))
 		{
@@ -25,7 +25,7 @@ void moveNeo(void)
 
 void DrawNeo(void)
 {
-	if (objectsIteration >= 5)
+	if (objectsIteration >= 6)
 	{
 		//fprintf(fp, "HERE\n");
 		glPushMatrix();
