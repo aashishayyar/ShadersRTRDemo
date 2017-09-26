@@ -112,6 +112,42 @@ void updateNormalWalk()
 	}
 }
 
+void dodgeBullet()
+{
+	int i = 0;
+
+	if (body < 80 && giNeoDirection == 1)
+	{
+		gfNeoSpeed = 0.03f;
+		gfNeoTheta += gfNeoSpeed / 4;
+	}
+	else
+	{
+		gfNeoSpeed = 0.07f;
+		giNeoDirection = -1;
+		gfNeoTheta -= gfNeoSpeed / 4;
+	}
+	if (body < 0 && giNeoDirection == -1)
+	{
+		;
+	}
+	else
+	{
+		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180);
+		gfTranslateNeoY = -(2 * (1.25 + 0.75) - 2 * (1.25 + 0.75)*cos(3.14*body / 180) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)));
+
+		body = body + giNeoDirection * gfNeoSpeed;
+		lHip = 10 + body - gfNeoTheta;
+		rHip = -10 + body - gfNeoTheta;
+		lKnee = -body - gfNeoTheta;
+		rKnee = -body - gfNeoTheta;
+		lAnkle = lAnkle + giNeoDirection *gfNeoSpeed / 2;
+		rAnkle = rAnkle + giNeoDirection *gfNeoSpeed / 2;
+		lNeck = lNeck + giNeoDirection *1.7*gfNeoSpeed;
+		rNeck = rNeck - giNeoDirection *gfNeoSpeed / 5;
+	}
+}
+
 void DrawCylinder(float height)
 {
 	quadric = gluNewQuadric();

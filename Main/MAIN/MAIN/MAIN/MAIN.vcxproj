@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="DoorAndFrame.cpp" />
     <ClCompile Include="GodFathercpp.cpp" />
     <ClCompile Include="GodfatherLogoAPI.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="DoorHeader.h" />
     <ClInclude Include="GodFather.h" />

@@ -18,6 +18,9 @@ GLfloat gfNeoRotate_Y = 180.0f;
 float gbStickWidth = 1.0f;
 float gbStickHeight = 1.0f;
 
+int giNeoDirection = 1;
+
+float gfNeoTheta = 0.0f;
 float gfNeoSpeed	   = 1.0f;
 float gfTranslateNeoX = 0.0f;
 float gfTranslateNeoY = 0.0f;

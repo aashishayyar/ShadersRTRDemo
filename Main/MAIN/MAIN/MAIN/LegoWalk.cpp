@@ -66,7 +66,7 @@ void updateAllCharacters()
 
 void updateHandAction(int currentLegoCharacter)
 {
-	if (lArm[currentLegoCharacter] < 45)
+	if (lArm[currentLegoCharacter] < 90)
 	{
 		lArm[currentLegoCharacter] += 2*gfSpeed;
 	}
