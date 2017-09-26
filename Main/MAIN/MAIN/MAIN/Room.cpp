@@ -8,7 +8,7 @@ void MainRoom(void) {
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z, centerLookAt.x, centerLookAt.y, centerLookAt.z, 0.0f, 1.0f, 0.0f);
 	drawRoom();
 	drawClock();
-	if (objectsIteration >= 2 && objectsIteration <= 6) { // Change if order in arrayObjectInfo gets change.
+	if (objectsIteration >= 3 && objectsIteration <= 7) { // Change if order in arrayObjectInfo gets change.
 		drawMatrixRoom();
 	}
 	if (objectsIteration == 7) {
@@ -85,11 +85,11 @@ void resetLookAtCenter() {
 
 void fillCameraObjectInfo() {
 	//Initialising currentObject to room coodinates
-	currentObject.centerOflookAt.x = centerLookAt.x;
-	currentObject.centerOflookAt.y = centerLookAt.y;
-	currentObject.centerOflookAt.z = centerLookAt.z;
-	currentObject.endPosition = cameraPosition.z;
-	currentObject.speed = 0.001f;
+	currentObject.centerOflookAt.x = watchPosition.x;
+	currentObject.centerOflookAt.y = watchPosition.y;
+	currentObject.centerOflookAt.z = watchPosition.z;
+	currentObject.endPosition = 40.0f;
+	currentObject.speed = 0.003f;
 	currentObject.isRotation = false;
 	//currentObject.axisOfRotation = 2;
 	//currentObject.startAngle = 0.0f;
@@ -103,8 +103,8 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
-	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.005f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 40.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	//Same object to focus on lego charaters
@@ -118,6 +118,15 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	arrayIndex = 2;
+	centerLookAt.z = -50.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
+
+	arrayIndex = 3;
 	//ObjectCameraInfo for watchInfo;
 	centerLookAt.z = -50.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
@@ -127,7 +136,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].endPosition = watchPosition.z + 10.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 3;
+	arrayIndex = 4;
 	//For Matrix Room
 	centerLookAt.z = -79.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
@@ -137,16 +146,16 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].endPosition = matrixRoomPosition.z - 29;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 4; //Index check for Neo charater
+	arrayIndex = 5; //Index check for Neo charater
 	//For Matrix Room to reset at center
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = -20.0f;
-	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.07f;
 	arrayOfObjectInfo[arrayIndex].endPosition = -20.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 5;
+	arrayIndex = 6;
 	//Same object to keep Neo rotating
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
@@ -156,7 +165,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	//Object to make camera set to original position within room
-	arrayIndex = 6;
+	arrayIndex = 7;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
@@ -516,7 +525,7 @@ void DrawWall() {
 void drawRoom() {
 	glPushMatrix();
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	int size = 27;
+	int size = 30;
 	int count = 1;
 	glLineWidth(0.5f);
 	glBegin(GL_LINES);

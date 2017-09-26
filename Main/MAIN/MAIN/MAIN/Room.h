@@ -4,7 +4,7 @@ void drawRoom(void);
 void drawDoor(void);
 void drawDoorFrame(void);
 
-#define numberOfObjects 7
+#define numberOfObjects 8
 
 GLfloat windowWidth;
 GLfloat windowHeight;
@@ -30,14 +30,14 @@ struct RoomDepth {
 //Struct required for gluLookAt
 struct CameraPosition {
 	GLfloat x = 0.0f;
-	GLfloat y = 10.0f;
-	GLfloat z = 39.0f;
+	GLfloat y = 25.0f;
+	GLfloat z = -6.0f;
 }cameraPosition;
 
 struct CenterOfLookAt {
 	GLfloat x = 0.0f;
-	GLfloat y = roomSize.yCor / 3.0f;
-	GLfloat z = 0.0f;
+	GLfloat y = 25.0f;
+	GLfloat z = -10.0f;
 }centerLookAt;
 
 struct XYZCoordinates {

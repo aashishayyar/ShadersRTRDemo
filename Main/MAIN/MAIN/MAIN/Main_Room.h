@@ -1,6 +1,6 @@
 #pragma once
 
-#define numberOfObjects 7
+#define numberOfObjects 8
 
 /* From Clock Header file */
 #define IDT_TIMER_SECOND 1
@@ -25,8 +25,8 @@ extern struct RoomSize roomSize;
 
 extern struct CenterOfLookAt {
 	GLfloat x = 0.0f;
-	GLfloat y = roomSize.yCor / 3.0f;
-	GLfloat z = 0.0f;
+	GLfloat y = 25.0f;
+	GLfloat z = -16.0f;
 };
 extern struct CenterOfLookAt centerLookAt;
 
