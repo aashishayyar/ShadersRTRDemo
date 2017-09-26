@@ -3,6 +3,8 @@
 #include "Main_Room.h"
 #include "LegoWalk.h"
 #include <stdio.h>
+#include "Bullet.h"
+
 FILE *fp;
 
 extern float gfTranslateX;
@@ -134,6 +136,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			{
 				gbEscapeKeyPressed = true;
 			}
+			break;
+		case 0x41://A
+			gbStopLegoCharacters = true;
 			break;
 		case 0x46://F
 			toggleFullscreen();
@@ -303,7 +308,7 @@ void display(void) {
 	legoCharaters();
 	SwapBuffers(ghdc);
 }
-
+/*
 void legoCharaters() {
 	drawLogo(change);
 	if (objectsIteration == 2 || objectsIteration == 3) {
@@ -316,6 +321,30 @@ void legoCharaters() {
 		{
 			updateAllCharacters();
 		}
+		glPopMatrix();
+	}
+}
+*/
+
+void legoCharaters() {
+	drawLogo(change);
+	if (objectsIteration == 2 || objectsIteration == 3) 
+		{
+		glPushMatrix();
+		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
+		DrawLegoCharacters();
+		if (gbStopLegoCharacters == false)
+		{
+			updateAllCharacters();
+		}
+		else
+		{
+			updateHandAction(3);
+			glPushMatrix();
+			DrawSingleBulletWithRipples();
+			glPopMatrix();
+		}
+
 		glPopMatrix();
 	}
 }

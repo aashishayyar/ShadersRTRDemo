@@ -1,6 +1,6 @@
 #pragma once
 
-#define numberOfObjects 8
+#define numberOfObjects 9
 
 /* From Clock Header file */
 #define IDT_TIMER_SECOND 1

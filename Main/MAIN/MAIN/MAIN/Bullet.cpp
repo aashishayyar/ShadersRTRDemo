@@ -27,8 +27,23 @@ Priyanka Bhasme
 #include<gl\GLU.h>
 #include<math.h>
 #include"Bullet.h"
-
+#define PI 3.145
 // Pragma
+
+int giCurrentRingCount = 0;
+
+float gfXranslateCounter = -3.2;
+GLfloat xPara;
+GLfloat yPara;
+GLint circle_points = 1000000;
+//GLfloat angle;
+static GLfloat incenter = 0.0f;
+float gfBulletTranslateX = 0.0f;
+float gfRingTranslateX[100] = { 0.0f };
+float gfMaximumX = 1.0f;
+
+float ringRadius[100] = {0.5f};
+
 static float rotateSingleBullet = 0;
 static int extra1 = 0;
 static int extra2 = 0;
@@ -49,6 +64,19 @@ typedef struct bullCords {
 	float zCord;
 	float bulletScale;
 } bulletData;
+
+struct Point
+{
+	GLfloat xAxis;
+	GLfloat yAxis;
+};
+
+struct Color
+{
+	GLfloat red;
+	GLfloat green;
+	GLfloat blue;
+};
 
 // bullets spaced for character 'S'
 bulletData positionS[18] = {
@@ -312,7 +340,76 @@ void drawCharacter(byte bChar) {
 	}
 }
 
+void DrawBullet(float xCord)
+{
+	glPushMatrix(); // save initial position
+		glTranslatef(xCord, 0.0f, 0.0f);
+		glRotatef(-90, 0.0, 1.0, 0.0);
+		glPushMatrix(); // save position of first object which will rotate around the initial point
+			glColor3f(160.0 / 255.0, 82.0 / 255.0, 45.0 / 255.0);
+			quadric = gluNewQuadric();
 
+			gluDisk(quadric, 0.001, 0.35, 20, 20);
+
+			//yellowinsh shade
+			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			quadric = gluNewQuadric();
+
+			// outer disk back of the bullet
+			gluDisk(quadric, 0.35, 0.5, 20, 20);
+
+			// now we will draw second object which is related to the first one
+			// back cylinder
+		glPopMatrix(); // actually not needed since we didn't change the position
+
+		glPushMatrix(); // save the previous position
+			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			quadric = gluNewQuadric();
+			gluCylinder(quadric, 0.5, 0.5, 0.08, 20, 20);
+		glPopMatrix();
+
+		//glTranslatef(0.0, 0.0, 0.08*bulletScale); // since we have rotated the whole matrix by hard
+		// coded 90 degrees first, so every axis got shifted and +z takes place of +x
+		//glRotatef((GLfloat)extra1, 0.0, 0.0, 1.0);
+		//glTranslatef(0.0, -0.5, 0.0);
+
+		glPushMatrix();
+			glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+			quadric = gluNewQuadric();
+			gluDisk(quadric, 0.01, 0.5, 20, 20);
+
+		glPopMatrix(); // translated position by 0.05
+
+		glPushMatrix(); // save the previous position second cylinder
+			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			quadric = gluNewQuadric();
+			gluCylinder(quadric, 0.4, 0.4, 0.15, 20, 20);
+
+		glPopMatrix();
+
+		glPushMatrix();
+			glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+			quadric = gluNewQuadric();
+			gluDisk(quadric, 0.01, 0.5, 20, 20);
+
+		glPopMatrix();
+
+		glPushMatrix();
+			glColor3f(0.9, 0.7, 0.2);
+			quadric = gluNewQuadric();
+			gluCylinder(quadric, 0.5, 0.5, 1.3, 20, 20);
+
+		glPopMatrix();
+
+		glPushMatrix(); // save the previous position second cylinder
+						//glScalef(1.0, 1.0, 2.0);
+			glColor3f(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+			quadric = gluNewQuadric();
+			gluSphere(quadric, 0.5, 20, 20);
+
+		glPopMatrix();
+	glPopMatrix();
+}
 /* x,y,z cords give position of bullet
  BulleteScale --> size of bullet*/
 void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {	
@@ -322,15 +419,16 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 
 	//depth prev now after rotate, it's position on current x means actual z-axis
 	//keep initial depth fixed as -3.0, and adjust with zCord param
-	glTranslatef(xBulletCord+xCord, yBulletCord+yCord, zBulletCord+zCord);
-	
+
 	glPushMatrix(); // save initial position
-	//glRotatef(90, 0.0, 1.0, 0.0);
+	glTranslatef(xCord, yCord, zCord);
+
+	glRotatef(-90, 0.0, 1.0, 0.0);
 	//gluLookAt(xTest, 0.0, 15.0 , 0.0, 0.0, -5.0, 0.0f, 1.0f, 0.0f);
-	glRotatef(180, 0.0, 1.0, 0.0); // temporary
+	//glRotatef(180, 0.0, 1.0, 0.0); // temporary
 	//gluLookAt(0.0, 0.0f, -xTest, 0.0, 0.0, xTest-5.0, 0.0f, 1.0f, 0.0f); //zoomout effect
 
-	glRotatef((GLfloat)rotateSingleBullet, 0.0, 1.0, 0.0);
+	//glRotatef((GLfloat)rotateSingleBullet, 0.0, 1.0, 0.0);
 	//glTranslatef(0.0, 0.0, zShift);
 
 	//glTranslatef(xCord, yCord, zCord);
@@ -362,7 +460,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	gluCylinder(quadric, 0.5*bulletScale, 0.5*bulletScale, 0.08*bulletScale, 20, 20);
 	glPopMatrix();
 
-	glTranslatef(0.0, 0.0, 0.08*bulletScale); // since we have rotated the whole matrix by hard
+	//glTranslatef(0.0, 0.0, 0.08*bulletScale); // since we have rotated the whole matrix by hard
 	// coded 90 degrees first, so every axis got shifted and +z takes place of +x
 	//glRotatef((GLfloat)extra1, 0.0, 0.0, 1.0);
 	//glTranslatef(0.0, -0.5, 0.0);
@@ -382,7 +480,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 
 	glPopMatrix();
 
-	glTranslatef(0.0, 0.0, 0.15*bulletScale);
+	//glTranslatef(0.0, 0.0, 0.15*bulletScale);
 	glPushMatrix(); 
 	glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
 	//glColor3f(0.6, 0.2, 0.0);
@@ -400,13 +498,79 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	glPopMatrix();
 
 	//glRotatef(90, 1.0, 0.0, 0.0);
-	glTranslatef(0.0, 0.0, 1.3*bulletScale);
+	//glTranslatef(0.0, 0.0, 1.3*bulletScale);
 	glPushMatrix(); // save the previous position second cylinder
-	glScalef(1.0, 1.0, 2.0);
+	//glScalef(1.0, 1.0, 2.0);
 	glColor3f(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
 	quadric = gluNewQuadric();
 	gluSphere(quadric, 0.5*bulletScale, 20, 20);
 
 	glPopMatrix();
+	glPopMatrix();
+}
+
+
+void DrawBulletCircle(GLfloat radius, Point incenter, float alpha)
+{
+	GLint circle_points = 100;
+	GLfloat angle;
+	glPushMatrix();
+	glBegin(GL_POINTS);
+
+	glColor4f(1.0f, 1.0f, 1.0f, alpha);
+
+	for (int i = 0.0f; i<circle_points; i++)
+	{
+		angle = 2 * PI * i / circle_points;
+		glVertex3f(0.0f, cos(angle)*radius ,
+			sin(angle)*radius);
+	}
+
+	glEnd();
+	glPopMatrix();
+}
+
+void drawRippledBullet()
+{
+	void DrawBulletCircle(GLfloat, Point, float);
+	int i = 0;
+	float color[3] = { 0.5f, 0.5f, 0.5f };
+	float transparency = 1.0f;
+	for (i = giCurrentRingCount - 1; i >= 0; i--)
+	{
+		glEnable(GL_BLEND);
+
+		glPushMatrix();
+			glTranslatef(gfRingTranslateX[i], 0.0, 0.0);
+			DrawBulletCircle(ringRadius[i], Point{ gfRingTranslateX[i],0.0f }, transparency);
+		glPopMatrix();
+
+		glDisable(GL_BLEND);
+		ringRadius[i] += 0.005f;
+		gfRingTranslateX[i] += 0.05f;
+		transparency -= 0.1f;
+	}
+}
+
+void DrawSingleBullet()
+{
+	glPushMatrix();
+		if (gfBulletTranslateX > gfMaximumX)
+		{
+			gfRingTranslateX[giCurrentRingCount] = gfBulletTranslateX;
+			ringRadius[giCurrentRingCount] = 0.5f;
+			giCurrentRingCount++;
+			gfMaximumX += 2.0f;
+		}
+		gfBulletTranslateX += 0.1f;
+		DrawBullet(gfBulletTranslateX);
+	glPopMatrix();
+}
+
+void DrawSingleBulletWithRipples()
+{
+	glPushMatrix();
+		DrawSingleBullet();
+		drawRippledBullet();
 	glPopMatrix();
 }

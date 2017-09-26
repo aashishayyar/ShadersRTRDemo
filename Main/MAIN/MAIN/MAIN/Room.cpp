@@ -111,7 +111,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
 	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
-	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 40.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	arrayIndex = 2;
@@ -124,6 +124,15 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	arrayIndex = 3;
+	centerLookAt.z = -50.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
+	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
+	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].isRotation = false;
+
+	arrayIndex = 4;
 	//ObjectCameraInfo for watchInfo;
 	centerLookAt.z = -50.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
@@ -133,7 +142,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].endPosition = watchPosition.z + 10.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 4;
+	arrayIndex = 5;
 	//For Matrix Room
 	centerLookAt.z = -79.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
@@ -143,7 +152,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].endPosition = matrixRoomPosition.z - 29;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 5; //Index check for Neo charater
+	arrayIndex = 6; //Index check for Neo charater
 	//For Matrix Room to reset at center
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
@@ -152,7 +161,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].endPosition = -20.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
-	arrayIndex = 6;
+	arrayIndex = 7;
 	//Same object to keep Neo rotating
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
@@ -162,7 +171,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	//Object to make camera set to original position within room
-	arrayIndex = 7;
+	arrayIndex = 8;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;

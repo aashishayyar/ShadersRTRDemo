@@ -4,7 +4,7 @@ void drawRoom(void);
 void drawDoor(void);
 void drawDoorFrame(void);
 
-#define numberOfObjects 8
+#define numberOfObjects 9
 
 GLfloat windowWidth;
 GLfloat windowHeight;
@@ -81,7 +81,7 @@ struct MatrixWallPosition {
 }matrixRoomPosition;
 
 struct LegoCharactersPosition {
-	GLfloat x = -10.0f;
+	GLfloat x = -25.0f;
 	GLfloat y = 6.5f;
 	GLfloat z = -3.0f;
 };

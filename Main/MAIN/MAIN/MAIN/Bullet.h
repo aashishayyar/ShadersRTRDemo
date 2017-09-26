@@ -13,5 +13,5 @@ extern GLUquadric *quadric;
 
 
 void drawBullet(float xCord, float yCord, float zCord, float bulletScale);
-
-
+void DrawBullet(float);
+void DrawSingleBulletWithRipples();
