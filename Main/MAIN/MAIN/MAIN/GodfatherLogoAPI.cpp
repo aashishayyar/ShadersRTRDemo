@@ -23,9 +23,9 @@ extern GLfloat r_front = 0.5f;
 extern GLfloat g_front = 0.5f;
 extern GLfloat b_front = 0.5f;
 
-extern GLfloat r_back = 0.5f;
-extern GLfloat g_back = 0.5f;
-extern GLfloat b_back = 0.5f;
+extern GLfloat r_back = 0.4f;
+extern GLfloat g_back = 0.4f;
+extern GLfloat b_back = 0.4f;
 
 void drawLogo(GLfloat change)
 {

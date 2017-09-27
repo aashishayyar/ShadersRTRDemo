@@ -327,6 +327,8 @@ void legoCharaters() {
 */
 
 void legoCharaters() {
+	if(giDoorMovementTimer)
+		logoFadeInEffect();
 	drawLogo(change);
 	if (objectsIteration == 2 || objectsIteration == 3) 
 		{
