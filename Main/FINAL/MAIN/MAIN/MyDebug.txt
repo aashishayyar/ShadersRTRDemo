@@ -7,3 +7,887 @@ WNDPROC : objIter : 5
 WNDPROC : objIter : 6
 WNDPROC : objIter : 7
 WNDPROC : objIter : 8
+Stage4 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+CORRECT
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
