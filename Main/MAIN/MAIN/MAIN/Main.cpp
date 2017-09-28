@@ -314,8 +314,15 @@ void display(void) {
 
 
 void legoCharaters() {
+<<<<<<< HEAD
 	
 	if (objectsIteration == 2 || objectsIteration == 3 || objectsIteration == 4 || objectsIteration == 9) 
+=======
+	if(giDoorMovementTimer)
+		logoFadeInEffect();
+	drawLogo(change);
+	if (objectsIteration == 2 || objectsIteration == 3) 
+>>>>>>> f54d1a24b1d73cbd272bf80309902a57aafe9cfb
 		{
 		if (objectsIteration != 9)
 			drawLogo(change);
