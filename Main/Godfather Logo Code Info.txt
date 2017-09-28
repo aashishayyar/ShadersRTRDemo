@@ -1,0 +1,31 @@
+I have modified the godfather code 
+and also modified the respective heafer files
+
+there are 3 functions which we can call
+
+drawLogo(void)  ------- to draw Godfather Logo
+logoAnimation(GLfloat)   --------- this is to animate the logo
+logoFadeInEffect(void)   ---------- Fade in effect of logo
+
+
+changes for speed and color 
+//color changes
+r_back,g_back,b_back ----------color for background 
+r_front,g_front,b_front ----------color for foreground
+
+initailly both the color are set to background color  0.4f
+then after fade in foreground colors are incremented to 1.0f // white
+
+//speed changes
+
+speed of logo fadein is fixed but if you want to change then you can do it by changing in GodfatherLogoAPI.cpp in logoFadeInEffect() just increment/decrement hardcoded value to 
+
+		r_front += 0.01f;  change the value 0.01f to accordingly for all these color values
+		g_front += 0.01f;
+		b_front += 0.01f;
+
+
+speed of logo animation can be directlty handled in main.cpp 
+there is global value named "change" it is GLfloat type increment or decrement it to adjust logo animation speed
+
+Thank You!!!!!
