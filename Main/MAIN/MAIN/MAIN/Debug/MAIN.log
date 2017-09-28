@@ -1,9 +1,1 @@
-﻿  Main.cpp
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(15): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(23): warning C4091: 'extern ': ignored on left of 'RoomSize' when no variable is declared
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(30): warning C4091: 'extern ': ignored on left of 'CenterOfLookAt' when no variable is declared
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(41): warning C4091: 'extern ': ignored on left of 'XYZCoordinates' when no variable is declared
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(55): warning C4091: 'extern ': ignored on left of 'ObjectCameraInfo' when no variable is declared
-c:\opengl\opengl-git-repo\shadersrtrdemo\main\main\main\main\main_room.h(61): warning C4091: 'extern ': ignored on left of 'LegoCharactersPosition' when no variable is declared
-  MAIN.vcxproj -> C:\OpenGL\openGL-git-repo\ShadersRTRDemo\Main\MAIN\MAIN\Debug\MAIN.exe
-  MAIN.vcxproj -> C:\OpenGL\openGL-git-repo\ShadersRTRDemo\Main\MAIN\MAIN\Debug\MAIN.pdb (Full PDB)
+﻿

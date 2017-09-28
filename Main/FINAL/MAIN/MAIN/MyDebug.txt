@@ -1,0 +1,960 @@
+WNDPROC : objIter : 0
+WNDPROC : objIter : 1
+WNDPROC : objIter : 2
+WNDPROC : objIter : 3
+WNDPROC : objIter : 4
+WNDPROC : objIter : 5
+WNDPROC : objIter : 6
+WNDPROC : objIter : 7
+Stage4 : HERE
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+objectIeration : 8
+WNDPROC : objIter : 8
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+objectIeration : 9
+Stage5 : HERE
+CORRECT
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet
+DodgeBullet

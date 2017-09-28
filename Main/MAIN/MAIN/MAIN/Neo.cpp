@@ -5,43 +5,126 @@ void moveNeo(void)
 {
 	if (objectsIteration >= 6)
 	{
-		if ((gfTranslateNeoX >= -30.0f) && (gfNeoRotate_Y < 300.0f))
+		if (NeoStage1)
 		{
-			gfTranslateNeoX -= gfNeoSpeed / 30;
+			if ((gfTranslateNeoX >= -50.0f) && (gfNeoRotate_Y < 300.0f))
+			{
+				gfTranslateNeoX -= gfNeoSpeed / 60;
+				updateNormalWalk();
+			}
+			else
+			{
+				NeoStage1 = false;
+				NeoStage2 = true;
+			}
 		}
-		else if (gfNeoRotate_Y <= 300.0f)
-			gfNeoRotate_Y += 20 * gfNeoSpeed / 30;
-		else if (gfTranslateNeoX <= INITIAL_NEO_TRANSLATE_X)
+		else if (NeoStage2)
 		{
-			gfTranslateNeoX += gfNeoSpeed / 30;
-			gfTranslateNeoZ +=2* gfNeoSpeed / 30;
+			if (gfNeoRotate_Y <= 300.0f)
+			{
+				gfNeoRotate_Y += 40 * gfNeoSpeed / 30;
+				updateNormalWalk();
+			}
+			else
+			{
+				NeoStage2 = false;
+				NeoStage3 = true;
+			}
+
+		}
+		else if (NeoStage3)
+		{
+			if (gfTranslateNeoX <= -18.0f && gfTranslateNeoZ <= 17.0f)
+			{
+				gfTranslateNeoX += 0.4 * gfNeoSpeed / 30;
+				gfTranslateNeoZ += 0.6 * gfNeoSpeed / 30;
+				updateNormalWalk();
+			}
+			else if (gfTranslateNeoX <= -13.0f && gfTranslateNeoZ <= 27.0f)
+			{
+				gfTranslateNeoX += 10.0 * gfNeoSpeed / 30;
+				gfTranslateNeoZ += 10.3 * gfNeoSpeed / 30;
+				updateNormalWalk();
+			}
+			else 
+			{
+				NeoStage3 = false;
+				NeoStage4 = true;
+			}
+		}
+
+		else if (NeoStage4)
+		{
+			if (gfNeoRotate_Y >= 270.0f)
+			{
+				
+				gfNeoRotate_Y -= 40 * gfNeoSpeed / 30;
+				updateNormalWalk();
+			}
+			else 
+			{
+				fprintf(fp, "Stage4 : HERE\n");
+				NeoStage4 = false;
+				NeoStage5 = true;
+			}
+		}
+		else if(NeoStage5)
+		{
+			fprintf(fp, "objectIeration : %d\n", objectsIteration);
+			if (objectsIteration == 9)
+			{
+				fprintf(fp, "Stage5 : HERE\n");
+				if (gfTranslateNeoZ <= 50.0f)
+				{
+					gfNeoSpeed = 4.0f;
+					gfTranslateNeoX -= gfNeoSpeed / 30;
+					gfTranslateNeoZ += 15.0f / 30;
+					updateNormalWalk();
+				}
+
+				else
+				{
+					fprintf(fp, "CORRECT\n");
+					NeoStage5 = false;
+					NeoStage6 = true;
+				}
+			}
+		}
+		else if(NeoStage6)
+		{
+			if (gfNeoRotate_Y >= 220.0f)
+			{
+				gfNeoRotate_Y -= 40 * gfNeoSpeed / 30;
+				updateNormalWalk();
+			}
+			else 
+			{
+				NeoStage6 = false;
+			}
+		}
+		else 
+		{
+			Scene2 = true;
 		}
 	}
-	
-//	gfTranslateNeoX = 18.0f;
-//	gfTranslateNeoZ = -10.0f;
-	updateNormalWalk();
 }
 
 void DrawNeo(void)
 {
-	if (objectsIteration >= 6)
-	{
-		//fprintf(fp, "HERE\n");
+	if (objectsIteration >= 5  || Scene2)
+	{	
 		glPushMatrix();
-		glTranslatef(INITIAL_NEO_TRANSLATE_X + gfTranslateNeoX, INITIAL_NEO_TRANSLATE_Y, INITIAL_NEO_TRANSLATE_Z + gfTranslateNeoZ);
+		glTranslatef(INITIAL_NEO_TRANSLATE_X + gfTranslateNeoX, INITIAL_NEO_TRANSLATE_Y + gfTranslateNeoY, INITIAL_NEO_TRANSLATE_Z + gfTranslateNeoZ);
 		//	glTranslatef(gfTranslateNeoX, INITIAL_NEO_TRANSLATE_Y, gfTranslateNeoZ);
 		glRotatef(gfNeoRotate_Y, 0.0f, 1.0f, 0.0f);
 		glRotatef(90, 1.0f, 0.0f, 0.0f);
 		DrawStickMan();
 		glPopMatrix();
-
 	}
 }
 
 void updateNormalWalk()
 {
-
 	if (gbIsLeftArm)
 	{
 		lNeck -= gfNeoSpeed;
@@ -115,15 +198,15 @@ void updateNormalWalk()
 void dodgeBullet()
 {
 	int i = 0;
-
+	fprintf(fp, "DodgeBullet\n");
 	if (body < 80 && giNeoDirection == 1)
 	{
-		gfNeoSpeed = 0.03f;
+		gfNeoSpeed = 0.3f;
 		gfNeoTheta += gfNeoSpeed / 4;
 	}
 	else
 	{
-		gfNeoSpeed = 0.07f;
+		gfNeoSpeed = 0.7f;
 		giNeoDirection = -1;
 		gfNeoTheta -= gfNeoSpeed / 4;
 	}
@@ -133,7 +216,7 @@ void dodgeBullet()
 	}
 	else
 	{
-		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180);
+		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) - 34.0f;
 		gfTranslateNeoY = -(2 * (1.25 + 0.75) - 2 * (1.25 + 0.75)*cos(3.14*body / 180) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)));
 
 		body = body + giNeoDirection * gfNeoSpeed;

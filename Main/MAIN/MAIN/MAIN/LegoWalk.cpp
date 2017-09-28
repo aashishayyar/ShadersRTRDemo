@@ -16,7 +16,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giLLegDirection[currentStickMan] = -1;
 	}
-	lLeg[currentStickMan] = lLeg[currentStickMan] + giLLegDirection[currentStickMan] * gfSpeed;
+	lLeg[currentStickMan] = lLeg[currentStickMan] + giLLegDirection[currentStickMan] * 2* gfSpeed;
 
 	if (rLeg[currentStickMan] < -20)
 	{
@@ -26,7 +26,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giRLegDirection[currentStickMan] = -1;
 	}
-	rLeg[currentStickMan] = rLeg[currentStickMan] + giRLegDirection[currentStickMan] * gfSpeed;
+	rLeg[currentStickMan] = rLeg[currentStickMan] + giRLegDirection[currentStickMan] * 2* gfSpeed;
 
 	if (lArm[currentStickMan] < 30)
 	{
@@ -36,7 +36,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giLArmDirection[currentStickMan] = -1;
 	}
-	lArm[currentStickMan] = lArm[currentStickMan] + giLArmDirection[currentStickMan] * gfSpeed;
+	lArm[currentStickMan] = lArm[currentStickMan] + giLArmDirection[currentStickMan] * 2* gfSpeed;
 
 	if (rArm[currentStickMan] < 30)
 	{
@@ -46,7 +46,7 @@ void updateNormalWalk(int currentStickMan)
 	{
 		giRArmDirection[currentStickMan] = -1;
 	}
-	rArm[currentStickMan] = rArm[currentStickMan] + giRArmDirection[currentStickMan] * gfSpeed;
+	rArm[currentStickMan] = rArm[currentStickMan] + giRArmDirection[currentStickMan] * 2* gfSpeed;
 
 }
 
@@ -54,14 +54,19 @@ void updateAllCharacters()
 {
 	int i = 0;
 	gfTranslateX += gfSpeed / 15;
-	for (i = 0; i < 4; i++)
-	{
-		if (gfTranslateZ[i] < 3.0f && (i == 1 || i == 3))
+	if (gfTranslateX >= 8.0f)
+		gbStopLegoCharacters = true;
+	
+		for (i = 0; i < 4; i++)
 		{
-			gfTranslateZ[i] += gfSpeed / 45;
+			if (gfTranslateZ[i] < 3.0f && (i == 1 || i == 3))
+			{
+				if (gfTranslateX >= -15.0f)
+					gfTranslateZ[i] += 0.3 * gfSpeed / 45;
+			
+			}
+			updateNormalWalk(i);
 		}
-		updateNormalWalk(i);
-	}
 }
 
 void updateHandAction(int currentLegoCharacter)

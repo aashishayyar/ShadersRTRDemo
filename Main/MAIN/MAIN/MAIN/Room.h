@@ -81,7 +81,7 @@ struct MatrixWallPosition {
 }matrixRoomPosition;
 
 struct LegoCharactersPosition {
-	GLfloat x = -25.0f;
+	GLfloat x = -29.0f;
 	GLfloat y = 6.5f;
 	GLfloat z = -3.0f;
 };

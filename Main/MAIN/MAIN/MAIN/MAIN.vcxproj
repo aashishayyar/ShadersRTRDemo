@@ -173,6 +173,7 @@
     <ClInclude Include="LucaBracy.h" />
     <ClInclude Include="MachineGun.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="Main_auxiliary_variable.h" />
     <ClInclude Include="Main_Room.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MichaelCorleone.h" />

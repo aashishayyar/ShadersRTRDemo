@@ -3,9 +3,18 @@ extern FILE *fp;
 
 extern int objectsIteration;
 
+bool NeoStage1 = true;
+bool NeoStage2 = false;
+bool NeoStage3 = false;
+bool NeoStage4 = false;
+bool NeoStage5 = false;
+bool NeoStage6 = false;
+
+extern bool Scene2;
+
 bool CameraSteady = false;
 
-#define INITIAL_NEO_TRANSLATE_X   25.0f
+#define INITIAL_NEO_TRANSLATE_X   50.0f
 #define INITIAL_NEO_TRANSLATE_Y    6.0f
 #define INITIAL_NEO_TRANSLATE_Z  -50.0f
 
@@ -15,13 +24,13 @@ bool CameraSteady = false;
 
 GLfloat gfNeoRotate_Y = 180.0f;
 
-float gbStickWidth = 1.0f;
+float gbStickWidth  = 1.0f;
 float gbStickHeight = 1.0f;
 
 int giNeoDirection = 1;
 
 float gfNeoTheta = 0.0f;
-float gfNeoSpeed	   = 1.0f;
+float gfNeoSpeed	  = 1.5f;
 float gfTranslateNeoX = 0.0f;
 float gfTranslateNeoY = 0.0f;
 float gfTranslateNeoZ = 0.0f;
@@ -63,3 +72,4 @@ void DrawHead(float radius);
 
 // Draws the complete stick man.
 void DrawStickMan();
+void dodgeBullet();

@@ -25,6 +25,8 @@ void DrawSantinoFace()
 		{ bottomX, height, -topZ },
 	};
 
+	
+
 	DrawCubiod(points, color);
 
 	color[0] = 0.0f;

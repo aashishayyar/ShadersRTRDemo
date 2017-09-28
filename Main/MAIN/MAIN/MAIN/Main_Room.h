@@ -55,7 +55,7 @@ extern struct ObjectCameraInfo
 };
 
 extern struct LegoCharactersPosition {
-	GLfloat x = -10.0f;
+	GLfloat x = -15.0f;
 	GLfloat y = 8.5f;
 	GLfloat z = -10.0f;
 };

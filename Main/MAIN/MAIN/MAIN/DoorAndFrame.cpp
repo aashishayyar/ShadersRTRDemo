@@ -310,7 +310,7 @@ void updateDoorAngle(void) {
 	if (gbDoorMovement && giDoorMovementTimer == 21) {
 		gfDoorRotationAngle = gfDoorRotationAngle + 0.01f;
 		if (gfDoorRotationAngle >= 80.0f) {
-			gfDoorRotationAngle = 0.0f;
+//			gfDoorRotationAngle = 0.0f;
 			gbDoorMovement = false;
 		}
 	}

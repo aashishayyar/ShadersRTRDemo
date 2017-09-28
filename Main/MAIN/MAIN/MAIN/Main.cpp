@@ -2,13 +2,16 @@
 #include "logo.h"
 #include "Main_Room.h"
 #include "LegoWalk.h"
-#include <stdio.h>
+#include "Main_auxiliary_variable.h"
 #include "Bullet.h"
 
 FILE *fp;
 
-extern float gfTranslateX;
+extern float gfTranslateNeoX;
+extern float gfTranslateNeoZ;
 extern bool gbStopLegoCharacters;
+extern float gfNeoRotate_Y;
+extern float gfBulletTranslateX;
 GLfloat change = 0.001f;
 
 #define WIN_WIDTH 800
@@ -137,14 +140,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				gbEscapeKeyPressed = true;
 			}
 			break;
-		case 0x41://A
-			gbStopLegoCharacters = true;
-			break;
 		case 0x46://F
 			toggleFullscreen();
 			break;
 		case 'L':
-			fprintf(fp, "gfTranslateX : %f\n", gfTranslateX);
+			fprintf(fp, "gfTranslateNeoX : %f\tgfTranslateNeoZ : %f\tgfRotateneo : %f\tgfBulletTranslateX : %f\n", gfTranslateNeoX, gfTranslateNeoZ, gfNeoRotate_Y, gfBulletTranslateX);
 			CameraSteady = true;
 			break;
 		default:
@@ -162,6 +162,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case IDT_TIMER_MINUTE:
 			if (objectsIteration < numberOfObjects) {
+				fprintf(fp, "WNDPROC : objIter : %d\n", objectsIteration);
 				currentObject = arrayOfObjectInfo[objectsIteration];
 				objectsIteration++;
 			}
@@ -293,6 +294,8 @@ void initialize(void) {
 
 	glDepthFunc(GL_LEQUAL);
 	fillCameraObjectInfo();
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	resize(WIN_WIDTH, WIN_HEIGHT);
 }
 
@@ -308,28 +311,14 @@ void display(void) {
 	legoCharaters();
 	SwapBuffers(ghdc);
 }
-/*
-void legoCharaters() {
-	drawLogo(change);
-	if (objectsIteration == 2 || objectsIteration == 3) {
-		change = 0.09f;
-		glPushMatrix();
-		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
-		DrawLegoCharacters();
-		updateAllCharacters();
-		if (gbStopLegoCharacters)
-		{
-			updateAllCharacters();
-		}
-		glPopMatrix();
-	}
-}
-*/
+
 
 void legoCharaters() {
-	drawLogo(change);
-	if (objectsIteration == 2 || objectsIteration == 3) 
+	
+	if (objectsIteration == 2 || objectsIteration == 3 || objectsIteration == 4 || objectsIteration == 9) 
 		{
+		if (objectsIteration != 9)
+			drawLogo(change);
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
 		DrawLegoCharacters();
@@ -337,7 +326,7 @@ void legoCharaters() {
 		{
 			updateAllCharacters();
 		}
-		else
+		else if (Scene2)
 		{
 			updateHandAction(3);
 			glPushMatrix();
@@ -353,6 +342,8 @@ void update(void) {
 	moveCamera();
 	moveNeo();
 	updateDoorAngle();
+	if (Scene2 && gfBulletTranslateX >= 38.0f)
+		dodgeBullet();
 }
 
 void resize(int width, int height) {

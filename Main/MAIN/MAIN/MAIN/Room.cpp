@@ -120,7 +120,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
 	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
-	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
+	arrayOfObjectInfo[arrayIndex].endPosition = 40.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	arrayIndex = 3;
@@ -128,7 +128,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[arrayIndex].speed = 1.0f;
+	arrayOfObjectInfo[arrayIndex].speed = 1.5f;
 	arrayOfObjectInfo[arrayIndex].endPosition = 22.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
@@ -138,7 +138,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = watchPosition.y;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[arrayIndex].speed = 0.5f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
 	arrayOfObjectInfo[arrayIndex].endPosition = watchPosition.z + 10.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
@@ -149,7 +149,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = watchPosition.y;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
 	arrayOfObjectInfo[arrayIndex].speed = 0.1f;
-	arrayOfObjectInfo[arrayIndex].endPosition = matrixRoomPosition.z - 29;
+	arrayOfObjectInfo[arrayIndex].endPosition = matrixRoomPosition.z - 18;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
 	arrayIndex = 6; //Index check for Neo charater
@@ -160,7 +160,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].speed = 0.07f;
 	arrayOfObjectInfo[arrayIndex].endPosition = -20.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
-
+	
 	arrayIndex = 7;
 	//Same object to keep Neo rotating
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = 0.0f;
@@ -175,7 +175,7 @@ void fillCameraObjectInfo() {
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.x = watchPosition.x;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.y = 10.0f;
 	arrayOfObjectInfo[arrayIndex].centerOflookAt.z = watchPosition.z;
-	arrayOfObjectInfo[arrayIndex].speed = 0.4f;
+	arrayOfObjectInfo[arrayIndex].speed = 0.7f;
 	arrayOfObjectInfo[arrayIndex].endPosition = 30.0f;
 	arrayOfObjectInfo[arrayIndex].isRotation = false;
 
@@ -655,6 +655,7 @@ void drawClock() {
 
 	glPushMatrix(); //1
 	glTranslatef(watchPosition.x, watchPosition.y, watchPosition.z);
+	glScalef(1.5f, 1.5f, 1.0f);
 	glPushMatrix(); //2
 					//	drawClockNumbers();
 	glPopMatrix();

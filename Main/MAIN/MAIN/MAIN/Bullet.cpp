@@ -570,6 +570,8 @@ void DrawSingleBullet()
 void DrawSingleBulletWithRipples()
 {
 	glPushMatrix();
+		glTranslatef(21.0f, -1.7f, 5.0f);
+		glScalef(0.3f, 0.3f, 1.0f);
 		DrawSingleBullet();
 		drawRippledBullet();
 	glPopMatrix();

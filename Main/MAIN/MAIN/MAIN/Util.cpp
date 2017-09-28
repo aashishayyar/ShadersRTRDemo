@@ -34,10 +34,10 @@ float gfFootHeight = 0.35f;
 float gfFootWidth = 0.5f;
 float gfFootLength = 0.65f;
 
-float gfSpeed = 1.0f;
+float gfSpeed = 2.0f;
 float gfTranslateX = -15.0f;
 float gfTranslateY = 0.0f;
-float gfTranslateZ[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+float gfTranslateZ[4] = { 0.0f, -1.0f, 0.0f, 0.0f };
 
 bool gbStopLegoCharacters = false;
 float gbAngle = 0.0f;
