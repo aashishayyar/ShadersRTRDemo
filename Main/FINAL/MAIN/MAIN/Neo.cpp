@@ -195,6 +195,12 @@ void updateNormalWalk()
 	}
 }
 
+void updateNeoSingleHand()
+{
+	if (rNeck < 60)
+		rNeck += gfNeoSpeed;
+}
+
 void dodgeBullet()
 {
 	int i = 0;
@@ -206,7 +212,7 @@ void dodgeBullet()
 	}
 	else
 	{
-		gfNeoSpeed = 0.7f;
+		gfNeoSpeed = 0.4f;
 		giNeoDirection = -1;
 		gfNeoTheta -= gfNeoSpeed / 4;
 	}
@@ -262,6 +268,80 @@ void DrawCylinderAndJoints(float height)
 	DrawJoints(height);
 }
 
+void DrawNeoSector(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+{
+	float angle;
+	glLineWidth(2);
+	glColor3f(color[0], color[1], color[2]);
+	glBegin(GL_TRIANGLE_FAN);
+	glVertex3f(0.0f, 0.0f, z);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+
+}
+
+void DrawNeoSectorLine(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+{
+	float angle;
+	glLineWidth(2);
+	glBegin(GL_LINE_STRIP);
+	glColor3f(color[0], color[1], color[2]);
+	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
+		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+	glEnd();
+}
+
+void DrawNeoGoggles(float radius)
+{
+	float color[3] = { 1.0f, 0.0f, 0.0f };
+	color[1] = 1.0f;
+	float lensRadius = (radius - radius / 8) / 2;
+	float middleCurveRadius = radius / 8;
+	glPushMatrix();
+	glRotatef(90, 1.0f, 0.0f, 0.0f);
+	DrawNeoSectorLine(middleCurveRadius, middleCurveRadius / 4, 0.0f, color, 3.145, 2 * 3.145);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(-(lensRadius + middleCurveRadius), 0.0f, 0.0f);
+	glRotatef(90, 1.0f, 0.0f, 0.0f);
+	DrawNeoSector(lensRadius, lensRadius / 2, 0.0f, color, 0, 3.145);
+	DrawNeoSector(lensRadius, lensRadius / 4, 0.0f, color, 3.145, 2 * 3.145);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(lensRadius + middleCurveRadius, 0.0f, 0.0f);
+	glRotatef(90, 1.0f, 0.0f, 0.0f);
+	DrawNeoSector(lensRadius, lensRadius / 2, 0.0f, color, 0, 3.145);
+	DrawNeoSector(lensRadius, lensRadius / 4, 0.0f, color, 3.145, 2 * 3.145);
+	glPopMatrix();
+
+
+	glPushMatrix();
+	glTranslatef(-(2 * lensRadius + middleCurveRadius), 0.0f, 0.0f);
+	glRotatef(90, 1.0f, 0.0f, 0.0f);
+	quadric = gluNewQuadric();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	gluCylinder(quadric, 0.03f, 0.03f, radius, 30, 30);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(2 * lensRadius + middleCurveRadius, 0.0f, 0.0f);
+	glRotatef(90, 1.0f, 0.0f, 0.0f);
+	quadric = gluNewQuadric();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	gluCylinder(quadric, 0.03f, 0.03f, radius, 30, 30);
+	glPopMatrix();
+
+}
+
 void DrawHead(float radius)
 {
 	GLdouble equation[4] = { 0.0f, 0.0f, 1.0f, 0.25f };
@@ -270,12 +350,15 @@ void DrawHead(float radius)
 	//Sonny Corleone - Bow
 	gbStickWidth = 0.7f;
 	gbStickHeight = 0.72f;
+	//glRotatef(-80, 0.0f, 0.0f, 1.0f);
+	//glRotatef(-body, 1.0f, 0.0f, 0.0f);
 
 	quadric = gluNewQuadric();
 	glColor3f(NEO_COLOR_RED, NEO_COLOR_GREEN, NEO_COLOR_BLUE);
 	gluSphere(quadric, radius, 30, 30);
 
-
+	//glTranslatef(0.0f, radius, 0.0f);
+	//DrawNeoGoggles(radius);
 }
 
 void DrawStickMan()
