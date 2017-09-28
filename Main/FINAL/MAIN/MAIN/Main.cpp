@@ -12,7 +12,7 @@ extern float gfTranslateNeoZ;
 extern bool gbStopLegoCharacters;
 extern float gfNeoRotate_Y;
 extern float gfBulletTranslateX;
-GLfloat change = 0.001f;
+GLfloat change = 1.0f;
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600
@@ -314,11 +314,16 @@ void display(void) {
 
 
 void legoCharaters() {
-	
+
+	if (objectsIteration == 3 || objectsIteration == 4)
+		logoAnimation(change);
+	if (objectsIteration == 2)
+		logoFadeInEffect();
+
 	if (objectsIteration == 2 || objectsIteration == 3 || objectsIteration == 4 || objectsIteration == 9) 
 		{
 		if (objectsIteration != 9)
-			drawLogo(change);
+			drawLogo();
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
 		DrawLegoCharacters();

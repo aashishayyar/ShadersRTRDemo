@@ -19,17 +19,18 @@ extern GLfloat translate_f_y = -0.4f;
 extern GLfloat change_f = 0.001f;
 
 //variables for fade in/out
-extern GLfloat r_front = 0.5f;
-extern GLfloat g_front = 0.5f;
-extern GLfloat b_front = 0.5f;
+extern GLfloat r_front = 0.4f;
+extern GLfloat g_front = 0.4f;
+extern GLfloat b_front = 0.4f;
 
-extern GLfloat r_back = 0.5f;
-extern GLfloat g_back = 0.5f;
-extern GLfloat b_back = 0.5f;
+extern GLfloat r_back = 0.4f;
+extern GLfloat g_back = 0.4f;
+extern GLfloat b_back = 0.4f;
 
-void drawLogo(GLfloat change)
+
+void drawLogo(void)
 {
-	logoAnimation(change);
+	
 	glPushMatrix();
 	
 		glTranslatef(-1.0f,10.0f,-10.0f);
@@ -596,9 +597,9 @@ void logoFadeInEffect(void)
 {
 	if(r_front <= 1.0f && g_front <= 1.0f && b_front <= 1.0f )
 	{
-		r_front += 0.0001f;
-		g_front += 0.0001f;
-		b_front += 0.0001f;
+		r_front += 0.01f;
+		g_front += 0.01f;
+		b_front += 0.01f;
 	}
 }
 

@@ -15,3 +15,5 @@ void MainRoom(void);
 void DrawNeo(void);
 void drawLogo(void);
 void moveNeo(void);
+void logoAnimation(GLfloat);
+void logoFadeInEffect(void);
