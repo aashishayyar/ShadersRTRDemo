@@ -147,7 +147,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Credits.cpp" />
     <ClCompile Include="DoorAndFrame.cpp" />
+    <ClCompile Include="DrawMultipleBullet.cpp" />
     <ClCompile Include="GodFathercpp.cpp" />
     <ClCompile Include="GodfatherLogoAPI.cpp" />
     <ClCompile Include="LegoWalk.cpp" />
@@ -166,7 +168,9 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="DoorHeader.h" />
+    <ClInclude Include="DrawMultipleBullet.h" />
     <ClInclude Include="GodFather.h" />
     <ClInclude Include="LegoWalk.h" />
     <ClInclude Include="logo.h" />

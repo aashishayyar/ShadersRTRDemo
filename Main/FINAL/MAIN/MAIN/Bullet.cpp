@@ -562,7 +562,7 @@ void DrawSingleBullet()
 			giCurrentRingCount++;
 			gfMaximumX += 2.0f;
 		}
-		gfBulletTranslateX += 0.1f;
+		gfBulletTranslateX += 0.3f;
 		DrawBullet(gfBulletTranslateX);
 	glPopMatrix();
 }

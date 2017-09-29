@@ -42,7 +42,7 @@ float gfHeightOfRoom;
 DWORD gdwSpeedOfWallChange = 100;
 
 int *piRandomWallNumbers = NULL;
-int *piRandomLineNumbers = NULL;
+
 
 DWORD dwSavedTickCount = 0;
 DWORD dwGetTickCount = 0;
@@ -52,7 +52,7 @@ DWORD dwMaximumCharaFromWall = 0;
 
 BOOL gbWallFilled = FALSE;
 BOOL gbDisplayedFirstWall = FALSE;
-BOOL gbLinesFilled = FALSE;
+
 BOOL gbAllocateMemoryAgain = FALSE;
 
 void DrawCharacter();

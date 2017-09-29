@@ -63,17 +63,14 @@ void moveNeo(void)
 			}
 			else 
 			{
-				fprintf(fp, "Stage4 : HERE\n");
 				NeoStage4 = false;
 				NeoStage5 = true;
 			}
 		}
 		else if(NeoStage5)
 		{
-			fprintf(fp, "objectIeration : %d\n", objectsIteration);
 			if (objectsIteration == 9)
 			{
-				fprintf(fp, "Stage5 : HERE\n");
 				if (gfTranslateNeoZ <= 50.0f)
 				{
 					gfNeoSpeed = 4.0f;
@@ -84,7 +81,6 @@ void moveNeo(void)
 
 				else
 				{
-					fprintf(fp, "CORRECT\n");
 					NeoStage5 = false;
 					NeoStage6 = true;
 				}
@@ -92,7 +88,7 @@ void moveNeo(void)
 		}
 		else if(NeoStage6)
 		{
-			if (gfNeoRotate_Y >= 220.0f)
+			if (gfNeoRotate_Y >= 180.0f)
 			{
 				gfNeoRotate_Y -= 40 * gfNeoSpeed / 30;
 				updateNormalWalk();
@@ -204,15 +200,15 @@ void updateNeoSingleHand()
 void dodgeBullet()
 {
 	int i = 0;
-	fprintf(fp, "DodgeBullet\n");
+
 	if (body < 80 && giNeoDirection == 1)
 	{
-		gfNeoSpeed = 0.3f;
+		gfNeoSpeed = 0.8f;
 		gfNeoTheta += gfNeoSpeed / 4;
 	}
 	else
 	{
-		gfNeoSpeed = 0.4f;
+		gfNeoSpeed = 0.3f;
 		giNeoDirection = -1;
 		gfNeoTheta -= gfNeoSpeed / 4;
 	}
@@ -300,6 +296,8 @@ void DrawNeoSectorLine(float aRadius, float bRadius, float z, float color[3], fl
 
 void DrawNeoGoggles(float radius)
 {
+	glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+
 	float color[3] = { 1.0f, 0.0f, 0.0f };
 	color[1] = 1.0f;
 	float lensRadius = (radius - radius / 8) / 2;
@@ -357,8 +355,8 @@ void DrawHead(float radius)
 	glColor3f(NEO_COLOR_RED, NEO_COLOR_GREEN, NEO_COLOR_BLUE);
 	gluSphere(quadric, radius, 30, 30);
 
-	//glTranslatef(0.0f, radius, 0.0f);
-	//DrawNeoGoggles(radius);
+	glTranslatef(0.0f, radius, 0.0f);
+	DrawNeoGoggles(radius);
 }
 
 void DrawStickMan()

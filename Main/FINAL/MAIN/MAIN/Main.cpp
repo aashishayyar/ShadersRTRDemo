@@ -12,6 +12,8 @@ extern float gfTranslateNeoZ;
 extern bool gbStopLegoCharacters;
 extern float gfNeoRotate_Y;
 extern float gfBulletTranslateX;
+extern struct TranslateLine *ptrTranslateLine;
+extern int *piRandomLineNumbers;
 GLfloat change = 0.001f;
 
 #define WIN_WIDTH 800
@@ -19,6 +21,7 @@ GLfloat change = 0.001f;
 
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glu32.lib")
+#pragma comment(lib,"winmm.lib")
 
 //Prototype Of WndProc() declared Globally
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -39,6 +42,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	void initialize(void);
 	void display(void);
 	void uninitialize(void);
+	void toggleFullscreen();
 	void update();
 
 	WNDCLASSEX wndclass;
@@ -82,6 +86,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	ShowWindow(hwnd, SW_SHOW);
 	SetForegroundWindow(hwnd);
 	SetFocus(hwnd);
+
+	toggleFullscreen();
+	gbFullScreen = true;
+
 	while (bDone == false)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -115,12 +123,15 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	void toggleFullscreen(void);
 	void uninitialize(void);
 
+	
+
 	switch (iMsg)
 	{
 	case WM_CREATE:
 		fopen_s(&fp, "MyDebug.txt", "w");
 		SetTimer(hwnd, IDT_TIMER_SECOND, 1000, NULL);
 		SetTimer(hwnd, IDT_TIMER_MINUTE, 1000 * 16, NULL);
+		PlaySound(sound, NULL, SND_ASYNC);
 		break;
 	case WM_ACTIVATE:
 		if (HIWORD(wParam) == 0)
@@ -309,6 +320,7 @@ void display(void) {
 	MainRoom();
 	DrawNeo();
 	legoCharaters();
+//	DrawMultipleBulletFireEffect();
 	SwapBuffers(ghdc);
 }
 
@@ -344,6 +356,7 @@ void update(void) {
 	updateDoorAngle();
 	if (Scene2 && gfBulletTranslateX >= 38.0f)
 		dodgeBullet();
+//	updateMultipleBulletFire();
 }
 
 void resize(int width, int height) {
@@ -357,6 +370,16 @@ void resize(int width, int height) {
 }
 
 void uninitialize(void) {
+	if (ptrTranslateLine != NULL)
+	{
+		free(ptrTranslateLine);
+		ptrTranslateLine = NULL;
+	}
+	if (piRandomLineNumbers != NULL)
+	{
+		free(piRandomLineNumbers);
+		piRandomLineNumbers = NULL;
+	}
 	if (gbFullScreen == true) {
 		style = GetWindowLong(ghwnd, GWL_STYLE);
 		SetWindowLong(ghwnd, GWL_STYLE, style | WS_OVERLAPPEDWINDOW);
