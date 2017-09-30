@@ -14,7 +14,7 @@ extern float gfNeoRotate_Y;
 extern float gfBulletTranslateX;
 extern struct TranslateLine *ptrTranslateLine;
 extern int *piRandomLineNumbers;
-GLfloat change = 0.001f;
+GLfloat change = 0.5f;
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600
@@ -48,7 +48,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	WNDCLASSEX wndclass;
 	HWND hwnd;
 	MSG msg;
-	TCHAR szClassName[] = TEXT("RTROGL");
+	TCHAR szClassName[] = TEXT("SHADERS");
 	bool bDone = false;
 
 	wndclass.cbSize = sizeof(WNDCLASSEX);
@@ -311,7 +311,6 @@ void initialize(void) {
 }
 
 void display(void) {
-	void legoCharaters();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -327,10 +326,15 @@ void display(void) {
 
 void legoCharaters() {
 	
+	if (objectsIteration == 3 || objectsIteration == 4)
+		logoAnimation(change);
+	if (objectsIteration == 2)
+		logoFadeInEffect();
+
 	if (objectsIteration == 2 || objectsIteration == 3 || objectsIteration == 4 || objectsIteration == 9) 
 		{
 		if (objectsIteration != 9)
-			drawLogo(change);
+			drawLogo();
 		glPushMatrix();
 		glTranslatef(legoCharactersPosition.x, legoCharactersPosition.y, legoCharactersPosition.z);
 		DrawLegoCharacters();
@@ -354,7 +358,7 @@ void update(void) {
 	moveCamera();
 	moveNeo();
 	updateDoorAngle();
-	if (Scene2 && gfBulletTranslateX >= 38.0f)
+	if (Scene2 && gfBulletTranslateX >= 33.0f)
 		dodgeBullet();
 //	updateMultipleBulletFire();
 }

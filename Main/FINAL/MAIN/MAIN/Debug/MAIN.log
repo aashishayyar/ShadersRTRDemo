@@ -1,1 +1,19 @@
-﻿
+﻿  Neo.cpp
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(39): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(40): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(45): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(46): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(221): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(222): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(231): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(275): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(281): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(293): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(306): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(312): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(313): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(319): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(320): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\shadersrtrdemo\main\final\main\main\neo.cpp(413): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  MAIN.vcxproj -> C:\Users\Pratik\Github\RTR\ShadersRTRDemo\Main\FINAL\MAIN\Debug\MAIN.exe
+  MAIN.vcxproj -> C:\Users\Pratik\Github\RTR\ShadersRTRDemo\Main\FINAL\MAIN\Debug\MAIN.pdb (Full PDB)

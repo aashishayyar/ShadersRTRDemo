@@ -19,7 +19,7 @@ void DrawMultipleBulletFireEffect()
 		glPushMatrix();
 		glTranslatef(8.0f, MultipleBulletPosition[0].translateMultipleBulletY, 10.0f);
 		//gluLookAt(0.0, 0.0, zShift, 0.0f, 0.0f, -6.0f, 0.0f, 1.0f, 0.0f);
-		gluLookAt(cos(anglePyramid)*8.0, 0.0f, sin(anglePyramid)*8.0 - 8.0, 0.0f, 0.0f, -8.0f, 0.0f, 1.0f, 0.0f);
+//		gluLookAt(cos(anglePyramid)*8.0, 0.0f, sin(anglePyramid)*8.0 - 8.0, 0.0f, 0.0f, -8.0f, 0.0f, 1.0f, 0.0f);
 		//glRotatef(-90.0, 0.0f, 1.0f, 0.0f);
 			if (giCountBullet >= 10)
 			{

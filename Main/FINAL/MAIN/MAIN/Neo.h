@@ -11,7 +11,7 @@ bool NeoStage5 = false;
 bool NeoStage6 = false;
 
 extern bool Scene2;
-
+extern float gfBulletTranslateX;
 bool CameraSteady = false;
 
 #define INITIAL_NEO_TRANSLATE_X   50.0f

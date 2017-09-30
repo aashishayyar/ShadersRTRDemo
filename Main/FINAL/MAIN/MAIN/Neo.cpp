@@ -201,9 +201,9 @@ void dodgeBullet()
 {
 	int i = 0;
 
-	if (body < 80 && giNeoDirection == 1)
+	if (body < 80 && giNeoDirection == 1 && gfBulletTranslateX <= 58.0f)
 	{
-		gfNeoSpeed = 0.8f;
+		gfNeoSpeed = 1.0f;
 		gfNeoTheta += gfNeoSpeed / 4;
 	}
 	else
@@ -218,7 +218,7 @@ void dodgeBullet()
 	}
 	else
 	{
-		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) - 34.0f;
+		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) - 35.0f;
 		gfTranslateNeoY = -(2 * (1.25 + 0.75) - 2 * (1.25 + 0.75)*cos(3.14*body / 180) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)));
 
 		body = body + giNeoDirection * gfNeoSpeed;
@@ -296,11 +296,10 @@ void DrawNeoSectorLine(float aRadius, float bRadius, float z, float color[3], fl
 
 void DrawNeoGoggles(float radius)
 {
-	glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
 
-	float color[3] = { 1.0f, 0.0f, 0.0f };
+	float color[3] = { 0.9f, 0.9f, 0.9f };
 	color[1] = 1.0f;
-	float lensRadius = (radius - radius / 8) / 2;
+	float lensRadius = (radius - radius / 15 - 2 * radius / 6) / 2;
 	float middleCurveRadius = radius / 8;
 	glPushMatrix();
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
@@ -326,7 +325,7 @@ void DrawNeoGoggles(float radius)
 	glTranslatef(-(2 * lensRadius + middleCurveRadius), 0.0f, 0.0f);
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
 	quadric = gluNewQuadric();
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
 	gluCylinder(quadric, 0.03f, 0.03f, radius, 30, 30);
 	glPopMatrix();
 
@@ -334,7 +333,7 @@ void DrawNeoGoggles(float radius)
 	glTranslatef(2 * lensRadius + middleCurveRadius, 0.0f, 0.0f);
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
 	quadric = gluNewQuadric();
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
 	gluCylinder(quadric, 0.03f, 0.03f, radius, 30, 30);
 	glPopMatrix();
 
@@ -356,6 +355,8 @@ void DrawHead(float radius)
 	gluSphere(quadric, radius, 30, 30);
 
 	glTranslatef(0.0f, radius, 0.0f);
+	glRotatef(90.0f, 0.0f, 0.0f, 1.0f);
+
 	DrawNeoGoggles(radius);
 }
 

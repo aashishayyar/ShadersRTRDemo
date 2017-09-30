@@ -7,5 +7,7 @@ bool Scene3 = false;
 void dodgeBullet(void);
 void DrawMultipleBulletFireEffect();
 void updateMultipleBulletFire(void);
+void legoCharaters();
+
 
 LPCWSTR sound = TEXT("./BangBang.wav");

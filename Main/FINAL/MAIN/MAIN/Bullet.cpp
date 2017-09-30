@@ -546,7 +546,7 @@ void drawRippledBullet()
 		glPopMatrix();
 
 		glDisable(GL_BLEND);
-		ringRadius[i] += 0.005f;
+		ringRadius[i] += 0.05f;
 		gfRingTranslateX[i] += 0.05f;
 		transparency -= 0.1f;
 	}
