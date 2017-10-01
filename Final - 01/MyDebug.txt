@@ -14,6 +14,3 @@ WNDPROC : objIter : 12
 WNDPROC : objIter : 13
 WNDPROC : objIter : 14
 WNDPROC : objIter : 15
-WNDPROC : objIter : 16
-WNDPROC : objIter : 17
-WNDPROC : objIter : 18
