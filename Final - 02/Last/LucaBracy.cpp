@@ -129,15 +129,15 @@ void DrawChestDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 
 	// buttons
 	GLfloat buttonY = 0.9f;
-	GLfloat radius = 0.05;
-	GLint butttonCount = 3.0f;
+	GLfloat radius = 0.05f;
+	GLfloat butttonCount = 3.0f;
 	for (GLfloat i = 1.0f; i <= butttonCount; i = i + 1.0f)
 	{
 		glLineWidth(3);
 		glBegin(GL_POINTS);
 		for (GLfloat angle = 0.0f; angle < 2.0f*3.14f; angle = angle + 0.001f)
 		{
-			glVertex3f((cos(angle)*radius) - 0.1f, (sin(angle)*radius) - buttonY, (-0.73f));
+			glVertex3f(GLfloat(cos(angle)*radius) - 0.1f, GLfloat(sin(angle)*radius) - buttonY, (-0.73f));
 		}
 		buttonY = buttonY + 0.2f;
 		glEnd();
@@ -254,7 +254,7 @@ void DrawArcUsingGL_POINTS_LucaBracy(GLfloat x1, GLfloat y1, GLfloat z1, GLfloat
 	{
 		if (angle >= startAngle && angle <= endAngle)
 		{
-			glVertex3f(((cos(angle)*r) + x1), ((sin(angle)*r) + y1), z1);
+			glVertex3f(GLfloat((cos(angle)*r) + x1), GLfloat((sin(angle)*r) + y1), z1);
 		}
 	}
 	glEnd();
@@ -307,7 +307,7 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 	color[0] = 0.0f;
 	color[1] = 0.0f;
 	color[2] = 0.0f;
-	DrawSector(0.1f, 0.1f, topZ, color, 0.0f, 2 * 3.145);
+	DrawSector(0.1f, 0.1f, topZ, color, 0.0f, 2.0f * 3.145f);
 
 	// LEFT PUPIL
 	glPushMatrix();
@@ -315,7 +315,7 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 	color[0] = 1.0f;
 	color[1] = 1.0f;
 	color[2] = 1.0f;
-	DrawSector(0.05f, 0.05f, topZ, color, 0.0f, 2 * 3.145);
+	DrawSector(0.05f, 0.05f, topZ, color, 0.0f, 2.0f * 3.145f);
 	glPopMatrix();
 	glPopMatrix();		// pop matrix for left eye
 
@@ -325,7 +325,7 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 	color[0] = 0.0f;
 	color[1] = 0.0f;
 	color[2] = 0.0f;
-	DrawSector(0.1f, 0.1f, topZ, color, 0.0f, 2 * 3.145);
+	DrawSector(0.1f, 0.1f, topZ, color, 0.0f, 2.0f * 3.145f);
 
 	// RIGHT PUPIL
 	glPushMatrix();
@@ -333,7 +333,7 @@ void DrawFaceDesign_LucaBracy(GLfloat topX, GLfloat topZ)
 	color[0] = 1.0f;
 	color[1] = 1.0f;
 	color[2] = 1.0f;
-	DrawSector(0.05f, 0.05f, topZ, color, 0.0f, 2 * 3.145);
+	DrawSector(0.05f, 0.05f, topZ, color, 0.0f, 2.0f * 3.145f);
 	glPopMatrix();
 
 	glPopMatrix();		// pop matrix for right eye
