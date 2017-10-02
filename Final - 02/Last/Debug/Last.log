@@ -1,0 +1,20 @@
+﻿  Neo.cpp
+c:\users\pratik\github\rtr\last\neo.h(83): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
+c:\users\pratik\github\rtr\last\neo.cpp(18): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(44): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(233): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(235): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(244): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(288): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(294): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(306): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(318): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\last\neo.cpp(324): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\last\neo.cpp(325): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\last\neo.cpp(331): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\last\neo.cpp(332): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pratik\github\rtr\last\neo.cpp(381): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pratik\github\rtr\last\neo.cpp(426): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Last.vcxproj -> C:\Users\Pratik\Github\RTR\Last\Debug\Last.exe
+  Last.vcxproj -> C:\Users\Pratik\Github\RTR\Last\Debug\Last.pdb (Full PDB)
