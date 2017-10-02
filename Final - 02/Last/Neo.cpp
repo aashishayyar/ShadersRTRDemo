@@ -15,7 +15,7 @@ void moveNeo(void)
 		{
 			if ((gfTranslateNeoX >= -50.0f) && (gfNeoRotate_Y < 300.0f))
 			{
-				gfTranslateNeoX -= 0.7 * gfNeoSpeed / 60;
+				gfTranslateNeoX -= 0.7f * gfNeoSpeed / 60;
 				updateNormalWalk();
 			}
 			else
@@ -40,8 +40,8 @@ void moveNeo(void)
 		}
 		else if (NeoStage3)
 		{
-			gfTranslateNeoX += 0.4 * gfNeoSpeed / 30;
-			gfTranslateNeoZ += 0.6 * gfNeoSpeed / 30;
+			gfTranslateNeoX += 0.4f * gfNeoSpeed / 30;
+			gfTranslateNeoZ += 0.6f * gfNeoSpeed / 30;
 			updateNormalWalk();
 			if (objectsIteration == 9)
 			{
@@ -230,9 +230,9 @@ void dodgeBullet()
 	}
 	else
 	{
-		gfTranslateNeoX = -(2 * (1.25 + 0.75)*sin(3.14*body / 180)) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180) + 2 * 0.75* sin(3.14 * gfNeoTheta / 180); //- 35.0f;
+		gfTranslateNeoX = -(2 * (1.25f + 0.75f)*(GLfloat)sin(3.14f*body / 180)) + 2 * 0.75f* (GLfloat)sin(3.14f * gfNeoTheta / 180) + 2 * 0.75f* (GLfloat)sin(3.14f * gfNeoTheta / 180); //- 35.0f;
 		gfTranslateNeoX = -gfTranslateNeoX - 34.0f;
-		gfTranslateNeoY = -(2 * (1.25 + 0.75) - 2 * (1.25 + 0.75)*cos(3.14*body / 180) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)) - (2 * (0.75) - 2 * 0.75*cos(gfNeoTheta * 3.14 / 180)));
+		gfTranslateNeoY = -(2 * (1.25f + 0.75f) - 2 * (1.25f + 0.75f)*(GLfloat)cos(3.14f*body / 180) - (2 * (0.75f) - 2 * 0.75f*(GLfloat)cos(gfNeoTheta * 3.14f / 180)) - (2 * (0.75f) - 2 * 0.75f*(GLfloat)cos(gfNeoTheta * 3.14f / 180)));
 
 		body = body + giNeoDirection * gfNeoSpeed;
 		lHip = 10 + body - gfNeoTheta;
@@ -241,19 +241,19 @@ void dodgeBullet()
 		rKnee = -body - gfNeoTheta;
 		lAnkle = lAnkle + giNeoDirection *gfNeoSpeed / 2;
 		rAnkle = rAnkle + giNeoDirection *gfNeoSpeed / 2;
-		lNeck = lNeck + giNeoDirection *1.7*gfNeoSpeed;
+		lNeck = lNeck + giNeoDirection *1.7f*gfNeoSpeed;
 		rNeck = rNeck - giNeoDirection *gfNeoSpeed / 5;
 	}
 }
 
-void DrawCylinder(float height)
+void DrawCylinder(GLfloat height)
 {
 	quadric = gluNewQuadric();
 	glColor3f(NEO_COLOR_RED, NEO_COLOR_GREEN, NEO_COLOR_BLUE);
 	gluCylinder(quadric, 0.2f*gbStickWidth, 0.2f*gbStickWidth, 2 * height, 30, 30);
 }
 
-void DrawJoints(float height)
+void DrawJoints(GLfloat height)
 {
 	quadric = gluNewQuadric();
 	glColor3f(NEO_COLOR_RED, NEO_COLOR_GREEN, NEO_COLOR_BLUE);
@@ -268,68 +268,69 @@ void DrawJoints(float height)
 	glTranslatef(0.0f, 0.0f, -2 * height);
 }
 
-void DrawCylinderAndJoints(float height)
+void DrawCylinderAndJoints(GLfloat height)
 {
-	void DrawCylinder(float);
-	void DrawJoints(float);
+	void DrawCylinder(GLfloat);
+	void DrawJoints(GLfloat);
 
 	DrawCylinder(height);
 	DrawJoints(height);
 }
 
-void DrawNeoSector(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+void DrawNeoSector(GLfloat aRadius, GLfloat bRadius, GLfloat z, GLfloat color[3], GLfloat minAngle, GLfloat maxAngle)
 {
-	float angle;
+	GLfloat angle;
 	glLineWidth(2);
 	glColor3f(color[0], color[1], color[2]);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(0.0f, 0.0f, z);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 
 	glBegin(GL_LINE_STRIP);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 
 }
 
-void DrawNeoSectorLine(float aRadius, float bRadius, float z, float color[3], float minAngle, float maxAngle)
+void DrawNeoSectorLine(GLfloat aRadius, GLfloat bRadius, GLfloat z, GLfloat color[3], GLfloat minAngle, GLfloat maxAngle)
 {
-	float angle;
+	GLfloat angle;
 	glLineWidth(2);
 	glBegin(GL_LINE_STRIP);
 	glColor3f(color[0], color[1], color[2]);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 }
 
-void DrawNeoGoggles(float radius)
+void DrawNeoGoggles(GLfloat radius)
 {
 
-	float color[3] = { 0.9f, 0.9f, 0.9f };
-	float lensRadius = (radius - radius / 15 - 2 * radius / 6) / 2;
-	float middleCurveRadius = radius / 15;
+	GLfloat color[3] = { (GLfloat)0.9, (GLfloat)0.9, (GLfloat)0.9 };
+	GLfloat lensRadius = (radius - radius / 15 - 2 * radius / 6) / 2;
+	GLfloat middleCurveRadius = radius / 15;
 	glPushMatrix();
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
-	DrawNeoSectorLine(middleCurveRadius, middleCurveRadius / 4, 0.0f, color, 3.145, 2 * 3.145);
+	DrawNeoSectorLine(middleCurveRadius, middleCurveRadius / 4, 0.0f, color, 3.145f, 2 * 3.145f);
 	glPopMatrix();
+
 
 	glPushMatrix();
 	glTranslatef(-(lensRadius + middleCurveRadius), 0.0f, 0.0f);
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
-	DrawNeoSector(lensRadius, lensRadius / 1.5f, 0.0f, color, 0, 3.145);
-	DrawNeoSector(lensRadius, lensRadius / 3.0f, 0.0f, color, 3.145, 2 * 3.145);
+	DrawNeoSector(lensRadius, lensRadius / 1.5f, 0.0f, color, 0, 3.145f);
+	DrawNeoSector(lensRadius, lensRadius / 3.0f, 0.0f, color, 3.145f, 2 * 3.145f);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(lensRadius + middleCurveRadius, 0.0f, 0.0f);
 	glRotatef(90, 1.0f, 0.0f, 0.0f);
-	DrawNeoSector(lensRadius, lensRadius / 1.5f, 0.0f, color, 0, 3.145);
-	DrawNeoSector(lensRadius, lensRadius / 3.0f, 0.0f, color, 3.145, 2 * 3.145);
+	DrawNeoSector(lensRadius, lensRadius / 1.5f, 0.0f, color, 0, 3.145f);
+	DrawNeoSector(lensRadius, lensRadius / 3.0f, 0.0f, color, 3.145f, 2 * 3.145f);
 	glPopMatrix();
 
 
@@ -353,7 +354,7 @@ void DrawNeoGoggles(float radius)
 
 }
 
-void DrawHead(float radius)
+void DrawHead(GLfloat radius)
 {
 	GLdouble equation[4] = { 0.0f, 0.0f, 1.0f, 0.25f };
 
@@ -375,10 +376,10 @@ void DrawHead(float radius)
 
 void DrawStickMan()
 {
-	float length = gbStickHeight;
+	GLfloat length = gbStickHeight;
 
 	glPushMatrix();
-	glTranslatef(-length*sin(body*3.145/180), 0.0f, -length*cos(body*3.145 / 180));
+	glTranslatef(-length*(GLfloat)sin(body*3.145/180), 0.0f, -length*(GLfloat)cos(body*3.145 / 180));
 	DrawHead(length);
 	glPopMatrix();
 
@@ -423,7 +424,7 @@ void DrawStickMan()
 	DrawCylinderAndJoints(length + 0.5f);
 	glPopMatrix();
 
-	glTranslatef(2 * (length + 0.5f)*sin(body / 180.0f*3.145), 0.0f, 2 * (length + 0.5f)*cos(body / 180.0f*3.145));
+	glTranslatef(2 * (length + 0.5f)*(GLfloat)sin(body / 180.0f*3.145), 0.0f, 2 * (length + 0.5f)*(GLfloat)cos(body / 180.0f*3.145));
 
 	glPushMatrix();
 

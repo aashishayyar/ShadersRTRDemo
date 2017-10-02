@@ -35,12 +35,12 @@ void DrawSantinoFace()
 
 	glPushMatrix();
 	glTranslatef(-topX / 3, height / 3, 0.0f);
-	DrawSector(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * 3.145);
+	DrawSector(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * 3.145f);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(topX / 3, height / 3, 0.0f);
-	DrawSector(0.15f, 0.15, -topZ - 0.01f, color, 0.0f, 2 * 3.145);
+	DrawSector(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * 3.145f);
 	glPopMatrix();
 
 	color[0] = 1.0f;
@@ -48,13 +48,13 @@ void DrawSantinoFace()
 	color[2] = 1.0f;
 
 	glPushMatrix();
-	glTranslatef(-topX / 3, height / 3 + 0.05, 0.0f);
-	DrawSector(0.05f, 0.05f, -topZ - 0.03f, color, 0.0f, 2 * 3.145);
+	glTranslatef(-topX / 3, height / 3 + 0.05f, 0.0f);
+	DrawSector(0.05f, 0.05f, -topZ - 0.03f, color, 0.0f, 2 * 3.145f);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(topX / 3, height / 3 + 0.05, 0.0f);
-	DrawSector(0.05f, 0.05, -topZ - 0.03f, color, 0.0f, 2 * 3.145);
+	glTranslatef(topX / 3, height / 3 + 0.05f, 0.0f);
+	DrawSector(0.05f, 0.05f, -topZ - 0.03f, color, 0.0f, 2 * 3.145f);
 	glPopMatrix();
 
 	glPushMatrix();
@@ -75,7 +75,7 @@ void DrawSantinoFace()
 
 	glPushMatrix();
 	glTranslatef(topX / 3, height / 3.2f, 0.0f);
-	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * 3.145f / 3.7);
+	DrawSectorLine(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * 3.145f / 3.7f);
 	glPopMatrix();
 
 }
@@ -132,7 +132,7 @@ void DrawSantinoChest()
 	color[0] = 1.0f;
 	color[1] = 0.5f;
 	color[2] = 0.25f;
-	DrawSector(gfChestUpperWidth / 2.5, gfChestUpperWidth / 2.5, -topZ - 0.01f, color, 3.145, 2 * 3.145);
+	DrawSector(gfChestUpperWidth / 2.5f, gfChestUpperWidth / 2.5f, -topZ - 0.01f, color, 3.145f, 2 * 3.145f);
 
 
 	color[0] = 1.0f;
@@ -140,7 +140,7 @@ void DrawSantinoChest()
 	color[2] = 0.25f;
 	glPushMatrix();
 	glTranslatef(-gfChestUpperWidth, 0.0f, 0.0f);
-	DrawSector(gfChestUpperWidth / 3.5, gfChestUpperWidth, -topZ - 0.01f, color, 1.3*3.145f, 2 * 3.145f);
+	DrawSector(gfChestUpperWidth / 3.5f, gfChestUpperWidth, -topZ - 0.01f, color, 1.3f*3.145f, 2 * 3.145f);
 	glPopMatrix();
 
 	color[0] = 1.0f;
@@ -148,7 +148,7 @@ void DrawSantinoChest()
 	color[2] = 0.25f;
 	glPushMatrix();
 	glTranslatef(gfChestUpperWidth, 0.0f, 0.0f);
-	DrawSector(gfChestUpperWidth / 3.5, gfChestUpperWidth, -topZ - 0.01f, color, 3.145f, 1.7f * 3.145f);
+	DrawSector(gfChestUpperWidth / 3.5f, gfChestUpperWidth, -topZ - 0.01f, color, 3.145f, 1.7f * 3.145f);
 	glPopMatrix();
 
 	color[0] = 1.0f;
@@ -156,7 +156,7 @@ void DrawSantinoChest()
 	color[2] = 0.25f;
 	glPushMatrix();
 	glTranslatef(-gfChestUpperWidth, 0.0f, 0.0f);
-	DrawSector(gfChestUpperWidth / 3.5, gfChestUpperWidth, -topZ - 0.01f, color, 1.3*3.145, 2 * 3.145);
+	DrawSector(gfChestUpperWidth / 3.5f, gfChestUpperWidth, -topZ - 0.01f, color, 1.3f*3.145f, 2 * 3.145f);
 	glPopMatrix();
 
 

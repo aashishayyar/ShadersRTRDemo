@@ -1,20 +1,18 @@
-﻿  Neo.cpp
-c:\users\pratik\github\rtr\last\neo.h(83): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
-c:\users\pratik\github\rtr\last\neo.cpp(18): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(44): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(233): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(235): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(244): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(288): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(294): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(306): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(318): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pratik\github\rtr\last\neo.cpp(324): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pratik\github\rtr\last\neo.cpp(325): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pratik\github\rtr\last\neo.cpp(331): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pratik\github\rtr\last\neo.cpp(332): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pratik\github\rtr\last\neo.cpp(381): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pratik\github\rtr\last\neo.cpp(426): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  Last.vcxproj -> C:\Users\Pratik\Github\RTR\Last\Debug\Last.exe
-  Last.vcxproj -> C:\Users\Pratik\Github\RTR\Last\Debug\Last.pdb (Full PDB)
+﻿  Bullet.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(219): warning C4094: untagged 'struct' declared no symbols
+  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe
+  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.pdb (Full PDB)

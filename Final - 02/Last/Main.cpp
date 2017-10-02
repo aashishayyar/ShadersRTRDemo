@@ -9,10 +9,10 @@
 
 FILE *fp;
 
-extern float gfTranslateNeoX;
-extern float gfTranslateNeoZ;
+extern GLfloat gfTranslateNeoX;
+extern GLfloat gfTranslateNeoZ;
 extern bool gbStopLegoCharacters;
-extern float gfNeoRotate_Y;
+extern GLfloat gfNeoRotate_Y;
 extern float gfBulletTranslateX;
 extern struct TranslateLine *ptrTranslateLine;
 extern int *piRandomLineNumbers;

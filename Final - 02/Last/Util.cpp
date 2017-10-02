@@ -60,7 +60,7 @@ void DrawCircle(float radius)
 	glLineWidth(2);
 	glBegin(GL_POLYGON);
 	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
-		glVertex3f(radius*cos(angle), radius*sin(angle), 0.0f);
+		glVertex3f(radius*(GLfloat)cos(angle), radius*(GLfloat)sin(angle), 0.0f);
 	glEnd();
 }
 
@@ -72,13 +72,13 @@ void DrawSector(float aRadius, float bRadius, float z, float color[3], float min
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(0.0f, 0.0f, z);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 
 	glBegin(GL_LINE_STRIP);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 
 }
@@ -90,7 +90,7 @@ void DrawSectorLine(float aRadius, float bRadius, float z, float color[3], float
 	glBegin(GL_LINE_STRIP);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(GLfloat)cos(angle), bRadius*(GLfloat)sin(angle), z);
 	glEnd();
 }
 
@@ -238,10 +238,10 @@ void DrawHand(int direction, int currentStickMan)
 	glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
 	if (direction == 1 )
 	{
-		glRotatef(direction * 10, 0.0f, 1.0f, 0.0f);
+		glRotatef(direction * 10.0f, 0.0f, 1.0f, 0.0f);
 	}
 	else
-		glRotatef(direction * 25, 0.0f, 1.0f, 0.0f);
+		glRotatef(direction * 25.0f, 0.0f, 1.0f, 0.0f);
 
 
 	switch (currentStickMan)//currentLegoCharacter
@@ -363,7 +363,7 @@ void DrawLeg(int direction, int currentStickMan)
 	glRotatef(legAngle, 1.0f, 0.0f, 0.0f);
 
 	glPushMatrix();
-	glRotatef(direction * 90, 0.0f, 1.0f, 0.0f);
+	glRotatef(direction * 90.0f, 0.0f, 1.0f, 0.0f);
 	DrawCylinder(gfLegCylHeight, gfLegCylRadius, color);//1,1
 	glPopMatrix();
 

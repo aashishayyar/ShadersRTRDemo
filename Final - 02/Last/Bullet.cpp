@@ -20,7 +20,6 @@ Key Controls -> s --> Rotate clockwise
 
 Priyanka Bhasme
 ************************************************************************************/
-
 // Header files
 
 #include<Windows.h>
@@ -36,7 +35,7 @@ Priyanka Bhasme
 	
 int giCurrentRingCount = 0;
 
-float gfXranslateCounter = -3.2;
+float gfXranslateCounter = -3.2f;
 GLfloat xPara;
 GLfloat yPara;
 GLint circle_points = 1000000;
@@ -350,13 +349,13 @@ void DrawBullet(float xCord)
 		glTranslatef(xCord, 0.0f, 0.0f);
 		glRotatef(-90, 0.0, 1.0, 0.0);
 		glPushMatrix(); // save position of first object which will rotate around the initial point
-			glColor3f(160.0 / 255.0, 82.0 / 255.0, 45.0 / 255.0);
+			glColor3f(160.0f / 255.0f, 82.0f / 255.0f, 45.0f / 255.0f);
 			quadric = gluNewQuadric();
 
 			gluDisk(quadric, 0.001, 0.35, 20, 20);
 
 			//yellowinsh shade
-			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			glColor3f(218.0f / 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 			quadric = gluNewQuadric();
 
 			// outer disk back of the bullet
@@ -367,7 +366,7 @@ void DrawBullet(float xCord)
 		glPopMatrix(); // actually not needed since we didn't change the position
 
 		glPushMatrix(); // save the previous position
-			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			glColor3f(218.0f/ 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 			quadric = gluNewQuadric();
 			gluCylinder(quadric, 0.5, 0.5, 0.08, 20, 20);
 		glPopMatrix();
@@ -378,28 +377,28 @@ void DrawBullet(float xCord)
 		//glTranslatef(0.0, -0.5, 0.0);
 
 		glPushMatrix();
-			glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+			glColor3f(184.0f / 255.0f, 134.0f / 255.0f, 11.0f / 255.0f);
 			quadric = gluNewQuadric();
 			gluDisk(quadric, 0.01, 0.5, 20, 20);
 
 		glPopMatrix(); // translated position by 0.05
 
 		glPushMatrix(); // save the previous position second cylinder
-			glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+			glColor3f(218.0f / 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 			quadric = gluNewQuadric();
-			gluCylinder(quadric, 0.4, 0.4, 0.15, 20, 20);
+			gluCylinder(quadric, 0.4f, 0.4f, 0.15f, 20, 20);
 
 		glPopMatrix();
 
 		glPushMatrix();
-			glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+			glColor3f(184.0f / 255.0f, 134.0f / 255.0f, 11.0f / 255.0f);
 			quadric = gluNewQuadric();
-			gluDisk(quadric, 0.01, 0.5, 20, 20);
+			gluDisk(quadric, 0.01f, 0.5f, 20, 20);
 
 		glPopMatrix();
 
 		glPushMatrix();
-			glColor3f(0.9, 0.7, 0.2);
+			glColor3f(0.9f, 0.7f, 0.2f);
 			quadric = gluNewQuadric();
 			gluCylinder(quadric, 0.5, 0.5, 1.3, 20, 20);
 
@@ -407,7 +406,7 @@ void DrawBullet(float xCord)
 
 		glPushMatrix(); // save the previous position second cylinder
 						//glScalef(1.0, 1.0, 2.0);
-			glColor3f(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+			glColor3f(210.0f / 255.0f, 105.0f / 255.0f, 30.0f / 255.0f);
 			quadric = gluNewQuadric();
 			gluSphere(quadric, 0.5, 20, 20);
 
@@ -441,14 +440,14 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	//glTranslatef(0.0, -0.5, 0.0); 
 
 	glPushMatrix(); // save position of first object which will rotate around the initial point
-	glColor3f(160.0 / 255.0, 82.0 / 255.0, 45.0 / 255.0);
+	glColor3f(160.0f / 255.0f, 82.0f / 255.0f, 45.0f / 255.0f);
 	quadric = gluNewQuadric();
 
 	// inner disk back of the bullet
 	gluDisk(quadric, 0.001, 0.35*bulletScale, 20, 20);
 
 	//yellowinsh shade
-	glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+	glColor3f(218.0f / 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 	quadric = gluNewQuadric();
 
 	// outer disk back of the bullet
@@ -459,7 +458,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	glPopMatrix(); // actually not needed since we didn't change the position
 
 	glPushMatrix(); // save the previous position
-	glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+	glColor3f(218.0f / 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.5*bulletScale, 0.5*bulletScale, 0.08*bulletScale, 20, 20);
 	glPopMatrix();
@@ -470,7 +469,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	//glTranslatef(0.0, -0.5, 0.0);
 
 	glPushMatrix();
-	glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+	glColor3f(184.0f / 255.0f, 134.0f / 255.0f, 11.0f / 255.0f);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.01, 0.5*bulletScale, 20, 20);
 
@@ -478,7 +477,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 
 	glTranslatef(0.0, 0.0, 0.0);
 	glPushMatrix(); // save the previous position second cylinder
-	glColor3f(218.0 / 255.0, 168.0 / 255.0, 32.0 / 255.0);
+	glColor3f(218.0f / 255.0f, 168.0f / 255.0f, 32.0f / 255.0f);
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.4*bulletScale, 0.4*bulletScale, 0.15*bulletScale, 20, 20);
 
@@ -486,7 +485,7 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 
 	//glTranslatef(0.0, 0.0, 0.15*bulletScale);
 	glPushMatrix(); 
-	glColor3f(184.0 / 255.0, 134.0 / 255.0, 11.0 / 255.0);
+	glColor3f(184.0f / 255.0f, 134.0f / 255.0f, 11.0f / 255.0f);
 	//glColor3f(0.6, 0.2, 0.0);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.01, 0.5*bulletScale, 20, 20);
@@ -495,9 +494,9 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 
 	//glTranslatef(0.0, 0.0, 0.5);
 	glPushMatrix();
-	glColor3f(0.9, 0.7, 0.2);
+	glColor3f(0.9f, 0.7f, 0.2f);
 	quadric = gluNewQuadric();
-	gluCylinder(quadric, 0.5*bulletScale, 0.5*bulletScale, 1.3*bulletScale, 20, 20);
+	gluCylinder(quadric, 0.5f*bulletScale, 0.5f*bulletScale, 1.3f*bulletScale, 20, 20);
 
 	glPopMatrix();
 
@@ -505,9 +504,9 @@ void drawBullet(float xCord, float yCord, float zCord, float bulletScale) {
 	//glTranslatef(0.0, 0.0, 1.3*bulletScale);
 	glPushMatrix(); // save the previous position second cylinder
 	//glScalef(1.0, 1.0, 2.0);
-	glColor3f(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+	glColor3f(210.0f / 255.0f, 105.0f / 255.0f, 30.0f / 255.0f);
 	quadric = gluNewQuadric();
-	gluSphere(quadric, 0.5*bulletScale, 20, 20);
+	gluSphere(quadric, 0.5f*bulletScale, 20, 20);
 
 	glPopMatrix();
 	glPopMatrix();
@@ -523,11 +522,11 @@ void DrawBulletCircle(GLfloat radius, Point incenter, float alpha)
 
 	glColor4f(1.0f, 1.0f, 1.0f, alpha);
 
-	for (int i = 0.0f; i<circle_points; i++)
+	for (int i = 0; i<circle_points; i++)
 	{
-		angle = 2 * PI * i / circle_points;
-		glVertex3f(0.0f, cos(angle)*radius ,
-			sin(angle)*radius);
+		angle = 2 * (GLfloat)PI * i / circle_points;
+		glVertex3f(0.0f, (GLfloat)cos(angle)*radius ,
+			(GLfloat)sin(angle)*radius);
 	}
 
 	glEnd();

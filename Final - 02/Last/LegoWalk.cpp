@@ -6,6 +6,7 @@
 #include"Util.h"
 #include"LegoWalk.h"
 
+
 void updateNormalWalk(int currentStickMan)
 {
 	if (lLeg[currentStickMan] < -20)
@@ -62,7 +63,7 @@ void updateAllCharacters()
 			if (gfTranslateZ[i] < 3.0f && (i == 1 || i == 3))
 			{
 				if (gfTranslateX >= -15.0f)
-					gfTranslateZ[i] += 0.3 * gfSpeed / 45;
+					gfTranslateZ[i] += 0.3f * gfSpeed / 45;
 			
 			}
 			updateNormalWalk(i);

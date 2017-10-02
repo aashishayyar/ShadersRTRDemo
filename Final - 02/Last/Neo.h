@@ -26,34 +26,34 @@ bool CameraSteady = false;
 
 GLfloat gfNeoRotate_Y = 180.0f;
 
-float gbStickWidth  = 1.0f;
-float gbStickHeight = 1.0f;
+GLfloat gbStickWidth  = 1.0f;
+GLfloat gbStickHeight = 1.0f;
 
 int giNeoDirection = 1;
 
-float gfNeoTheta = 0.0f;
-float gfNeoSpeed	  = 2.5f;
-float gfTranslateNeoX = 0.0f;
-float gfTranslateNeoY = 0.0f;
-float gfTranslateNeoZ = 0.0f;
+GLfloat gfNeoTheta = 0.0f;
+GLfloat gfNeoSpeed	  = 2.5f;
+GLfloat gfTranslateNeoX = 0.0f;
+GLfloat gfTranslateNeoY = 0.0f;
+GLfloat gfTranslateNeoZ = 0.0f;
 // Below 3 variables are use for the logic of walking man.
 bool gbOneLeg = true; // 1 for Left and 2 for Right
 bool gbIsLeftLeg = false;
 bool gbIsLeftArm = false;
 
-float body = 0;
-float lNeck = -30;
-float rNeck = 0;
-float lElbow = 45;
-float rElbow = 45;
+GLfloat body = 0;
+GLfloat lNeck = -30;
+GLfloat rNeck = 0;
+GLfloat lElbow = 45;
+GLfloat rElbow = 45;
 
-float lHip = 20;
-float rHip = 0;
-float lKnee = -40;
-float rKnee = 0;
+GLfloat lHip = 20;
+GLfloat rHip = 0;
+GLfloat lKnee = -40;
+GLfloat rKnee = 0;
 
-float lAnkle = 90;
-float rAnkle = 90;
+GLfloat lAnkle = 90;
+GLfloat rAnkle = 90;
 
 GLUquadric *quadric = NULL;
 
@@ -81,4 +81,5 @@ extern struct CameraPosition {
 	GLfloat y ;
 	GLfloat z ;
 };
+
 extern struct CameraPosition cameraPosition;
