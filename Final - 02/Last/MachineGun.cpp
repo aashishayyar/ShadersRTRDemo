@@ -29,7 +29,7 @@ void DrawMachineGunCircle(float radiusMG)
 	glBegin(GL_TRIANGLE_FAN);
 	for (angleMG = 0.0f; angleMG <= 2.0*PI; angleMG = angleMG + 0.01f)
 	{
-		glVertex3f(cos(angleMG)*radiusMG, sin(angleMG)*radiusMG, 0.0f);
+		glVertex3f((float)cos(angleMG)*radiusMG, (float)sin(angleMG)*radiusMG, 0.0f);
 	}
 	glEnd();
 }
@@ -49,8 +49,8 @@ void DrawMachineGunHalfCircle(float ZAxis)
 	glColor3f(0.52f,0.37f,0.26f);
 	for (int i = 0; i < circle_points; i++)
 	{
-		angle = 1 * PI * i / circle_points;
-		glVertex2f(cos(angle)*red, sin(angle)*red);
+		angle = 1 * (float)PI *(float)i / (float)circle_points;
+		glVertex2f((float)cos(angle)*red, (float)sin(angle)*red);
 	}
 	glEnd();
 }

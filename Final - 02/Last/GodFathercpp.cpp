@@ -27,17 +27,17 @@ void DrawSector_GodFather(float aRadius, float bRadius, float z, float color[3],
 	float angle;
 	glLineWidth(2);
 	glPushMatrix();
-	glColor3f(color[0], color[1], color[2]);
+	glColor3f((float)color[0], (float)color[1], (float)color[2]);
 	glBegin(GL_TRIANGLE_FAN);
-	glVertex3f(0.0f, 0.0f, z);
+	glVertex3f(0.0f, 0.0f, (float)z);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(float)cos(angle), bRadius*(float)sin(angle), (float)z);
 	glEnd();
 
 	glBegin(GL_LINE_STRIP);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(float)cos(angle), bRadius*(float)sin(angle), (float)z);
 	glEnd();
 	glPopMatrix();
 
@@ -50,14 +50,14 @@ void DrawSectorLine_GodFather(float aRadius, float bRadius, float z, float color
 	glBegin(GL_LINE_STRIP);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (angle = minAngle; angle <maxAngle; angle = angle + 0.001f)
-		glVertex3f(aRadius*cos(angle), bRadius*sin(angle), z);
+		glVertex3f(aRadius*(float)cos(angle), bRadius*(float)sin(angle), z);
 	glEnd();
 }
 
 void DrawFaceDesign_Godfather(void)
 {
 
-	GLfloat PI = 3.1415f, angle = 0.0f; //added by praveen
+	float PI = 3.1415f, angle = 0.0f; //added by praveen
 
 	float height = -gfFaceHeight;
 	float topX = gfFaceWidth;
@@ -76,7 +76,7 @@ void DrawFaceDesign_Godfather(void)
 
 	glPushMatrix();
 	glTranslatef(topX / 3, height / 3, 0.0f);
-	DrawSector_GodFather(0.15f, 0.15, -topZ - 0.01f, color, 0.0f, 2 * PI);
+	DrawSector_GodFather(0.15f, 0.15f, -topZ - 0.01f, color, 0.0f, 2 * PI);
 	glPopMatrix();
 
 	color[0] = 1.0f;
@@ -84,12 +84,12 @@ void DrawFaceDesign_Godfather(void)
 	color[2] = 1.0f;
 
 	glPushMatrix();
-	glTranslatef(-topX / 3, height / 3 + 0.05, 0.0f);
+	glTranslatef(-topX / 3, height / 3 + 0.05f, 0.0f);
 	DrawSector_GodFather(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(topX / 3, height / 3 + 0.05, 0.0f);
+	glTranslatef(topX / 3, height / 3 + 0.05f, 0.0f);
 	DrawSector_GodFather(0.1f, 0.1f, -topZ - 0.03f, color, 0.0f, 2 * PI);
 	glPopMatrix();
 
@@ -104,7 +104,7 @@ void DrawFaceDesign_Godfather(void)
 
 	glPushMatrix();
 	glTranslatef(topX / 3, height / 3.2f, 0.0f);
-	DrawSectorLine_GodFather(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	DrawSectorLine_GodFather(0.25f, 0.25f, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7f);
 	glPopMatrix();
 
 	glPushMatrix();
@@ -129,8 +129,8 @@ void DrawFaceDesign_Godfather(void)
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(topX - 0.76, height + 0.2, 0.0f);
-	DrawSectorLine_GodFather(0.25f, 0.25, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7);
+	glTranslatef(topX - 0.76f, height + 0.2f, 0.0f);
+	DrawSectorLine_GodFather(0.25f, 0.25f, -topZ - 0.01f, color, 3.145f / 4, 3 * PI / 3.7f);
 	glPopMatrix();
 }
 void DrawGodFatherFace()
@@ -158,10 +158,10 @@ void DrawGodFatherFace()
 }
 void DrawSuit_Godfather(void)
 {
-	GLfloat redius = 1.0f;
+	float redius = 1.0f;
 
 	int circle_points = 1000; //added by praveen 
-	GLfloat PI = 3.1415f, angle = 0.0f; //added by praveen
+	float PI = 3.1415f, angle = 0.0f; //added by praveen
 
 	//white dressed
 	glPushMatrix();
@@ -172,7 +172,7 @@ void DrawSuit_Godfather(void)
 	for (int i = 0; i < circle_points; i++)
 	{
 		angle = -1 * PI * i / circle_points;
-		glVertex3f(cos(angle)*redius, sin(angle)*redius, 0.0f);
+		glVertex3f((float)cos(angle)*redius, (float)sin(angle)*redius, 0.0f);
 	}
 	glEnd();
 
@@ -234,7 +234,7 @@ void DrawSuit_Godfather(void)
 	glTranslatef(0.5f, -0.2f, 0.0f);
 	glBegin(GL_POLYGON);
 	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
-		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+		glVertex3f(redius*(float)cos(angle), redius*(float)sin(angle), 0.0f);
 	glEnd();
 
 	glTranslatef(0.4f, 0.2f, 0.0f);
@@ -254,15 +254,15 @@ void DrawSuit_Godfather(void)
 	glTranslatef(-0.7f, -0.7f, -0.77f);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
-	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
-		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+	for (angle = 0.0f; angle < 2 * 3.145f; angle = angle + 0.001f)
+		glVertex3f(redius*(float)cos(angle), redius*(float)sin(angle), 0.0f);
 	glEnd();
 
 	redius = 0.1f;
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_POINTS);
 	for (angle = 0.0f; angle < 2 * 3.145; angle = angle + 0.001f)
-		glVertex3f(redius*cos(angle), redius*sin(angle), 0.0f);
+		glVertex3f(redius*(float)cos(angle), redius*(float)sin(angle), 0.0f);
 	glEnd();
 	glPopMatrix();
 }
@@ -319,7 +319,7 @@ void DrawButtons_GodFather(GLfloat redius)
 	glBegin(GL_TRIANGLE_FAN);
 	for (angle = 0.0f; angle <= 2.0*PI; angle = angle + 0.01f)
 	{
-		glVertex3f(cos(angle)*redius, sin(angle)*redius, 0.0f);
+		glVertex3f((float)cos(angle)*redius, (float)sin(angle)*redius, 0.0f);
 	}
 	glEnd();
 }
@@ -329,7 +329,7 @@ void DrawLinesOnDress_GodFather(void)
 	glBegin(GL_LINES);
 
 	glVertex3f(0.0f, 0.0f, 0.1f);
-	glVertex3f(0.0f, -1.3, 0.1f);
+	glVertex3f(0.0f, -1.3f, 0.1f);
 
 	glVertex3f(-1.3f, 0.2f, 0.1f);
 	glVertex3f(-2.0f, -0.1f, 0.1f);
@@ -341,10 +341,10 @@ void DrawLinesOnDress_GodFather(void)
 	glVertex3f(-2.0f, -0.5f, 0.1f);
 
 	glVertex3f(-2.0f, -0.5f, 0.1f);
-	glVertex3f(-1.4f, -1.3, 0.1f);
+	glVertex3f(-1.4f, -1.3f, 0.1f);
 
-	glVertex3f(-1.4f, -1.3, 0.1f);
-	glVertex3f(1.4f, -1.3, 0.1f);
+	glVertex3f(-1.4f, -1.3f, 0.1f);
+	glVertex3f(1.4f, -1.3f, 0.1f);
 
 	glEnd();
 }

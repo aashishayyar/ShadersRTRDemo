@@ -8,7 +8,7 @@ float heightRifle; //for heightRifle of the cylinder
 
 float angleRifle; //used in circle
 
-int RotateGun=90.0f;
+int RotateGun=90;
 
 //rotate the each part of the Gun
 float RotateAngle=90.0f;
@@ -24,53 +24,46 @@ void DrawRifleCircle(float redius)
 	glBegin(GL_TRIANGLE_FAN);
 	for (angleRifle = 0.0f; angleRifle <= 2.0*PI; angleRifle = angleRifle + 0.01f)
 	{
-		glVertex3f(cos(angleRifle)*redius, sin(angleRifle)*redius, 0.0f);
+		glVertex3f((float)cos(angleRifle)*redius, (float)sin(angleRifle)*redius, 0.0f);
 	}
 	glEnd();
 }
 
 void CUBE(void)
 {
-	//glScalef(0.70f, 0.10f, 0.20f);
 	glBegin(GL_QUADS);
 	
 	//topRifle face
-	//glColor3f(1.0f, 0.0f, 0.0f);//Red
 	glVertex3f(1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, 1.0f, 1.0f);
 	glVertex3f(1.0f, 1.0f, 1.0f);
 
 	//Bottom face
-	//glColor3f(0.0f, 1.0f, 0.0f);//Green
 	glVertex3f(1.0f, -1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, 1.0f);
 	glVertex3f(1.0f, -1.0f, 1.0f);
 
 	//front face 
-	//glColor3f(0.0f, 0.0f, 1.0f);//Blue
 	glVertex3f(1.0f, 1.0f, 1.0f);//right-topRifle
 	glVertex3f(-1.0f, 1.0f, 1.0f);//left-topRifle
 	glVertex3f(-1.0f, -1.0f, 1.0f);//left-bottom
 	glVertex3f(1.0f, -1.0f, 1.0f);//right-bottom
 
 	//Back face
-	//glColor3f(0.0f, 1.0f, 1.0f);//
 	glVertex3f(1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, -1.0f);
 	glVertex3f(1.0f, -1.0f, -1.0f);
 
 	//Right face
-	//glColor3f(1.0f, 0.0f, 1.0f);//Magenta
 	glVertex3f(1.0f, 1.0f, -1.0f);
 	glVertex3f(1.0f, 1.0f, 1.0f);
 	glVertex3f(1.0f, -1.0f, 1.0f);
 	glVertex3f(1.0f, -1.0f, -1.0f);
 
 	//left face
-	//glColor3f(1.0f, 1.0f, 0.0f);//yellow
 	glVertex3f(-1.0f, 1.0f, 1.0f);
 	glVertex3f(-1.0f, 1.0f, -1.0f);
 	glVertex3f(-1.0f, -1.0f, -1.0f);
@@ -82,18 +75,18 @@ void CUBE(void)
 void FireStickDecoration(void)
 {
 	float angleRifle;
-	GLfloat red = 0.4f;
+	float red = 0.4f;
 
 	glPushMatrix();
-		GLint circle_points = 1000; //try using 1000 or 10000
+		GLint circle_points = 1000;
 		glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
 		glLineWidth(7.0f);
 		glBegin(GL_LINE_LOOP);
 		glColor3f(0.80f, 0.80f, 0.80f);//
 		for (int i = 0; i < circle_points; i++)
 		{
-			angleRifle = 1 * PI * i / circle_points;
-			glVertex2f(cos(angleRifle)*red, sin(angleRifle)*red);
+			angleRifle = (float)1 * (float)PI *(float)i / (float)circle_points;
+			glVertex2f((float)cos(angleRifle)*red, (float)sin(angleRifle)*red);
 		}
 		glEnd();
 	glPopMatrix();
@@ -116,7 +109,7 @@ void DrawRifle()
 		glRotatef((GLfloat)RotateGun, 0.0f, 1.0f, 0.0f);
 		//Middle Gray Cylinder part
 		glPushMatrix();
-			baseRifle = topRifle = 0.3, heightRifle = 3.0;
+			baseRifle = topRifle = 0.3f, heightRifle = 3.0f;
 			glTranslatef(-heightRifle+1.2f, 0.1f, 0.0f);
 			glRotatef(RotateAngle, 0.0f, 1.0f, 0.0f);
 			glColor3f(0.60f, 0.60f, 0.60f);//Gray final
@@ -132,7 +125,6 @@ void DrawRifle()
 			glColor3f(0.81f, 0.71f, 0.23f);
 			DrawRifleCylinder(baseRifle, topRifle, heightRifle);
 			DrawRifleCircle(baseRifle);
-			//yellow
 			baseRifle = topRifle = 0.12f, heightRifle = 0.3f;
 			glTranslatef(0.0f, 0.0f, -0.3f);
 			glColor3f(1.0f, 1.0f, 0.0f);

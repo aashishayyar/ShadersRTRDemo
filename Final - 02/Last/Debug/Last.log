@@ -1,18 +1,27 @@
-﻿  Bullet.cpp
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(219): warning C4094: untagged 'struct' declared no symbols
-  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe
-  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.pdb (Full PDB)
+﻿  Main.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(16): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(24): warning C4091: 'extern ': ignored on left of 'RoomSize' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(31): warning C4091: 'extern ': ignored on left of 'CenterOfLookAt' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(42): warning C4091: 'extern ': ignored on left of 'XYZCoordinates' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(56): warning C4091: 'extern ': ignored on left of 'ObjectCameraInfo' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(62): warning C4091: 'extern ': ignored on left of 'LegoCharactersPosition' when no variable is declared
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main.cpp(546): warning C4305: '+=': truncation from 'double' to 'float'
+  Bullet.cpp
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4305: 'initializing': truncation from 'double' to 'float'
+i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(219): warning C4094: untagged 'struct' declared no symbols
+  Generating Code...
+  Last.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe
+  Last.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Final - 02\Last\Debug\Last.pdb (Full PDB)
