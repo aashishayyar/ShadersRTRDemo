@@ -24,23 +24,23 @@ struct rgbValues {
 	float bColor;
 };
 
-typedef struct colorShades {
+struct colorShades {
 	rgbValues topColor;
 	rgbValues sideColor;
 	rgbValues frontColor;
 };
 
 // color scheme for pistol body
-rgbValues grayTopColors = { 0.7,0.7,0.7 };
-rgbValues graySideColors = { 0.4,0.4,0.4 };
-rgbValues grayFrontColors = { 0.3,0.3,0.3 };
+rgbValues grayTopColors = { (GLfloat)0.7,(GLfloat)0.7,(GLfloat)0.7 };
+rgbValues graySideColors = { (GLfloat)0.4,(GLfloat)0.4,(GLfloat)0.4 };
+rgbValues grayFrontColors = { (GLfloat)0.3,(GLfloat)0.3,(GLfloat)0.3 };
 
 colorShades grayShades = { grayTopColors, graySideColors, grayFrontColors };
 
 // color scheme for pistol handle
-rgbValues brownTopColors = { 107.0 / 255.0, 69.0 / 255.0, 32.0 / 255.0 };
-rgbValues brownSideColors = { 204.0 / 255.0, 130.0 / 255.0, 57.0 / 255.0 };
-rgbValues brownFrontColors = { 127.0 / 255.0, 67.0 / 255.0, 36.0 / 255.0 };
+rgbValues brownTopColors = { (GLfloat)(107.0 / 255.0), (GLfloat)(69.0 / 255.0), (GLfloat)(32.0 / 255.0) };
+rgbValues brownSideColors = { (GLfloat)(204.0 / 255.0), (GLfloat)(130.0 / 255.0), (GLfloat)(57.0 / 255.0) };
+rgbValues brownFrontColors = { (GLfloat)(127.0 / 255.0), (GLfloat)(67.0 / 255.0), (GLfloat)(36.0 / 255.0) };
 
 colorShades brownShades = { brownTopColors, brownSideColors, brownFrontColors };
 
@@ -88,7 +88,7 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	void DrawHandleDesign(void);
 	void DrawTrigger(void);
 
-	float colors[3] = { 0.3,0.3,0.3 };
+	float colors[3] = { (GLfloat)0.3,(GLfloat)0.3,(GLfloat)0.3 };
 	float quardsDepth = 0.0;
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glPushMatrix();
@@ -97,64 +97,64 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	glScalef(0.35f, 0.35f, 0.35f);
 	glPushMatrix();
 
-	glColor3f(0.6, 0.6, 0.6);
+	glColor3f((GLfloat)0.6, (GLfloat)0.6, (GLfloat)0.6);
 
 	//main outer cylinder
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.2*pistolScale, 0.2*pistolScale, 2.0*pistolScale, 20, 20);
-	glColor3f(0.3, 0.3, 0.3);
+	glColor3f((GLfloat)0.3, (GLfloat)0.3, (GLfloat)0.3);
 
 	// main inner cylinder
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.13*pistolScale, 0.13*pistolScale, 2.0*pistolScale, 20, 20);
-	glColor3f(0.2, 0.2, 0.2);
+	glColor3f((GLfloat)0.2, (GLfloat)0.2, (GLfloat)0.2);
 
 	// upper cubiod on main cylinder
 	float points[8][3] = {
-		{ (xOriginalCord + 0.1)*pistolScale, (yOriginalCord + 0.29)*pistolScale, (zOriginalCord)*pistolScale },// counter clockwise backside)*pistolScale, upper cube
-		{ (xOriginalCord - 0.1)*pistolScale, (yOriginalCord + 0.29)*pistolScale, (zOriginalCord)*pistolScale },
-		{ (xOriginalCord - 0.1)*pistolScale, (yOriginalCord + 0.17)*pistolScale, (zOriginalCord)*pistolScale },
-		{ (xOriginalCord + 0.1)*pistolScale, (yOriginalCord + 0.17)*pistolScale, (zOriginalCord)*pistolScale },
-		{ (xOriginalCord + 0.1)*pistolScale, (yOriginalCord + 0.29)*pistolScale, (zOriginalCord + 1.98)*pistolScale },
-		{ (xOriginalCord - 0.1)*pistolScale, (yOriginalCord + 0.29)*pistolScale, (zOriginalCord + 1.98)*pistolScale },
-		{ (xOriginalCord - 0.1)*pistolScale, (yOriginalCord + 0.17)*pistolScale, (zOriginalCord + 1.98)*pistolScale },
-		{ (xOriginalCord + 0.1)*pistolScale, (yOriginalCord + 0.17)*pistolScale, (zOriginalCord + 1.98)*pistolScale }
+		{ (xOriginalCord + 0.1f)*pistolScale, (yOriginalCord + 0.29f)*pistolScale, (zOriginalCord)*pistolScale },// counter clockwise backside)*pistolScale, upper cube
+		{ (xOriginalCord - 0.1f)*pistolScale, (yOriginalCord + 0.29f)*pistolScale, (zOriginalCord)*pistolScale },
+		{ (xOriginalCord - 0.1f)*pistolScale, (yOriginalCord + 0.17f)*pistolScale, (zOriginalCord)*pistolScale },
+		{ (xOriginalCord + 0.1f)*pistolScale, (yOriginalCord + 0.17f)*pistolScale, (zOriginalCord)*pistolScale },
+		{ (xOriginalCord + 0.1f)*pistolScale, (yOriginalCord + 0.29f)*pistolScale, (zOriginalCord + 1.98f)*pistolScale },
+		{ (xOriginalCord - 0.1f)*pistolScale, (yOriginalCord + 0.29f)*pistolScale, (zOriginalCord + 1.98f)*pistolScale },
+		{ (xOriginalCord - 0.1f)*pistolScale, (yOriginalCord + 0.17f)*pistolScale, (zOriginalCord + 1.98f)*pistolScale },
+		{ (xOriginalCord + 0.1f)*pistolScale, (yOriginalCord + 0.17f)*pistolScale, (zOriginalCord + 1.98f)*pistolScale }
 	};
 	DrawPistolCuboid(points, grayShades);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0.0, 0.0, 2.0*pistolScale);
-	glColor3f(0.2, 0.2, 0.2);
+	glTranslatef((GLfloat)0.0, (GLfloat)0.0, (GLfloat)2.0*pistolScale);
+	glColor3f((GLfloat)0.2, (GLfloat)0.2, (GLfloat)0.2);
 
 	// disc on the tip of
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.13*pistolScale, 0.2*pistolScale, 20, 20);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0.0, 0.0, 1.98*pistolScale);
+	glTranslatef((GLfloat)0.0, (GLfloat)0.0, (GLfloat)1.98*pistolScale);
 
 	// upper cuboid on the main cylinder
 	float pointsTopTip[8][3] = {
-		{ (xOriginalCord + 0.03)*pistolScale, (yOriginalCord + 0.38)*pistolScale, (zOriginalCord - 0.3)*pistolScale }, // back
-		{ xOriginalCord - 0.03, yOriginalCord + 0.38, zOriginalCord - 0.3 },
-		{ xOriginalCord - 0.04, yOriginalCord + 0.29, zOriginalCord - 0.5 },
-		{ xOriginalCord + 0.04, yOriginalCord + 0.29, zOriginalCord - 0.5 },
-		{ xOriginalCord + 0.03, yOriginalCord + 0.38, zOriginalCord },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.03, yOriginalCord + 0.38, zOriginalCord }, // front
-		{ xOriginalCord - 0.04, yOriginalCord + 0.29, zOriginalCord },
-		{ xOriginalCord + 0.04, yOriginalCord + 0.29, zOriginalCord }
+		{ (xOriginalCord + 0.03f)*pistolScale, (yOriginalCord + 0.38f)*pistolScale, (zOriginalCord - 0.3f)*pistolScale }, // back
+		{ xOriginalCord - 0.03f, yOriginalCord + 0.38f, zOriginalCord - 0.3f },
+		{ xOriginalCord - 0.04f, yOriginalCord + 0.29f, zOriginalCord - 0.5f },
+		{ xOriginalCord + 0.04f, yOriginalCord + 0.29f, zOriginalCord - 0.5f },
+		{ xOriginalCord + 0.03f, yOriginalCord + 0.38f, zOriginalCord },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.03f, yOriginalCord + 0.38f, zOriginalCord }, // front
+		{ xOriginalCord - 0.04f, yOriginalCord + 0.29f, zOriginalCord },
+		{ xOriginalCord + 0.04f, yOriginalCord + 0.29f, zOriginalCord }
 
 	};
 	DrawPistolCuboid(pointsTopTip, grayShades);
 	glPopMatrix();
 	glPushMatrix();
 	// covering disc for back cylinder
-	glColor3f(0.2, 0.2, 0.2);
+	glColor3f((GLfloat)0.2, (GLfloat)0.2, (GLfloat)0.2);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.05, 0.23, 20, 20);
 	//translate to draw back cylinder
-	glTranslatef(0.0, 0.0, -0.4);
-	glColor3f(0.4, 0.4, 0.4);
+	glTranslatef((GLfloat)0.0, (GLfloat)0.0, (GLfloat)-0.4);
+	glColor3f(0.4f, 0.4f, 0.4f);
 
 	// back cylinder
 	quadric = gluNewQuadric();
@@ -164,14 +164,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	glPushMatrix();
 	// upper cuboid on back cylinder
 	float pointsTopBackLower[8][3] = {
-		{ xOriginalCord + 0.14, yOriginalCord + 0.32, zOriginalCord - 1.1 }, //back
-		{ xOriginalCord - 0.14, yOriginalCord + 0.32, zOriginalCord - 1.1 },
-		{ xOriginalCord - 0.14, yOriginalCord + 0.17, zOriginalCord - 1.1 },
-		{ xOriginalCord + 0.14, yOriginalCord + 0.17, zOriginalCord - 1.1 },
-		{ xOriginalCord + 0.14, yOriginalCord + 0.32, zOriginalCord },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.14, yOriginalCord + 0.32, zOriginalCord },
-		{ xOriginalCord - 0.14, yOriginalCord + 0.17, zOriginalCord },
-		{ xOriginalCord + 0.14, yOriginalCord + 0.17, zOriginalCord }
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.32f, zOriginalCord - 1.1f }, //back
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.32f, zOriginalCord - 1.1f },
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.17f, zOriginalCord - 1.1f },
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.17f, zOriginalCord - 1.1f },
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.32f, zOriginalCord },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.32f, zOriginalCord },
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.17f, zOriginalCord },
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.17f, zOriginalCord }
 
 
 	};
@@ -180,64 +180,64 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	glPopMatrix();
 	glPushMatrix();	
 	// front disc for bullets holder
-	glTranslatef(0.0, -0.2, -0.3);
-	glColor3f(0.3, 0.3, 0.3);
+	glTranslatef((GLfloat)0.0, (GLfloat)-0.2, (GLfloat)-0.3);
+	glColor3f((GLfloat)0.3, (GLfloat)0.3, (GLfloat)0.3);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.005*pistolScale, 0.45*pistolScale, 20, 20);
 	glPopMatrix();
 	glPushMatrix();
 	// rear disc for bullets holder 
-	glTranslatef(0.0, -0.2, -1.0);
-	glColor3f(0.2, 0.2, 0.2);
+	glTranslatef((GLfloat)0.0, (GLfloat)-0.2, (GLfloat)-1.0);
+	glColor3f((GLfloat)0.2, (GLfloat)0.2, (GLfloat)0.2);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.005*pistolScale, 0.45*pistolScale, 20, 20);
 
 	// bullets holder
-	glColor3f(0.45, 0.45, 0.45);
+	glColor3f((GLfloat)0.45, (GLfloat)0.45, (GLfloat)0.45);
 	quadric = gluNewQuadric();
 	gluCylinder(quadric, 0.45*pistolScale, 0.45*pistolScale, 0.7*pistolScale, 20, 20);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles left
-	glTranslatef(-0.22, -0.04, -0.49);
+	glTranslatef((GLfloat)-0.22, (GLfloat)-0.04, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles left
-	glTranslatef(-0.27, -0.295, -0.49);
+	glTranslatef((GLfloat)-0.27, (GLfloat)-0.295, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles left
-	glTranslatef(-0.1, -0.49, -0.49);
+	glTranslatef((GLfloat)-0.1, (GLfloat)-0.49, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles right
-	glTranslatef(0.22, -0.04, -0.49);
+	glTranslatef((GLfloat)0.22, (GLfloat)-0.04, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles right
-	glTranslatef(0.27, -0.295, -0.49);
+	glTranslatef((GLfloat)0.27, (GLfloat)-0.295, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	// bullets holder circles right
-	glTranslatef(0.1, -0.49, -0.49);
+	glTranslatef((GLfloat)0.1, (GLfloat)-0.49, (GLfloat)-0.49);
 	DrawBulletHolderDisc(pistolScale);
 	glPopMatrix();
 	glPushMatrix();
 	//frame around bullet holder
 	float pointsFrame[8][3] = {
-		{ xOriginalCord + 0.14, yOriginalCord + 0.17, zOriginalCord - 1.18 }, //back
-		{ xOriginalCord - 0.14, yOriginalCord + 0.17, zOriginalCord - 1.18 },
-		{ xOriginalCord - 0.14, yOriginalCord - 0.8, zOriginalCord - 1.18 },
-		{ xOriginalCord + 0.14, yOriginalCord - 0.8, zOriginalCord - 1.18 },
-		{ xOriginalCord + 0.14, yOriginalCord + 0.17, zOriginalCord - 0.2 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.14, yOriginalCord + 0.17, zOriginalCord - 0.2 },
-		{ xOriginalCord - 0.14, yOriginalCord - 0.8, zOriginalCord - 0.2 },
-		{ xOriginalCord + 0.14, yOriginalCord - 0.8, zOriginalCord - 0.2 }
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.17f, zOriginalCord - 1.18f }, //back
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.17f, zOriginalCord - 1.18f },
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.18f },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.18f },
+		{ xOriginalCord + 0.14f, yOriginalCord + 0.17f, zOriginalCord - 0.2f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.14f, yOriginalCord + 0.17f, zOriginalCord - 0.2f },
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.8f, zOriginalCord - 0.2f },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.8f, zOriginalCord - 0.2f }
 
 
 	};
@@ -245,14 +245,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 
 	// the cuboid just above and behind the trigger
 	float pointsFrame2[8][3] = {
-		{ xOriginalCord + 0.14, yOriginalCord - 0.3, zOriginalCord - 1.7 },//back
-		{ xOriginalCord - 0.14, yOriginalCord - 0.3, zOriginalCord - 1.7 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.14, yOriginalCord - 0.8, zOriginalCord - 1.4 },
-		{ xOriginalCord + 0.14, yOriginalCord - 0.8, zOriginalCord - 1.4 },
-		{ xOriginalCord + 0.14, yOriginalCord - 0.3, zOriginalCord - 1.0 }, 
-		{ xOriginalCord - 0.14, yOriginalCord - 0.3, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.14, yOriginalCord - 0.8, zOriginalCord - 1.0 },
-		{ xOriginalCord + 0.14, yOriginalCord - 0.8, zOriginalCord - 1.0 },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.3f, zOriginalCord - 1.7f },//back
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.3f, zOriginalCord - 1.7f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.4f },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.4f },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.3f, zOriginalCord - 1.0f }, 
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.3f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.0f },
+		{ xOriginalCord + 0.14f, yOriginalCord - 0.8f, zOriginalCord - 1.0f },
 
 	};
 	DrawPistolCuboid(pointsFrame2, grayShades);
@@ -263,28 +263,28 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// the cuboid for handle
 	float pointsHandle[8][3] = {
 
-		{ xOriginalCord + 0.18, yOriginalCord - 1.8, zOriginalCord - 2.3 },//back
-		{ xOriginalCord - 0.18, yOriginalCord - 1.8, zOriginalCord - 2.3 },
-		{ xOriginalCord - 0.18, yOriginalCord - 2.6, zOriginalCord - 1.8 },
-		{ xOriginalCord + 0.18, yOriginalCord - 2.6, zOriginalCord - 1.8 },
-		{ xOriginalCord + 0.18, yOriginalCord - 0.3, zOriginalCord - 1.7 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.18, yOriginalCord - 0.3, zOriginalCord - 1.7 },
-		{ xOriginalCord - 0.18, yOriginalCord - 0.8, zOriginalCord - 1.3 },
-		{ xOriginalCord + 0.18, yOriginalCord - 0.8, zOriginalCord - 1.3 },
+		{ xOriginalCord + 0.18f, yOriginalCord - 1.8f, zOriginalCord - 2.3f },//back
+		{ xOriginalCord - 0.18f, yOriginalCord - 1.8f, zOriginalCord - 2.3f },
+		{ xOriginalCord - 0.18f, yOriginalCord - 2.6f, zOriginalCord - 1.8f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 2.6f, zOriginalCord - 1.8f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 0.3f, zOriginalCord - 1.7f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.18f, yOriginalCord - 0.3f, zOriginalCord - 1.7f },
+		{ xOriginalCord - 0.18f, yOriginalCord - 0.8f, zOriginalCord - 1.3f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 0.8f, zOriginalCord - 1.3f },
 
 	};
 	DrawPistolCuboid(pointsHandle, brownShades);
 
 	float pointsHandle2[8][3] = {
 
-		{ xOriginalCord + 0.18, yOriginalCord - 2.7, zOriginalCord - 1.8 },//back
-		{ xOriginalCord - 0.18, yOriginalCord - 2.7, zOriginalCord - 1.8 },
-		{ xOriginalCord - 0.18, yOriginalCord - 2.6, zOriginalCord - 1.2 },
-		{ xOriginalCord + 0.18, yOriginalCord - 2.6, zOriginalCord - 1.2 },
-		{ xOriginalCord + 0.18, yOriginalCord - 1.7, zOriginalCord - 2.2 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.18, yOriginalCord - 1.7, zOriginalCord - 2.2 },
-		{ xOriginalCord - 0.18, yOriginalCord - 1.5, zOriginalCord - 1.7 },
-		{ xOriginalCord + 0.18, yOriginalCord - 1.5, zOriginalCord - 1.7 },
+		{ xOriginalCord + 0.18f, yOriginalCord - 2.7f, zOriginalCord - 1.8f },//back
+		{ xOriginalCord - 0.18f, yOriginalCord - 2.7f, zOriginalCord - 1.8f },
+		{ xOriginalCord - 0.18f, yOriginalCord - 2.6f, zOriginalCord - 1.2f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 2.6f, zOriginalCord - 1.2f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 1.7f, zOriginalCord - 2.2f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.18f, yOriginalCord - 1.7f, zOriginalCord - 2.2f },
+		{ xOriginalCord - 0.18f, yOriginalCord - 1.5f, zOriginalCord - 1.7f },
+		{ xOriginalCord + 0.18f, yOriginalCord - 1.5f, zOriginalCord - 1.7f },
 
 	};
 	DrawPistolCuboid(pointsHandle2, brownShades);
@@ -293,110 +293,110 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	//right side
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(-0.25, 0.15, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef((GLfloat)-0.25, (GLfloat)0.15, (GLfloat)-0.32);
+	DrawBelletSlots((GLfloat)0.2);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(-0.44, -0.15, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef(-0.44f, -0.15f, -0.32f);
+	DrawBelletSlots(0.2f);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(-0.32, -0.49, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef(-0.32f, -0.49f, -0.32f);
+	DrawBelletSlots(0.2f);
 	glPopMatrix();
 
 	// left
 	glPushMatrix();
-	glTranslatef(0.25, 0.15, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef(0.25f, 0.15f, -0.32f);
+	DrawBelletSlots(0.2f);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0.44, -0.15, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef(0.44f, -0.15f, -0.32f);
+	DrawBelletSlots(0.2f);
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0.32, -0.49, -0.32);
-	DrawBelletSlots(0.2);
+	glTranslatef(0.32f, -0.49f, -0.32f);
+	DrawBelletSlots(0.2f);
 	
 	// handle and design
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(0.0, -1.8, -2.4);
+	glTranslatef(0.0f, -1.8f, -2.4f);
 	glRotatef(-14.0, 1.0, 0.0, 0.0);
-	glColor3f(204.0 / 255.0, 130.0 / 255.0, 57.0 / 255.0);
+	glColor3f(204.0f / 255.0f, 130.0f / 255.0f, 57.0f / 255.0f);
 	DrawHandleDesign();
 	glPopMatrix();
 
 	// trigger circle
 	glPushMatrix();
-	glTranslatef(0.0, -1.3, -0.9);
+	glTranslatef(0.0f, -1.3f, -0.9f);
 	DrawTrigger();
 	glPopMatrix();
 
 	glPushMatrix();
 	// cubiod below main cylinder
 	float pointsLowerCuboid[8][3] = {
-		{ xOriginalCord + 0.12, yOriginalCord - 0.33, zOriginalCord - 0.3 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.12, yOriginalCord - 0.33, zOriginalCord - 0.3 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.19, zOriginalCord - 0.3 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.19, zOriginalCord - 0.3 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.33, zOriginalCord + 1.0},
-		{ xOriginalCord - 0.12, yOriginalCord - 0.33, zOriginalCord + 1.0 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.19, zOriginalCord + 1.0 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.19, zOriginalCord + 1.0 }
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.33f, zOriginalCord - 0.3f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.33f, zOriginalCord - 0.3f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.19f, zOriginalCord - 0.3f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.19f, zOriginalCord - 0.3f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.33f, zOriginalCord + 1.0f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.33f, zOriginalCord + 1.0f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.19f, zOriginalCord + 1.0f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.19f, zOriginalCord + 1.0f }
 	};
 	DrawPistolCuboid(pointsLowerCuboid, grayShades);
 	glPopMatrix();
 	glPushMatrix();
 	// cubiod below trigger
 	float pointsBelowTrigger[8][3] = {
-		{ xOriginalCord + 0.12, yOriginalCord - 1.0, zOriginalCord - 0.5 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.12, yOriginalCord - 1.0, zOriginalCord - 0.5 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.5, zOriginalCord - 0.5 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.5, zOriginalCord - 0.5 },
-		{ xOriginalCord + 0.12, yOriginalCord - 1.0, zOriginalCord - 1.3 },
-		{ xOriginalCord - 0.12, yOriginalCord - 1.0, zOriginalCord - 1.3 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.5, zOriginalCord - 1.3 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.5, zOriginalCord - 1.3 }
+		{ xOriginalCord + 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.5f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.5f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.5f, zOriginalCord - 0.5f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.5f, zOriginalCord - 0.5f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 1.0f, zOriginalCord - 1.3f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 1.0f, zOriginalCord - 1.3f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.5f, zOriginalCord - 1.3f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.5f, zOriginalCord - 1.3f }
 	};
 	DrawPistolCuboid(pointsBelowTrigger, grayShades);
 	glPopMatrix();
 	glPushMatrix();
 
 	// fillings around trigger ring
-	glColor3f(0.4, 0.4, 0.4);
+	glColor3f(0.4f, 0.4f, 0.4f);
 	//back
 	for (int i = 0; i < 50; i++) {
 		glBegin(GL_QUADS);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.0, zOriginalCord - 1.3 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.0, zOriginalCord - 1.3 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.3, zOriginalCord - 1.3 + quardsDepth);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.3, zOriginalCord - 1.3 + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.0f, zOriginalCord - 1.3f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.0f, zOriginalCord - 1.3f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.3f, zOriginalCord - 1.3f + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.3f, zOriginalCord - 1.3f + quardsDepth);
 		glEnd();
-		quardsDepth += 0.002;
+		quardsDepth += 0.002f;
 	}
 	quardsDepth = 0.0;
 	// back ++
 	for (int i = 0; i < 50; i++) {
 		glBegin(GL_QUADS);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 0.9, zOriginalCord - 1.2 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 0.9, zOriginalCord - 1.2 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.05, zOriginalCord - 1.2 + quardsDepth);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.05, zOriginalCord - 1.2 + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 0.9f, zOriginalCord - 1.2f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 0.9f, zOriginalCord - 1.2f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.05f, zOriginalCord - 1.2f + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.05f, zOriginalCord - 1.2f + quardsDepth);
 		glEnd();
-		quardsDepth += 0.002;
+		quardsDepth += 0.002f;
 	}
 
 
 	// front
 	for (int i = 0; i < 140; i++) {
 		glBegin(GL_QUADS);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.0, zOriginalCord - 0.75 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.0, zOriginalCord - 0.75+ quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.3, zOriginalCord - 0.75+ quardsDepth);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.3, zOriginalCord - 0.75+ quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.75f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.75f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.3f, zOriginalCord - 0.75f + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.3f, zOriginalCord - 0.75f + quardsDepth);
 		glEnd();
-		quardsDepth += 0.001;
+		quardsDepth += 0.001f;
 	}
 	quardsDepth = 0.0;
 
@@ -413,12 +413,12 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// front
 	for (int i = 0; i < 50; i++) {
 		glBegin(GL_QUADS);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 0.8, zOriginalCord - 0.72 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 0.8, zOriginalCord - 0.72 + quardsDepth);
-		glVertex3f(xOriginalCord - 0.12, yOriginalCord - 1.0, zOriginalCord - 0.72 + quardsDepth);
-		glVertex3f(xOriginalCord + 0.12, yOriginalCord - 1.0, zOriginalCord - 0.72 + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 0.8f, zOriginalCord - 0.72f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 0.8f, zOriginalCord - 0.72f + quardsDepth);
+		glVertex3f(xOriginalCord - 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.72f + quardsDepth);
+		glVertex3f(xOriginalCord + 0.12f, yOriginalCord - 1.0f, zOriginalCord - 0.72f + quardsDepth);
 		glEnd();
-		quardsDepth += 0.002;
+		quardsDepth += 0.002f;
 	}
 
 	
@@ -428,14 +428,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// upper trigger notch 
 
 	float pointsUpperNotch[8][3] = {
-		{ xOriginalCord + 0.06, yOriginalCord + 0.2, zOriginalCord - 1.7 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.06, yOriginalCord + 0.2, zOriginalCord - 1.7 },
-		{ xOriginalCord - 0.06, yOriginalCord + 0.1, zOriginalCord - 1.5 },
-		{ xOriginalCord + 0.06, yOriginalCord + 0.1, zOriginalCord - 1.5 },
-		{ xOriginalCord + 0.06, yOriginalCord + 0.2, zOriginalCord - 1.45 },
-		{ xOriginalCord - 0.06, yOriginalCord + 0.2, zOriginalCord - 1.45 },
-		{ xOriginalCord - 0.06, yOriginalCord + 0.1, zOriginalCord - 1.35 },
-		{ xOriginalCord + 0.06, yOriginalCord + 0.1, zOriginalCord - 1.35}
+		{ xOriginalCord + 0.06f, yOriginalCord + 0.2f, zOriginalCord - 1.7f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.06f, yOriginalCord + 0.2f, zOriginalCord - 1.7f },
+		{ xOriginalCord - 0.06f, yOriginalCord + 0.1f, zOriginalCord - 1.5f },
+		{ xOriginalCord + 0.06f, yOriginalCord + 0.1f, zOriginalCord - 1.5f },
+		{ xOriginalCord + 0.06f, yOriginalCord + 0.2f, zOriginalCord - 1.45f },
+		{ xOriginalCord - 0.06f, yOriginalCord + 0.2f, zOriginalCord - 1.45f },
+		{ xOriginalCord - 0.06f, yOriginalCord + 0.1f, zOriginalCord - 1.35f },
+		{ xOriginalCord + 0.06f, yOriginalCord + 0.1f, zOriginalCord - 1.35f}
 	};
 	DrawPistolCuboid(pointsUpperNotch, grayShades);
 	glPopMatrix();
@@ -444,14 +444,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// cubiod below main cylinder
 
 	float pointsNotch1[8][3] = {
-		{ xOriginalCord + 0.08, yOriginalCord + 0.45, zOriginalCord - 1.0 },// counter clockwise backside, upper cube
-		{ xOriginalCord + 0.04, yOriginalCord + 0.45, zOriginalCord - 1.0 },
-		{ xOriginalCord + 0.00, yOriginalCord + 0.3, zOriginalCord - 1.0 },
-		{ xOriginalCord + 0.02, yOriginalCord + 0.3, zOriginalCord - 1.0 },
-		{ xOriginalCord + 0.08, yOriginalCord + 0.45, zOriginalCord - 1.1 },
-		{ xOriginalCord + 0.04, yOriginalCord + 0.45, zOriginalCord - 1.1 },
-		{ xOriginalCord + 0.00, yOriginalCord + 0.3, zOriginalCord - 1.1 },
-		{ xOriginalCord + 0.02, yOriginalCord + 0.3, zOriginalCord - 1.1 }
+		{ xOriginalCord + 0.08f, yOriginalCord + 0.45f, zOriginalCord - 1.0f },// counter clockwise backside, upper cube
+		{ xOriginalCord + 0.04f, yOriginalCord + 0.45f, zOriginalCord - 1.0f },
+		{ xOriginalCord + 0.00f, yOriginalCord + 0.3f, zOriginalCord - 1.0f },
+		{ xOriginalCord + 0.02f, yOriginalCord + 0.3f, zOriginalCord - 1.0f },
+		{ xOriginalCord + 0.08f, yOriginalCord + 0.45f, zOriginalCord - 1.1f },
+		{ xOriginalCord + 0.04f, yOriginalCord + 0.45f, zOriginalCord - 1.1f },
+		{ xOriginalCord + 0.00f, yOriginalCord + 0.3f, zOriginalCord - 1.1f },
+		{ xOriginalCord + 0.02f, yOriginalCord + 0.3f, zOriginalCord - 1.1f }
 	};
 	DrawPistolCuboid(pointsNotch1, grayShades);
 	glPopMatrix();
@@ -460,14 +460,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// cubiod below main cylinder
 
 	float pointsNotch2[8][3] = {
-		{ xOriginalCord - 0.08, yOriginalCord + 0.45, zOriginalCord - 1.0 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.04, yOriginalCord + 0.45, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.00, yOriginalCord + 0.3, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.02, yOriginalCord + 0.3, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.08, yOriginalCord + 0.45, zOriginalCord - 1.1 },
-		{ xOriginalCord - 0.04, yOriginalCord + 0.45, zOriginalCord - 1.1 },
-		{ xOriginalCord - 0.00, yOriginalCord + 0.3, zOriginalCord - 1.1 },
-		{ xOriginalCord - 0.02, yOriginalCord + 0.3, zOriginalCord - 1.1 }
+		{ xOriginalCord - 0.08f, yOriginalCord + 0.45f, zOriginalCord - 1.0f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.04f, yOriginalCord + 0.45f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.00f, yOriginalCord + 0.3f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.02f, yOriginalCord + 0.3f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.08f, yOriginalCord + 0.45f, zOriginalCord - 1.1f },
+		{ xOriginalCord - 0.04f, yOriginalCord + 0.45f, zOriginalCord - 1.1f },
+		{ xOriginalCord - 0.00f, yOriginalCord + 0.3f, zOriginalCord - 1.1f },
+		{ xOriginalCord - 0.02f, yOriginalCord + 0.3f, zOriginalCord - 1.1f }
 	};
 	DrawPistolCuboid(pointsNotch2, grayShades);
 	glPopMatrix();
@@ -476,14 +476,14 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 	// cubiod below main cylinder
 
 	float pointsHandleCover[8][3] = {
-		{ xOriginalCord + 0.22, yOriginalCord - 0.2, zOriginalCord - 1.7 },// counter clockwise backside, upper cube
-		{ xOriginalCord - 0.20, yOriginalCord - 0.2, zOriginalCord - 1.7 },
-		{ xOriginalCord - 0.20, yOriginalCord - 0.4, zOriginalCord - 1.7 },
-		{ xOriginalCord + 0.22, yOriginalCord - 0.4, zOriginalCord - 1.7 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.2, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.2, zOriginalCord - 1.0 },
-		{ xOriginalCord - 0.12, yOriginalCord - 0.4, zOriginalCord - 1.0 },
-		{ xOriginalCord + 0.12, yOriginalCord - 0.4, zOriginalCord - 1.0 }
+		{ xOriginalCord + 0.22f, yOriginalCord - 0.2f, zOriginalCord - 1.7f },// counter clockwise backside, upper cube
+		{ xOriginalCord - 0.20f, yOriginalCord - 0.2f, zOriginalCord - 1.7f },
+		{ xOriginalCord - 0.20f, yOriginalCord - 0.4f, zOriginalCord - 1.7f },
+		{ xOriginalCord + 0.22f, yOriginalCord - 0.4f, zOriginalCord - 1.7f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.2f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.2f, zOriginalCord - 1.0f },
+		{ xOriginalCord - 0.12f, yOriginalCord - 0.4f, zOriginalCord - 1.0f },
+		{ xOriginalCord + 0.12f, yOriginalCord - 0.4f, zOriginalCord - 1.0f }
 	};
 	DrawPistolCuboid(pointsHandleCover, grayShades);
 	glPopMatrix();
@@ -493,45 +493,45 @@ void DrawPistol(float xPos, float yPos, float zPos, float pistolScale) {
 
 void DrawTrigger(void) {
 
-	float triggerWidth = -0.08;
+	float triggerWidth = -0.08f;
 	glPointSize(5.0f);
-	glColor3f(0.4, 0.4, 0.4);
+	glColor3f(0.4f, 0.4f, 0.4f);
 	for (int j = 0; j <= 15; j++) {
 		glBegin(GL_POINTS);
 		
 		for (int i = 0; i <= 1000; i++) {
-			glVertex3f(triggerWidth, cos(2 * PI*(i / 1000.0))*0.35 , sin(2 * PI*(i / 1000.0))*0.35);
+			glVertex3f(triggerWidth, (GLfloat)cos(2 * PI*(i / 1000.0f))*0.35f , (GLfloat)sin(2 * PI*(i/ 1000.0f))*0.35f);
 		}
 		glEnd();
-		triggerWidth += 0.01;
+		triggerWidth += 0.01f;
 	}
 
-	triggerWidth = -0.08;
-	glColor3f(0.3, 0.3, 0.3);
-	glTranslatef(0.0, 0.2, 0.15);
+	triggerWidth = -0.08f;
+	glColor3f(0.3f, 0.3f, 0.3f);
+	glTranslatef(0.0f, 0.2f, 0.15f);
 	glRotatef(180, 1.0, 0.0, 0.0);
 	for (int j = 0; j <= 15; j++) {
 		glBegin(GL_POINTS);
 
 		for (int i = 0; i <= 300; i++) {
-			glVertex3f(triggerWidth, cos(2 * PI*(i / 1000.0))*0.35, sin(2 * PI*(i / 1000.0))*0.35);
+			glVertex3f(triggerWidth, (GLfloat)cos(2 * PI*(i / 1000.0f))*0.35f, (GLfloat)sin(2 * PI*(i / 1000.0f))*0.35f);
 		}
 		glEnd();
-		triggerWidth += 0.01;
+		triggerWidth += 0.01f;
 	}
 
-	triggerWidth = -0.04;
-	glColor3f(0.4, 0.4, 0.4);
-	glTranslatef(0.0, -1.3, 0.3);
+	triggerWidth = -0.04f;
+	glColor3f(0.4f, 0.4f, 0.4f);
+	glTranslatef(0.0f, -1.3f, 0.3f);
 	glRotatef(-40, 1.0, 0.0, 0.0);
 	for (int j = 0; j <= 10; j++) {
 		glBegin(GL_POINTS);
 
 		for (int i = 0; i <= 300; i++) {
-			glVertex3f(triggerWidth, cos(2 * PI*(i / 1000.0))*0.35, sin(2 * PI*(i / 1000.0))*0.35);
+			glVertex3f(triggerWidth, (GLfloat)cos(2 * PI*(i / 1000.0f))*0.35f, (GLfloat)sin(2 * PI*(i / 1000.0f))*0.35f);
 		}
 		glEnd();
-		triggerWidth += 0.01;
+		triggerWidth += 0.01f;
 	}
 
 }
@@ -540,44 +540,44 @@ void DrawTrigger(void) {
 void DrawHandleDesign(void) {
 
 	float y = -1.0;
-	float handleWidth = -0.2;
+	float handleWidth = -0.2f;
 	float handleBreadth = 0.0;
 	// back
-	glColor3f(114.0 / 255.0, 48.0 / 255.0, 4.0 / 255.0);
+	glColor3f(114.0f / 255.0f, 48.0f / 255.0f, 4.0f / 255.0f);
 	for (int j = 0; j <= 40; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 450; i++) {
-			glVertex3f(handleWidth, y, ((y + 0.15)*(y + 0.15)*0.5));
-			y += 0.005;
+			glVertex3f(handleWidth, y, ((y + 0.15f)*(y + 0.15f)*0.5f));
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleWidth += 0.01;
+		handleWidth += 0.01f;
 	}
 
-	glColor3f(96.0 / 255.0, 41.0 / 255.0, 3.0 / 255.0);
+	glColor3f(96.0f / 255.0f, 41.0f / 255.0f, 3.0f / 255.0f);
 	//glColor3f(127.0 / 255.0, 67.0 / 255.0, 36.0 / 255.0);
 	for (int j = 0; j <= 28; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 450; i++) {
-			glVertex3f(-0.2, y, ((y + 0.15)*(y + 0.15)*0.5) + handleBreadth);
-			y += 0.005;
+			glVertex3f(-0.2f, y, ((y + 0.15f)*(y + 0.15f)*0.5f) + handleBreadth);
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleBreadth += 0.01;
+		handleBreadth += 0.01f;
 	}
 
 	handleBreadth = 0.0;
 	for (int j = 0; j <= 28; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 450; i++) {
-			glVertex3f(0.22, y, ((y + 0.15)*(y + 0.15)*0.5) + handleBreadth);
-			y += 0.005;
+			glVertex3f(0.22f, y, ((y + 0.15f)*(y + 0.15f)*0.5f) + handleBreadth);
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleBreadth += 0.01;
+		handleBreadth += 0.01f;
 	}
 
 	//front
@@ -619,44 +619,44 @@ void DrawHandleDesign(void) {
 	////}
 	//front
 	handleBreadth = 0.0;
-	glTranslatef(0.0, 0.0, 0.7);
+	glTranslatef(0.0f, 0.0f, 0.7f);
 	glRotatef(10, 1.0, 0.0, 0.0);
 	
-	handleWidth = -0.2;
+	handleWidth = -0.2f;
 	for (int j = 0; j <= 40; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 350; i++) {
-			glVertex3f(handleWidth, y, ((y + 0.15)*(y + 0.15)*0.4) +0.21 );
-			y += 0.005;
+			glVertex3f(handleWidth, y, ((y + 0.15f)*(y + 0.15f)*0.4f) +0.21f );
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleWidth += 0.01;
+		handleWidth += 0.01f;
 	}
 
-	glColor3f(96.0 / 255.0, 41.0 / 255.0, 3.0 / 255.0);
+	glColor3f(96.0f / 255.0f, 41.0f / 255.0f, 3.0f / 255.0f);
 	//glColor3f(127.0 / 255.0, 67.0 / 255.0, 36.0 / 255.0);
 	for (int j = 0; j <= 20; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 350; i++) {
-			glVertex3f(-0.2, y, ((y + 0.15)*(y + 0.15)*0.4) + handleBreadth);
-			y += 0.005;
+			glVertex3f(-0.2f, y, ((y + 0.15f)*(y + 0.15f)*0.4f) + handleBreadth);
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleBreadth += 0.01;
+		handleBreadth += 0.01f;
 	}
 	//glTranslatef(0.0, -0.2, 0.3);
 	handleBreadth = 0.0;
 	for (int j = 0; j <= 20; j++) {
 		glBegin(GL_POINTS);
 		for (int i = 0; i <= 350; i++) {
-			glVertex3f(0.22, y, ((y + 0.15)*(y + 0.15)*0.4) + handleBreadth);
-			y += 0.005;
+			glVertex3f(0.22f, y, ((y + 0.15f)*(y + 0.15f)*0.4f) + handleBreadth);
+			y += 0.005f;
 		}
 		glEnd();
 		y = -1.0;
-		handleBreadth += 0.01;
+		handleBreadth += 0.01f;
 	}
 }
 
@@ -683,14 +683,14 @@ void DrawBelletSlots(float bulletScale) {
 	//glTranslatef(0.0, -0.5, 0.0); 
 
 	glPushMatrix(); // save position of first object which will rotate around the initial point
-	glColor3f(91.0 / 255.0, 88.0 / 255.0, 87.0 / 255.0);
+	glColor3f(91.0f / 255.0f, 88.0f / 255.0f, 87.0f / 255.0f);
 	quadric = gluNewQuadric();
 
 	// inner disk back of the bullet
 	gluDisk(quadric, 0.001, 0.35*bulletScale, 20, 20);
 
 	//yellowinsh shade
-	glColor3f(153.0 / 255.0, 151.0 / 255.0, 146.0 / 255.0);
+	glColor3f(153.0f / 255.0f, 151.0f / 255.0f, 146.0f / 255.0f);
 	quadric = gluNewQuadric();
 
 	// outer disk back of the bullet
@@ -701,18 +701,18 @@ void DrawBelletSlots(float bulletScale) {
 	glPopMatrix(); // actually not needed since we didn't change the position
 
 	glPushMatrix(); // save the previous position
-	glColor3f(153.0 / 255.0, 151.0 / 255.0, 146.0 / 255.0);
+	glColor3f(153.0f / 255.0f, 151.0f / 255.0f, 146.0f / 255.0f);
 	quadric = gluNewQuadric();
-	gluCylinder(quadric, 0.5*bulletScale, 0.5*bulletScale, 0.08*bulletScale, 20, 20);
+	gluCylinder(quadric, 0.5f*bulletScale, 0.5f*bulletScale, 0.08f*bulletScale, 20, 20);
 	glPopMatrix();
 
-	glTranslatef(0.0, 0.0, 0.08*bulletScale); // since we have rotated the whole matrix by hard
+	glTranslatef(0.0, 0.0, 0.08f*bulletScale); // since we have rotated the whole matrix by hard
 											  // coded 90 degrees first, so every axis got shifted and +z takes place of +x
 											  //glRotatef((GLfloat)extra1, 0.0, 0.0, 1.0);
 											  //glTranslatef(0.0, -0.5, 0.0);
 
 	glPushMatrix();
-	glColor3f(99.0 / 255.0, 98.0 / 255.0, 96.0 / 255.0);
+	glColor3f(99.0f / 255.0f, 98.0f / 255.0f, 96.0f / 255.0f);
 	quadric = gluNewQuadric();
 	gluDisk(quadric, 0.01, 0.5*bulletScale, 20, 20);
 
@@ -720,34 +720,34 @@ void DrawBelletSlots(float bulletScale) {
 
 	glTranslatef(0.0, 0.0, 0.0);
 	glPushMatrix(); // save the previous position second cylinder
-	glColor3f(153.0 / 255.0, 151.0 / 255.0, 146.0 / 255.0);
+	glColor3f(153.0f / 255.0f, 151.0f / 255.0f, 146.0f / 255.0f);
 	quadric = gluNewQuadric();
-	gluCylinder(quadric, 0.4*bulletScale, 0.4*bulletScale, 0.15*bulletScale, 20, 20);
+	gluCylinder(quadric, 0.4f*bulletScale, 0.4f*bulletScale, 0.15f*bulletScale, 20, 20);
 
 	glPopMatrix();
 
-	glTranslatef(0.0, 0.0, 0.15*bulletScale);
+	glTranslatef(0.0, 0.0, 0.15f*bulletScale);
 	glPushMatrix();
-	glColor3f(99.0 / 255.0, 98.0 / 255.0, 96.0 / 255.0);
+	glColor3f(99.0f / 255.0f, 98.0f / 255.0f, 96.0f / 255.0f);
 	//glColor3f(0.6, 0.2, 0.0);
 	quadric = gluNewQuadric();
-	gluDisk(quadric, 0.01, 0.5*bulletScale, 20, 20);
+	gluDisk(quadric, 0.01f, 0.5f*bulletScale, 20, 20);
 
 	glPopMatrix();
 
 	//glTranslatef(0.0, 0.0, 0.5);
 	glPushMatrix();
-	glColor3f(160.0 / 255.0, 157.0 / 255.0, 155.0 / 255.0);
+	glColor3f(160.0f / 255.0f, 157.0f / 255.0f, 155.0f / 255.0f);
 	quadric = gluNewQuadric();
-	gluCylinder(quadric, 0.5*bulletScale, 0.5*bulletScale, 1.8*bulletScale, 20, 20);
+	gluCylinder(quadric, 0.5f*bulletScale, 0.5f*bulletScale, 1.8f*bulletScale, 20, 20);
 
 	glPopMatrix();
 
 	//glRotatef(90, 1.0, 0.0, 0.0);
-	glTranslatef(0.0, 0.0, 1.8*bulletScale);
+	glTranslatef(0.0, 0.0, 1.8f*bulletScale);
 	glPushMatrix(); // save the previous position second cylinder
-	glScalef(1.0, 1.0, 2.0);
-	glColor3f(160.0 / 255.0, 157.0 / 255.0, 155.0 / 255.0);
+	glScalef(1.0f, 1.0f, 2.0f);
+	glColor3f(160.0f / 255.0f, 157.0f / 255.0f, 155.0f / 255.0f);
 	quadric = gluNewQuadric();
 	gluSphere(quadric, 0.5*bulletScale, 20, 20);
 
@@ -760,25 +760,25 @@ void DrawBulletHolderDisc(float pistolScale) {
 	glPointSize(3.0f);
 	glBegin(GL_TRIANGLE_FAN);
 
-	glColor3f(0.15, 0.15, 0.15);
+	glColor3f(0.15f, 0.15f, 0.15f);
 	for (int i = 0; i <= 100; i++) {
 
 		if (i < 35) {
-			glColor3f(0.1, 0.1, 0.1);
+			glColor3f(0.1f, 0.1f, 0.1f);
 		}
 		else if (i < 50) {
-			glColor3f(0.2, 0.2, 0.2);
+			glColor3f(0.2f, 0.2f, 0.2f);
 		}
 		else if (i<70)
 		{
-			glColor3f(0.4, 0.4, 0.4);
+			glColor3f(0.4f, 0.4f, 0.4f);
 		}
 		else {
-			glColor3f(0.6, 0.6, 0.6);
+			glColor3f(0.6f, 0.6f, 0.6f);
 		}
 
-		angle = 2 * PI*i / 100.0f;
-		glVertex3f(cos(angle) *0.1*pistolScale, sin(angle)*0.1*pistolScale, 0.2);
+		angle = (GLfloat)(2 * PI*i / 100.0f);
+		glVertex3f((GLfloat)cos(angle) *0.1f*pistolScale, (GLfloat)sin(angle)*0.1f*pistolScale, 0.2f);
 	}
 	glEnd();
 }
