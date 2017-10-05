@@ -1,0 +1,5 @@
+﻿  Neo.cpp
+d:\shaders\new folder (2)\win32project2\neo.h(85): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
+d:\shaders\new folder (2)\win32project2\neo.cpp(77): warning C4552: '>=': operator has no effect; expected operator with side-effect
+  Win32Project2.vcxproj -> D:\Shaders\New folder (2)\Win32Project2\Debug\Win32Project2.exe
+  Win32Project2.vcxproj -> D:\Shaders\New folder (2)\Win32Project2\Debug\Win32Project2.pdb (Full PDB)
