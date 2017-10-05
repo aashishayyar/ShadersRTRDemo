@@ -40,6 +40,7 @@ GLfloat gfTranslateNeoZ = 0.0f;
 bool gbOneLeg = true; // 1 for Left and 2 for Right
 bool gbIsLeftLeg = false;
 bool gbIsLeftArm = false;
+bool gbHeadPosition = false;
 
 GLfloat body = 0;
 GLfloat lNeck = -30;

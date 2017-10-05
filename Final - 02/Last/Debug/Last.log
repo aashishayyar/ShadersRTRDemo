@@ -1,27 +1,261 @@
-﻿  Main.cpp
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(16): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(24): warning C4091: 'extern ': ignored on left of 'RoomSize' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(31): warning C4091: 'extern ': ignored on left of 'CenterOfLookAt' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(42): warning C4091: 'extern ': ignored on left of 'XYZCoordinates' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(56): warning C4091: 'extern ': ignored on left of 'ObjectCameraInfo' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main_room.h(62): warning C4091: 'extern ': ignored on left of 'LegoCharactersPosition' when no variable is declared
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\main.cpp(546): warning C4305: '+=': truncation from 'double' to 'float'
+﻿  Util.cpp
+  ShortGun.cpp
+  ShadersBullets.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(49): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(49): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(66): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(66): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(85): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(85): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(105): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(105): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(141): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(141): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(156): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(156): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(164): warning C4094: untagged 'struct' declared no symbols
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(288): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(295): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(306): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(311): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(317): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(325): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(331): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(333): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(342): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(349): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\shadersbullets.cpp(352): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  SantinoCharacter.cpp
+  Room.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\clock.h(65): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(122): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(123): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(126): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(127): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(355): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(356): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(373): warning C4068: unknown pragma
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(781): warning C4068: unknown pragma
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(785): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(790): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(791): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(792): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(796): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(797): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(806): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(807): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(808): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(809): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(907): warning C4068: unknown pragma
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\room.cpp(960): warning C4101: 'str': unreferenced local variable
+  Rifle.cpp
+  Pistol.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(31): warning C4091: 'typedef ': ignored on left of 'colorShades' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(34): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(34): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(35): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(36): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(36): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(41): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(41): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(42): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(42): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(43): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(43): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(91): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(91): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(100): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(105): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(110): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(122): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(122): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(126): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(127): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(134): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(147): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(147): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(152): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(156): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(157): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(177): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(177): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(183): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(184): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(190): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(191): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(196): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(202): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(207): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(212): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(217): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(222): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(227): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(243): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(243): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(257): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(257): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(275): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(275): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(289): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(289): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(296): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(297): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(300): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(301): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(304): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(305): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(310): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(311): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(314): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(315): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(318): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(319): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(324): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(326): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(332): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(347): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(347): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(361): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(361): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(367): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(371): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(372): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(373): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(374): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(376): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(382): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(383): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(384): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(385): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(387): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(394): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(395): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(396): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(397): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(399): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(416): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(417): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(418): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(419): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(421): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(439): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(439): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(455): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(455): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(471): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(471): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(487): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(487): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(496): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(498): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(503): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(506): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(509): warning C4305: '=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(510): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(511): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(517): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(520): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(523): warning C4305: '=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(524): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(525): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(531): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(534): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(543): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(546): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(550): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(551): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(555): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(558): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(563): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(563): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(564): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(568): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(575): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(575): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(576): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(580): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(622): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(625): warning C4305: '=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(629): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(630): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(634): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(637): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(642): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(642): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(643): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(647): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(654): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(654): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(655): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(659): warning C4305: '+=': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(686): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(693): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(704): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(709): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(715): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(723): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(729): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(731): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(740): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(747): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(750): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(763): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(767): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(770): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(774): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(777): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(780): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(781): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\pistol.cpp(781): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Neo.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\neo.h(84): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
+  MichaelCorleone.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(34): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(62): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(148): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(187): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\michaelcorleone.cpp(203): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Main.cpp
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(16): warning C4091: 'extern ': ignored on left of 'CameraPosition' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(24): warning C4091: 'extern ': ignored on left of 'RoomSize' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(31): warning C4091: 'extern ': ignored on left of 'CenterOfLookAt' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(42): warning C4091: 'extern ': ignored on left of 'XYZCoordinates' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(56): warning C4091: 'extern ': ignored on left of 'ObjectCameraInfo' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main_room.h(62): warning C4091: 'extern ': ignored on left of 'LegoCharactersPosition' when no variable is declared
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\main.cpp(546): warning C4305: '+=': truncation from 'double' to 'float'
+  MachineGun.cpp
+  LucaBracy.cpp
+  LegoWalk.cpp
+  GodfatherLogoAPI.cpp
+  GodFathercpp.cpp
+  DropLines.cpp
+  DrawMultipleBullet.cpp
+  DoorAndFrame.cpp
+  Credits.cpp
   Bullet.cpp
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4305: 'initializing': truncation from 'double' to 'float'
-i:\astromedicom\aashishayyar\shadersrtrdemo\shadersrtrdemo\final - 02\last\bullet.cpp(219): warning C4094: untagged 'struct' declared no symbols
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(121): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(140): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(160): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(176): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(196): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(211): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\opengl\opengl-git-repo\shadersrtrdemo\final - 02\last\bullet.cpp(219): warning C4094: untagged 'struct' declared no symbols
   Generating Code...
-  Last.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe
-  Last.vcxproj -> I:\ASTROMEDICOM\aashishayyar\ShadersRTRDemo\ShadersRTRDemo\Final - 02\Last\Debug\Last.pdb (Full PDB)
+  LINK : C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe not found or not built by the last incremental link; performing full link
+  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.exe
+  Last.vcxproj -> C:\OpenGL\opengl-git-repo\ShadersRTRDemo\Final - 02\Last\Debug\Last.pdb (Full PDB)

@@ -354,6 +354,11 @@ void DrawNeoGoggles(GLfloat radius)
 
 }
 
+void setHeadPoistionFlag()
+{
+	gbHeadPosition = true;
+}
+
 void DrawHead(GLfloat radius)
 {
 	GLdouble equation[4] = { 0.0f, 0.0f, 1.0f, 0.25f };
@@ -378,7 +383,11 @@ void DrawStickMan()
 {
 	GLfloat length = gbStickHeight;
 
-	glPushMatrix();
+	glPushMatrix();	
+	if (gbHeadPosition == true)
+	{
+		glRotatef(30, 1.0f, 0.0f, 0.0f);
+	}
 	glTranslatef(-length*(GLfloat)sin(body*3.145/180), 0.0f, -length*(GLfloat)cos(body*3.145 / 180));
 	DrawHead(length);
 	glPopMatrix();
